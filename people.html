@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Leadership · A Million Women Africa</title>
+
+    <!-- Google Fonts: Bebas Neue & Courier Prime -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      :root {
+        --black: #0a0a0a;
+        --white: #ffffff;
+        --red: #e8000d;
+        --yellow-lime: #c8e645;
+        --page-bg: #ffffff;
+        --text-dark: #111111;
+        --text-muted: #444444;
+        --border-light: #e0e0e0;
+        --adinkra-gold: #c9a84c;
+      }
+
+      body {
+        font-family: 'Courier Prime', monospace;
+        background-color: var(--white);
+        color: var(--text-dark);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      .font-bebas {
+        font-family: 'Bebas Neue', sans-serif;
+      }
+
+      /* African Christian Design System Elements */
+      .kente-bar {
+        height: 0.25rem;
+        width: 100%;
+        background: repeating-linear-gradient(
+          to right,
+          var(--adinkra-gold) 0,
+          var(--adinkra-gold) 1.25rem,
+          var(--black) 1.25rem,
+          var(--black) 1.5rem,
+          var(--red) 1.5rem,
+          var(--red) 2.75rem,
+          var(--black) 2.75rem,
+          var(--black) 3rem,
+          var(--yellow-lime) 3rem,
+          var(--yellow-lime) 4.25rem,
+          var(--black) 4.25rem,
+          var(--black) 4.5rem
+        );
+      }
+
+      .adinkra-divider {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 3.5rem auto;
+        max-width: 37.5rem;
+      }
+
+      .adinkra-line {
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          #c9a84c80,
+          transparent
+        );
+      }
+
+      /* Scroll Animations */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(1.5rem);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .fade-up.visible {
+        opacity: 1;
+        transform: none;
+      }
+    </style>
+  </head>
+  <body class="text-[1rem] md:text-[1.0625rem]">
+    <!-- SHARED NAVBAR -->
+    <nav
+      class="sticky top-0 z-[1000] bg-[#0a0a0a] h-[3.75rem] flex items-center justify-between px-6 md:px-12"
+    >
+      <div class="flex items-center gap-2 text-white">
+        <i data-lucide="globe" stroke-width="1.5" class="w-6 h-6"></i>
+        <span class="font-bebas text-[1.75rem] tracking-[0.03em] mt-1"
+          >A MILLION WOMEN</span
+        >
+      </div>
+
+      <div
+        class="hidden lg:flex items-center gap-8 font-bold text-[0.8125rem] uppercase tracking-[0.1em] text-white"
+      >
+        <a
+          href="index.html"
+          class="hover:text-[#e8000d] transition-colors duration-150"
+          >Home</a
+        >
+        <a
+          href="story.html"
+          class="hover:text-[#e8000d] transition-colors duration-150"
+          >Story</a
+        >
+        <a
+          href="people.html"
+          class="hover:text-[#e8000d] transition-colors duration-150"
+          >People</a
+        >
+        <a
+          href="get-involved.html"
+          class="hover:text-[#e8000d] transition-colors duration-150"
+          >Get Involved</a
+        >
+        <a
+          href="https://donate.amillionwomen.org"
+          target="_blank"
+          class="hover:text-[#e8000d] transition-colors duration-150"
+          >Donate</a
+        >
+      </div>
+
+      <!-- Mobile menu icon placeholder -->
+      <button class="lg:hidden text-white">
+        <i data-lucide="menu" stroke-width="1.5" class="w-6 h-6"></i>
+      </button>
+    </nav>
+
+    <!-- Torn edge below navbar -->
+    <div
+      style="
+        background: var(--black);
+        line-height: 0;
+        margin-bottom: -1px;
+        position: relative;
+        z-index: 999;
+      "
+    >
+      <svg
+        viewBox="0 0 1440 32"
+        preserveAspectRatio="none"
+        style="width: 100%; height: 2rem; display: block"
+      >
+        <path
+          d="M0,0 L0,18 L30,8 L60,22 L90,10 L120,24 L155,6 L185,20 L215,8 L245,22
+                     L275,12 L310,26 L340,4 L370,18 L400,8 L435,24 L465,10 L495,22 L525,6
+                     L555,20 L590,10 L620,26 L650,8 L680,22 L715,12 L745,28 L775,6 L810,20
+                     L840,10 L870,24 L900,8 L935,22 L965,12 L995,26 L1025,6 L1060,20 L1090,10
+                     L1120,24 L1150,8 L1185,22 L1215,12 L1245,28 L1275,8 L1310,22 L1340,10
+                     L1370,26 L1400,8 L1440,18 L1440,0 Z"
+          fill="#0a0a0a"
+        ></path>
+      </svg>
+    </div>
+
+    <!-- PAGE CONTENT -->
+    <main>
+      <!-- 1. PAGE HERO -->
+      <div class="kente-bar"></div>
+      <header class="text-center pt-[4.5rem] px-6 pb-12 fade-up">
+        <h1
+          class="font-bebas text-[clamp(3.25rem,8vw,6rem)] text-[#0a0a0a] tracking-tight leading-[0.9]"
+        >
+          OUR LEADERSHIP
+        </h1>
+        <div class="w-[3.75rem] h-[3px] bg-[#e8000d] mx-auto my-3"></div>
+        <p
+          class="font-bold uppercase text-[0.75rem] tracking-[0.2em] text-[#e8000d] mt-2"
+        >
+          ESTHERS & MORDECAIS SERVING THE CONTINENT
+        </p>
+      </header>
+
+      <!-- 2. CONTINENTAL TEAM (from PDF) -->
+      <section class="max-w-[75rem] mx-auto px-6 pb-16 pt-4">
+        <h2
+          class="font-bebas text-[2.375rem] text-[#0a0a0a] tracking-tight text-center mb-10 fade-up"
+        >
+          CONTINENTAL TEAM
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Apostle Isi Igenegba -->
+          <div
+            class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
+            style="transition-delay: 0.1s"
+          >
+            <div
+              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] overflow-hidden"
+            >
+              <img
+                src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/isi-igenegba.jpg"
+                alt="Apostle Isi Igenegba"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <h3
+              class="font-bebas text-[1.75rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
+            >
+              Apostle Isi Igenegba
+            </h3>
+            <p
+              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
+            >
+              Continental Apostolic Lead
+            </p>
+            <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
+              Visionary leader carrying the mandate for A Million Women Africa.
+            </p>
+          </div>
+
+          <!-- Rev. Hannah Johnson -->
+          <div
+            class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
+            style="transition-delay: 0.2s"
+          >
+            <div
+              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] overflow-hidden"
+            >
+              <img
+                src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/Rev.%20Hannah%20Johnson%202.JPEG"
+                alt="Rev. Hannah Johnson"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <h3
+              class="font-bebas text-[1.75rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
+            >
+              Rev. Hannah Johnson
+            </h3>
+            <p
+              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
+            >
+              Director
+            </p>
+            <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
+              Overseeing operations and strategic implementation across the
+              continent.
+            </p>
+          </div>
+
+          <!-- Pastor Sarah Seeggane -->
+          <div
+            class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
+            style="transition-delay: 0.3s"
+          >
+            <div
+              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] overflow-hidden"
+            >
+              <img
+                src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/sarah-seeggane.jpg"
+                alt="Pastor Sarah Seeggane"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <h3
+              class="font-bebas text-[1.75rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
+            >
+              Pastor Sarah Seeggane
+            </h3>
+            <p
+              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
+            >
+              Ministry Relations Lead
+            </p>
+            <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
+              Building bridges with churches and ministries for united prayer.
+            </p>
+          </div>
+
+          <!-- Tosin Babalola -->
+          <div
+            class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
+            style="transition-delay: 0.4s"
+          >
+            <div
+              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] overflow-hidden"
+            >
+              <img
+                src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/tosin-babalola.jpg"
+                alt="Tosin Babalola"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <h3
+              class="font-bebas text-[1.75rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
+            >
+              Tosin Babalola
+            </h3>
+            <p
+              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
+            >
+              Administrator
+            </p>
+            <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
+              Ensuring smooth coordination and support for all AMWA initiatives.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ADINKRA DIVIDER -->
+      <div class="adinkra-divider px-6 fade-up">
+        <span class="adinkra-line"></span>
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <ellipse
+            cx="14"
+            cy="8"
+            rx="4"
+            ry="6"
+            stroke="#c9a84c"
+            stroke-width="1.5"
+            fill="none"
+          ></ellipse>
+          <ellipse
+            cx="14"
+            cy="20"
+            rx="4"
+            ry="6"
+            stroke="#c9a84c"
+            stroke-width="1.5"
+            fill="none"
+          ></ellipse>
+          <ellipse
+            cx="8"
+            cy="14"
+            rx="6"
+            ry="4"
+            stroke="#c9a84c"
+            stroke-width="1.5"
+            fill="none"
+          ></ellipse>
+          <ellipse
+            cx="20"
+            cy="14"
+            rx="6"
+            ry="4"
+            stroke="#c9a84c"
+            stroke-width="1.5"
+            fill="none"
+          ></ellipse>
+          <circle cx="14" cy="14" r="2" fill="#c9a84c"></circle>
+        </svg>
+        <span class="adinkra-line"></span>
+      </div>
+
+      <!-- 3. NATIONAL LEADERSHIP (Nigeria & South Africa) -->
+      <section class="max-w-[55rem] mx-auto px-6 pb-16">
+        <h2
+          class="font-bebas text-[2.375rem] text-[#0a0a0a] tracking-tight text-center mb-4 fade-up"
+        >
+          NATIONAL LEADERSHIP
+        </h2>
+        <p
+          class="text-center text-[#444444] italic mb-10 fade-up"
+          style="transition-delay: 0.1s"
+        >
+          Highlighting the key leaders for our 2026 Solemn Assemblies. Full team
+          details coming soon.
+        </p>
+
+        <div class="flex flex-col md:flex-row gap-8">
+          <!-- NIGERIA -->
+          <div
+            class="flex-1 bg-[#f9f9f7] p-8 md:p-10 border-l-[4px] border-l-[#c9a84c] fade-up"
+            style="transition-delay: 0.15s"
+          >
+            <div class="text-5xl mb-4">🇳🇬</div>
+            <h3
+              class="font-bebas text-[2rem] tracking-[0.04em] text-[#0a0a0a] mb-3"
+            >
+              NIGERIA
+            </h3>
+            <p class="text-[0.9375rem] leading-relaxed text-[#444444] mb-6">
+              Leadership details for the Nigeria Solemn Assembly (April 4, 2026)
+              will be published here.
+            </p>
+            <span
+              class="inline-block px-6 py-2 border border-[#c9a84c] text-[0.75rem] font-bold uppercase tracking-[0.12em] text-[#0a0a0a] opacity-70"
+              >Coming Soon</span
+            >
+          </div>
+
+          <!-- SOUTH AFRICA -->
+          <div
+            class="flex-1 bg-[#f9f9f7] p-8 md:p-10 border-l-[4px] border-l-[#c9a84c] fade-up"
+            style="transition-delay: 0.25s"
+          >
+            <div class="text-5xl mb-4">🇿🇦</div>
+            <h3
+              class="font-bebas text-[2rem] tracking-[0.04em] text-[#0a0a0a] mb-3"
+            >
+              SOUTH AFRICA
+            </h3>
+            <p class="text-[0.9375rem] leading-relaxed text-[#444444] mb-6">
+              Leadership details for the South Africa gathering (Sept 19, 2026)
+              will be published here.
+            </p>
+            <span
+              class="inline-block px-6 py-2 border border-[#c9a84c] text-[0.75rem] font-bold uppercase tracking-[0.12em] text-[#0a0a0a] opacity-70"
+              >Coming Soon</span
+            >
+          </div>
+        </div>
+
+        <!-- Additional note -->
+        <div class="mt-12 text-center fade-up" style="transition-delay: 0.3s">
+          <p class="text-[0.8125rem] text-[#444444]">
+            A Million Women Africa is active in 35 nations with National
+            Coordinators and Regional Prayer Hubs.<br />
+            Interested in serving?
+            <a
+              href="get-involved.html"
+              class="text-[#c9a84c] underline underline-offset-2 hover:text-[#e8000d] transition-colors"
+              >Get Involved →</a
+            >
+          </p>
+        </div>
+      </section>
+
+      <!-- 4. CTA BANNER -->
+      <section class="bg-[#0a0a0a] w-full py-[5rem] px-6 text-center fade-up">
+        <div class="max-w-[48rem] mx-auto">
+          <h2
+            class="font-bebas text-[clamp(2.25rem,6vw,4.5rem)] text-white tracking-tight leading-[0.9] mb-4"
+          >
+            JOIN THE MOVEMENT<br />OF ESTHERS & MORDECAIS.
+          </h2>
+          <p class="text-[0.9375rem] text-white/70 mb-10 italic">
+            "And who knows whether you have come to the kingdom for such a time
+            as this?" — Esther 4:14
+          </p>
+
+          <div
+            class="flex flex-col sm:flex-row items-center justify-center gap-6"
+          >
+            <a
+              href="get-involved.html"
+              class="inline-block bg-[#e8000d] text-white font-bold uppercase tracking-[0.12em] text-[0.9375rem] py-4 px-12 transition-transform hover:-translate-y-1"
+            >
+              GET INVOLVED →
+            </a>
+            <a
+              href="story.html"
+              class="inline-block text-white text-[0.8125rem] hover:text-[#c8e645] transition-colors underline decoration-white/30 underline-offset-4"
+            >
+              READ OUR STORY →
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- SHARED FOOTER -->
+    <footer class="bg-[#0a0a0a] text-white w-full">
+      <!-- Tagline banner -->
+      <div
+        class="text-center py-10 px-6 font-bebas text-[clamp(1.75rem,4vw,3.25rem)] tracking-[0.04em] border-b border-white/10"
+      >
+        JOIN THE MOVEMENT | CHANGE THE NATIONS
+      </div>
+
+      <!-- Footer bottom bar -->
+      <div
+        class="flex flex-col md:flex-row items-start md:items-center justify-between py-7 px-6 md:px-12 gap-8 md:gap-5 flex-wrap"
+      >
+        <div class="font-bebas text-[2rem] tracking-[0.04em] leading-none">
+          A MILLION WOMEN AFRICA
+        </div>
+
+        <div
+          class="text-[0.6875rem] tracking-[0.08em] text-white/60 order-3 md:order-none w-full md:w-auto text-center md:text-left"
+        >
+          © 2026 Copyright AMWA
+        </div>
+
+        <nav
+          class="grid grid-cols-2 md:grid-cols-auto gap-x-6 gap-y-2 md:flex md:gap-x-6 md:items-center"
+        >
+          <a
+            href="index.html"
+            class="text-[0.6875rem] font-bold tracking-[0.1em] uppercase text-white/75 hover:text-white transition-colors"
+            >HOME</a
+          >
+          <a
+            href="story.html"
+            class="text-[0.6875rem] font-bold tracking-[0.1em] uppercase text-white/75 hover:text-white transition-colors"
+            >Our Story</a
+          >
+          <a
+            href="get-involved.html"
+            class="text-[0.6875rem] font-bold tracking-[0.1em] uppercase bg-[#e8000d] text-white py-[3px] px-2 rounded-sm transition-opacity hover:opacity-90 mt-1 md:mt-0"
+            >Get Involved</a
+          >
+          <a
+            href="https://donate.amillionwomen.org"
+            target="_blank"
+            class="text-[0.6875rem] font-bold tracking-[0.1em] uppercase bg-[#e8000d] text-white py-[3px] px-2 rounded-sm transition-opacity hover:opacity-90 mt-1 md:mt-0"
+            >DONATE</a
+          >
+        </nav>
+      </div>
+    </footer>
+
+    <!-- Initialize Scripts -->
+    <script>
+      // Initialize Lucide Icons
+      lucide.createIcons();
+
+      // Scroll Reveal Animation Observer
+      document.addEventListener('DOMContentLoaded', () => {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.12,
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach((element) => {
+          observer.observe(element);
+        });
+      });
+    </script>
+  </body>
+</html>
