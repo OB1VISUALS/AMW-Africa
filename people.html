@@ -94,6 +94,15 @@
         opacity: 1;
         transform: none;
       }
+
+      /* Silhouette placeholder style */
+      .silhouette {
+        background: #e5e5e5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #9ca3af;
+      }
     </style>
   </head>
   <body class="text-[1rem] md:text-[1.0625rem]">
@@ -161,12 +170,7 @@
         style="width: 100%; height: 2rem; display: block"
       >
         <path
-          d="M0,0 L0,18 L30,8 L60,22 L90,10 L120,24 L155,6 L185,20 L215,8 L245,22
-                     L275,12 L310,26 L340,4 L370,18 L400,8 L435,24 L465,10 L495,22 L525,6
-                     L555,20 L590,10 L620,26 L650,8 L680,22 L715,12 L745,28 L775,6 L810,20
-                     L840,10 L870,24 L900,8 L935,22 L965,12 L995,26 L1025,6 L1060,20 L1090,10
-                     L1120,24 L1150,8 L1185,22 L1215,12 L1245,28 L1275,8 L1310,22 L1340,10
-                     L1370,26 L1400,8 L1440,18 L1440,0 Z"
+          d="M0,0 L0,18 L30,8 L60,22 L90,10 L120,24 L155,6 L185,20 L215,8 L245,22 L275,12 L310,26 L340,4 L370,18 L400,8 L435,24 L465,10 L495,22 L525,6 L555,20 L590,10 L620,26 L650,8 L680,22 L715,12 L745,28 L775,6 L810,20 L840,10 L870,24 L900,8 L935,22 L965,12 L995,26 L1025,6 L1060,20 L1090,10 L1120,24 L1150,8 L1185,22 L1215,12 L1245,28 L1275,8 L1310,22 L1340,10 L1370,26 L1400,8 L1440,18 L1440,0 Z"
           fill="#0a0a0a"
         ></path>
       </svg>
@@ -190,19 +194,17 @@
         </p>
       </header>
 
-      <!-- 2. CONTINENTAL TEAM (from PDF) -->
+      <!-- 2. CONTINENTAL TEAM (large circles, actual images) -->
       <section class="max-w-[75rem] mx-auto px-6 pb-16 pt-4">
         <h2
           class="font-bebas text-[2.375rem] text-[#0a0a0a] tracking-tight text-center mb-10 fade-up"
         >
           CONTINENTAL TEAM
         </h2>
-
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- Apostle Isi Igenegba -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
-            style="transition-delay: 0.1s"
           >
             <div
               class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] overflow-hidden"
@@ -231,7 +233,6 @@
           <!-- Rev. Hannah Johnson -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
-            style="transition-delay: 0.2s"
           >
             <div
               class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] overflow-hidden"
@@ -261,7 +262,6 @@
           <!-- Pastor Sarah Seeggane -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
-            style="transition-delay: 0.3s"
           >
             <div
               class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] overflow-hidden"
@@ -290,7 +290,6 @@
           <!-- Tosin Babalola -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
-            style="transition-delay: 0.4s"
           >
             <div
               class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] overflow-hidden"
@@ -313,6 +312,99 @@
             </p>
             <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
               Ensuring smooth coordination and support for all AMWA initiatives.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. REGIONAL PRAYER COORDINATORS (smaller circles, FIXED images) -->
+      <section class="max-w-[75rem] mx-auto px-6 pb-16 pt-4">
+        <h2
+          class="font-bebas text-[2.375rem] text-[#0a0a0a] tracking-tight text-center mb-10 fade-up"
+        >
+          REGIONAL PRAYER COORDINATORS
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Coordinator 1 - West Africa -->
+          <div
+            class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
+          >
+            <div
+              class="w-24 h-24 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] overflow-hidden"
+            >
+              <img
+                src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/PRAYER%20COORDINATORS/Minister%20Selam%20Bekele%20-%20Eastern%20Region.jpeg"
+                alt="Minister Selam Bekele"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <h3
+              class="font-bebas text-[1.5rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
+            >
+              Minister Selam Bekele
+            </h3>
+            <p
+              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
+            >
+              East Africa Region
+            </p>
+            <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
+              Leading intercessory teams across East Africa.
+            </p>
+          </div>
+          <!-- Coordinator 2 - Western Africa -->
+          <div
+            class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
+          >
+            <div
+              class="w-24 h-24 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] overflow-hidden"
+            >
+              <img
+                src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/PRAYER%20COORDINATORS/Pastor%20Petronela%20Deba%20-%20Western%20Region.jpeg"
+                alt="Pastor Petronela Deba"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <h3
+              class="font-bebas text-[1.5rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
+            >
+              Pastor Petronela Deba
+            </h3>
+            <p
+              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
+            >
+              Western African Region
+            </p>
+            <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
+              Mobilizing prayer hubs in Western Africa
+            </p>
+          </div>
+          <!-- Coordinator 3 - Southern Africa -->
+          <div
+            class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
+          >
+            <div
+              class="w-24 h-24 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] overflow-hidden"
+            >
+              <img
+                src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/PRAYER%20COORDINATORS/Minister%20Venilla%20Marimotoo%20-%20Southern%20Region.jpeg"
+                alt="Minister Venilla Marimotoo"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <h3
+              class="font-bebas text-[1.5rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
+            >
+              Minister Venilla Marimotoo
+            </h3>
+            <p
+              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
+            >
+              Southern Africa Region
+            </p>
+            <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
+              Coordinating solemn assemblies in South Africa and neighbouring
+              nations.
             </p>
           </div>
         </div>
@@ -362,337 +454,214 @@
         </svg>
         <span class="adinkra-line"></span>
       </div>
-      <!-- 2. CONTINENTAL TEAM II FOR NATIONAL -->
+
+      <!-- 4. NIGERIA'S NATIONAL TEAM (silhouettes, no photos) -->
       <section class="max-w-[75rem] mx-auto px-6 pb-16 pt-4">
         <h2
           class="font-bebas text-[2.375rem] text-[#0a0a0a] tracking-tight text-center mb-10 fade-up"
         >
-         NIGERIA'S NATIONAL TEAM
+          NIGERIA'S NATIONAL TEAM
         </h2>
-
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- Apostle Isi Igenegba -->
+          <!-- Placeholder 1 -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
-            style="transition-delay: 0.1s"
           >
             <div
-              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] overflow-hidden"
+              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-5xl"
             >
-              <img
-                src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/IMG_1795.JPG"
-                alt="Apostle Isi Igenegba"
-                class="w-full h-full object-cover"
-              />
+              👤
             </div>
             <h3
               class="font-bebas text-[1.75rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
             >
-              Apostle Isi Igenegba
+              Nigeria Lead 1
             </h3>
             <p
               class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
             >
-              Continental Apostolic Lead
+              National Coordinator
             </p>
             <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              Visionary leader carrying the mandate for A Million Women Africa.
+              (Name & details coming soon)
             </p>
           </div>
-
-          <!-- Rev. Hannah Johnson -->
+          <!-- Placeholder 2 -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
-            style="transition-delay: 0.2s"
           >
             <div
-              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] overflow-hidden"
+              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-5xl"
             >
-              <img
-                src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/Rev.%20Hannah%20Johnson%202.JPEG"
-                alt="Rev. Hannah Johnson"
-                class="w-full h-full object-cover"
-              />
+              👤
             </div>
             <h3
               class="font-bebas text-[1.75rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
             >
-              Rev. Hannah Johnson
+              Nigeria Lead 2
             </h3>
             <p
               class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
             >
-              Director
+              Prayer Hub Director
             </p>
             <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              Overseeing operations and strategic implementation across the
-              continent.
+              (Name & details coming soon)
             </p>
           </div>
-
-          <!-- Pastor Sarah Seeggane -->
+          <!-- Placeholder 3 -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
-            style="transition-delay: 0.3s"
           >
             <div
-              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] overflow-hidden"
+              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-5xl"
             >
-              <img
-                src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/Pastor%20Sarah.jpeg"
-                alt="Pastor Sarah Seeggane"
-                class="w-full h-full object-cover"
-              />
+              👤
             </div>
             <h3
               class="font-bebas text-[1.75rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
             >
-              Pastor Sarah Seeggane
+              Nigeria Lead 3
             </h3>
             <p
               class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
             >
-              Ministry Relations Lead
+              Administrative Lead
             </p>
             <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              Building bridges with churches and ministries for united prayer.
+              (Name & details coming soon)
             </p>
           </div>
-
-          <!-- Tosin Babalola -->
+          <!-- Placeholder 4 -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
-            style="transition-delay: 0.4s"
           >
             <div
-              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] overflow-hidden"
+              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-5xl"
             >
-              <img
-                src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/tosin.PNG"
-                alt="Tosin Babalola"
-                class="w-full h-full object-cover"
-              />
+              👤
             </div>
             <h3
               class="font-bebas text-[1.75rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
             >
-              Tosin Babalola
+              Nigeria Lead 4
             </h3>
             <p
               class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
             >
-              Administrator
+              Youth & Mobilization
             </p>
             <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              Ensuring smooth coordination and support for all AMWA initiatives.
+              (Name & details coming soon)
             </p>
           </div>
         </div>
       </section>
 
-      <!-- 2. CONTINENTAL TEAM II FOR NATIONAL -->
+      <!-- 5. SOUTH AFRICA'S NATIONAL TEAM (silhouettes) -->
       <section class="max-w-[75rem] mx-auto px-6 pb-16 pt-4">
         <h2
           class="font-bebas text-[2.375rem] text-[#0a0a0a] tracking-tight text-center mb-10 fade-up"
         >
           SOUTH AFRICA'S NATIONAL TEAM
         </h2>
-
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- Apostle Isi Igenegba -->
+          <!-- Placeholder 1 -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
-            style="transition-delay: 0.1s"
           >
             <div
-              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] overflow-hidden"
+              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-5xl"
             >
-              <img
-                src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/IMG_1795.JPG"
-                alt="Apostle Isi Igenegba"
-                class="w-full h-full object-cover"
-              />
+              👤
             </div>
             <h3
               class="font-bebas text-[1.75rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
             >
-              Apostle Isi Igenegba
+              SA Lead 1
             </h3>
             <p
               class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
             >
-              Continental Apostolic Lead
+              National Coordinator
             </p>
             <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              Visionary leader carrying the mandate for A Million Women Africa.
+              (Name & details coming soon)
             </p>
           </div>
-
-          <!-- Rev. Hannah Johnson -->
+          <!-- Placeholder 2 -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
-            style="transition-delay: 0.2s"
           >
             <div
-              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] overflow-hidden"
+              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-5xl"
             >
-              <img
-                src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/Rev.%20Hannah%20Johnson%202.JPEG"
-                alt="Rev. Hannah Johnson"
-                class="w-full h-full object-cover"
-              />
+              👤
             </div>
             <h3
               class="font-bebas text-[1.75rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
             >
-              Rev. Hannah Johnson
+              SA Lead 2
             </h3>
             <p
               class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
             >
-              Director
+              Prayer Hub Director
             </p>
             <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              Overseeing operations and strategic implementation across the
-              continent.
+              (Name & details coming soon)
             </p>
           </div>
-
-          <!-- Pastor Sarah Seeggane -->
+          <!-- Placeholder 3 -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
-            style="transition-delay: 0.3s"
           >
             <div
-              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] overflow-hidden"
+              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-5xl"
             >
-              <img
-                src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/Pastor%20Sarah.jpeg"
-                alt="Pastor Sarah Seeggane"
-                class="w-full h-full object-cover"
-              />
+              👤
             </div>
             <h3
               class="font-bebas text-[1.75rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
             >
-              Pastor Sarah Seeggane
+              SA Lead 3
             </h3>
             <p
               class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
             >
-              Ministry Relations Lead
+              Administrative Lead
             </p>
             <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              Building bridges with churches and ministries for united prayer.
+              (Name & details coming soon)
             </p>
           </div>
-
-          <!-- Tosin Babalola -->
+          <!-- Placeholder 4 -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
-            style="transition-delay: 0.4s"
           >
             <div
-              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] overflow-hidden"
+              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-5xl"
             >
-              <img
-                src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/tosin.PNG"
-                alt="Tosin Babalola"
-                class="w-full h-full object-cover"
-              />
+              👤
             </div>
             <h3
               class="font-bebas text-[1.75rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
             >
-              Tosin Babalola
+              SA Lead 4
             </h3>
             <p
               class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
             >
-              Administrator
+              Youth & Mobilization
             </p>
             <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              Ensuring smooth coordination and support for all AMWA initiatives.
+              (Name & details coming soon)
             </p>
           </div>
         </div>
       </section>
-      <!-- 3. NATIONAL LEADERSHIP (Nigeria & South Africa) -->
-     
-     <!-- <section class="max-w-[55rem] mx-auto px-6 pb-16">
-        <h2
-          class="font-bebas text-[2.375rem] text-[#0a0a0a] tracking-tight text-center mb-4 fade-up"
-        >
-          NATIONAL LEADERSHIP
-        </h2>
-        <p
-          class="text-center text-[#444444] italic mb-10 fade-up"
-          style="transition-delay: 0.1s"
-        >
-          Highlighting the key leaders for our 2026 Solemn Assemblies. Full team
-          details coming soon.
-        </p>
 
-        <div class="flex flex-col md:flex-row gap-8">
-           NIGERIA 
-          <div
-            class="flex-1 bg-[#f9f9f7] p-8 md:p-10 border-l-[4px] border-l-[#c9a84c] fade-up"
-            style="transition-delay: 0.15s"
-          >
-            <div class="text-5xl mb-4">🇳🇬</div>
-            <h3
-              class="font-bebas text-[2rem] tracking-[0.04em] text-[#0a0a0a] mb-3"
-            >
-              NIGERIA
-            </h3>
-            <p class="text-[0.9375rem] leading-relaxed text-[#444444] mb-6">
-              The Nigeria solemn assembly will hold on July 25th
-            </p>
-
-            <span
-              class="inline-block px-6 py-2 border border-[#c9a84c] text-[0.75rem] font-bold uppercase tracking-[0.12em] text-[#0a0a0a] opacity-70"
-              >Coming Soon</span
-            >
-          </div>
-
-        SOUTH AFRICA 
-          <div
-            class="flex-1 bg-[#f9f9f7] p-8 md:p-10 border-l-[4px] border-l-[#c9a84c] fade-up"
-            style="transition-delay: 0.25s"
-          >
-            <div class="text-5xl mb-4">🇿🇦</div>
-            <h3
-              class="font-bebas text-[2rem] tracking-[0.04em] text-[#0a0a0a] mb-3"
-            >
-              SOUTH AFRICA
-            </h3>
-            <p class="text-[0.9375rem] leading-relaxed text-[#444444] mb-6">
-              Leadership details for the South Africa gathering (Sept 19, 2026)
-              will be published here.
-            </p>
-            <span
-              class="inline-block px-6 py-2 border border-[#c9a84c] text-[0.75rem] font-bold uppercase tracking-[0.12em] text-[#0a0a0a] opacity-70"
-              >Coming Soon</span
-            >
-          </div>
-        </div> -->
-
-        <!-- Additional note -->
-        <div class="mt-12 text-center fade-up" style="transition-delay: 0.3s">
-          <p class="text-[0.8125rem] text-[#444444]">
-            A Million Women Africa is active in 35 nations with National
-            Coordinators and Regional Prayer Hubs.<br />
-            Interested in serving?
-            <a
-              href="get-involved.html"
-              class="text-[#c9a84c] underline underline-offset-2 hover:text-[#e8000d] transition-colors"
-              >Get Involved →</a
-            >
-          </p>
-        </div>
-      </section>
-
-      <!-- 4. CTA BANNER -->
+      <!-- 6. CTA BANNER -->
       <section class="bg-[#0a0a0a] w-full py-[5rem] px-6 text-center fade-up">
         <div class="max-w-[48rem] mx-auto">
           <h2
@@ -704,22 +673,19 @@
             "And who knows whether you have come to the kingdom for such a time
             as this?" — Esther 4:14
           </p>
-
           <div
             class="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
             <a
               href="get-involved.html"
               class="inline-block bg-[#e8000d] text-white font-bold uppercase tracking-[0.12em] text-[0.9375rem] py-4 px-12 transition-transform hover:-translate-y-1"
+              >GET INVOLVED →</a
             >
-              GET INVOLVED →
-            </a>
             <a
               href="story.html"
               class="inline-block text-white text-[0.8125rem] hover:text-[#c8e645] transition-colors underline decoration-white/30 underline-offset-4"
+              >READ OUR STORY →</a
             >
-              READ OUR STORY →
-            </a>
           </div>
         </div>
       </section>
@@ -727,27 +693,22 @@
 
     <!-- SHARED FOOTER -->
     <footer class="bg-[#0a0a0a] text-white w-full">
-      <!-- Tagline banner -->
       <div
         class="text-center py-10 px-6 font-bebas text-[clamp(1.75rem,4vw,3.25rem)] tracking-[0.04em] border-b border-white/10"
       >
         JOIN THE MOVEMENT | CHANGE THE NATIONS
       </div>
-
-      <!-- Footer bottom bar -->
       <div
         class="flex flex-col md:flex-row items-start md:items-center justify-between py-7 px-6 md:px-12 gap-8 md:gap-5 flex-wrap"
       >
         <div class="font-bebas text-[2rem] tracking-[0.04em] leading-none">
           A MILLION WOMEN AFRICA
         </div>
-
         <div
           class="text-[0.6875rem] tracking-[0.08em] text-white/60 order-3 md:order-none w-full md:w-auto text-center md:text-left"
         >
           © 2026 Copyright AMWA
         </div>
-
         <nav
           class="grid grid-cols-2 md:grid-cols-auto gap-x-6 gap-y-2 md:flex md:gap-x-6 md:items-center"
         >
@@ -778,29 +739,22 @@
 
     <!-- Initialize Scripts -->
     <script>
-      // Initialize Lucide Icons
       lucide.createIcons();
-
-      // Scroll Reveal Animation Observer
       document.addEventListener('DOMContentLoaded', () => {
-        const observerOptions = {
-          root: null,
-          rootMargin: '0px',
-          threshold: 0.12,
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-up').forEach((element) => {
-          observer.observe(element);
-        });
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+        document
+          .querySelectorAll('.fade-up')
+          .forEach((el) => observer.observe(el));
       });
     </script>
   </body>

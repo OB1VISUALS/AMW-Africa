@@ -1,195 +1,420 @@
-<!-- REGISTRATION FORM SECTION -->
-<section class="max-w-[55rem] mx-auto py-[5rem] px-6" id="register">
-  <h2
-    class="font-bebas text-[2.375rem] text-[#0a0a0a] tracking-tight text-center mb-4 fade-up"
-  >
-    REGISTER FOR A 2026 SOLEMN ASSEMBLY
-  </h2>
-  <p class="text-center text-[#444444] italic mb-10 fade-up">
-    Select your event below. Your data goes straight to our coordination
-    spreadsheet.
-  </p>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choose Your Solemn Assembly · A Million Women Africa</title>
 
-  <div
-    class="bg-[#f9f9f7] p-8 md:p-12 border-l-[4px] border-l-[#c9a84c] fade-up"
-  >
-    <form id="registration-form" class="space-y-6">
-      <!-- Event Selection -->
-      <div class="space-y-2">
-        <label
-          class="block font-bold uppercase tracking-[0.1em] text-[0.75rem] text-[#0a0a0a]"
-        >
-          Which event are you registering for? *
-        </label>
-        <select
-          id="event"
-          name="event"
-          required
-          class="w-full p-3 font-mono text-sm border border-[#c9a84c] bg-white rounded-sm focus:ring-2 focus:ring-[#c9a84c] focus:border-[#c9a84c] outline-none transition-all text-[#111111]"
-        >
-          <option value="" disabled selected>— Select an event —</option>
-          <option value="Nigeria">🇳🇬 Nigeria — July 25, 2026</option>
-          <option value="South Africa">
-            🇿🇦 South Africa — September 19, 2026
-          </option>
-        </select>
-      </div>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
 
-      <!-- Names -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="space-y-2">
-          <label
-            class="block font-bold uppercase tracking-[0.1em] text-[0.75rem] text-[#0a0a0a]"
-            >First Name *</label
-          >
-          <input
-            type="text"
-            id="firstName"
-            placeholder="First Name"
-            required
-            class="w-full p-3 font-mono text-sm border border-[#c9a84c] bg-white rounded-sm focus:ring-2 focus:ring-[#c9a84c] focus:border-[#c9a84c] outline-none placeholder-gray-400 transition-all text-[#111111]"
-          />
-        </div>
-        <div class="space-y-2">
-          <label
-            class="block font-bold uppercase tracking-[0.1em] text-[0.75rem] text-[#0a0a0a]"
-            >Last Name *</label
-          >
-          <input
-            type="text"
-            id="lastName"
-            placeholder="Last Name"
-            required
-            class="w-full p-3 font-mono text-sm border border-[#c9a84c] bg-white rounded-sm focus:ring-2 focus:ring-[#c9a84c] focus:border-[#c9a84c] outline-none placeholder-gray-400 transition-all text-[#111111]"
-          />
-        </div>
-      </div>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-      <!-- Email & Phone -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="space-y-2">
-          <label
-            class="block font-bold uppercase tracking-[0.1em] text-[0.75rem] text-[#0a0a0a]"
-            >Email *</label
-          >
-          <input
-            type="email"
-            id="email"
-            placeholder="Email"
-            required
-            class="w-full p-3 font-mono text-sm border border-[#c9a84c] bg-white rounded-sm focus:ring-2 focus:ring-[#c9a84c] focus:border-[#c9a84c] outline-none placeholder-gray-400 transition-all text-[#111111]"
-          />
-        </div>
-        <div class="space-y-2">
-          <label
-            class="block font-bold uppercase tracking-[0.1em] text-[0.75rem] text-[#0a0a0a]"
-            >Phone (WhatsApp) *</label
-          >
-          <input
-            type="tel"
-            id="phone"
-            placeholder="Phone"
-            required
-            class="w-full p-3 font-mono text-sm border border-[#c9a84c] bg-white rounded-sm focus:ring-2 focus:ring-[#c9a84c] focus:border-[#c9a84c] outline-none placeholder-gray-400 transition-all text-[#111111]"
-          />
-        </div>
-      </div>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-      <!-- Country -->
-      <div class="space-y-2">
-        <label
-          class="block font-bold uppercase tracking-[0.1em] text-[0.75rem] text-[#0a0a0a]"
-          >Country *</label
-        >
-        <input
-          type="text"
-          id="country"
-          placeholder="Country"
-          required
-          class="w-full p-3 font-mono text-sm border border-[#c9a84c] bg-white rounded-sm focus:ring-2 focus:ring-[#c9a84c] focus:border-[#c9a84c] outline-none placeholder-gray-400 transition-all text-[#111111]"
-        />
-      </div>
+    <style>
+      :root {
+        --black: #0a0a0a;
+        --white: #ffffff;
+        --red: #e8000d;
+        --yellow-lime: #c8e645;
+        --adinkra-gold: #c9a84c;
+      }
 
-      <!-- City & State -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="space-y-2">
-          <label
-            class="block font-bold uppercase tracking-[0.1em] text-[0.75rem] text-[#0a0a0a]"
-            >City</label
-          >
-          <input
-            type="text"
-            id="city"
-            placeholder="City"
-            class="w-full p-3 font-mono text-sm border border-[#c9a84c] bg-white rounded-sm focus:ring-2 focus:ring-[#c9a84c] focus:border-[#c9a84c] outline-none placeholder-gray-400 transition-all text-[#111111]"
-          />
-        </div>
-        <div class="space-y-2">
-          <label
-            class="block font-bold uppercase tracking-[0.1em] text-[0.75rem] text-[#0a0a0a]"
-            >State/Region</label
-          >
-          <input
-            type="text"
-            id="state"
-            placeholder="State"
-            class="w-full p-3 font-mono text-sm border border-[#c9a84c] bg-white rounded-sm focus:ring-2 focus:ring-[#c9a84c] focus:border-[#c9a84c] outline-none placeholder-gray-400 transition-all text-[#111111]"
-          />
-        </div>
-      </div>
+      body {
+        font-family: 'Courier Prime', monospace;
+        -webkit-font-smoothing: antialiased;
+        background: white;
+      }
 
-      <button
-        type="submit"
-        class="w-full bg-[#e8000d] text-white font-bold uppercase tracking-[0.12em] text-[0.9375rem] py-4 transition-transform hover:-translate-y-1 hover:bg-[#b50000]"
+      .font-bebas {
+        font-family: 'Bebas Neue', sans-serif;
+      }
+
+      /* Kente bar */
+      .kente-bar {
+        height: 0.25rem;
+        width: 100%;
+        background: repeating-linear-gradient(
+          to right,
+          var(--adinkra-gold) 0,
+          var(--adinkra-gold) 1.25rem,
+          var(--black) 1.25rem,
+          var(--black) 1.5rem,
+          var(--red) 1.5rem,
+          var(--red) 2.75rem,
+          var(--black) 2.75rem,
+          var(--black) 3rem,
+          var(--yellow-lime) 3rem,
+          var(--yellow-lime) 4.25rem,
+          var(--black) 4.25rem,
+          var(--black) 4.5rem
+        );
+      }
+
+      /* Adinkra divider */
+      .adinkra-divider {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 2rem auto;
+        max-width: 37.5rem;
+      }
+      .adinkra-line {
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          #c9a84c80,
+          transparent
+        );
+      }
+
+      /* Fade‑up animation */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(1.5rem);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .fade-up.visible {
+        opacity: 1;
+        transform: none;
+      }
+
+      @keyframes fadeUp {
+        0% {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .hero-fade {
+        animation: fadeUp 0.8s ease forwards;
+      }
+
+      /* Landmark containers – flyer as background */
+      .landmark-half {
+        min-height: 70vh;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      /* Nigeria flyer background – replace URL with actual Nigerian flyer */
+      .nigeria-flyer {
+        background-image: url('https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/LANDMAKRS/LKEKKI.webp');
+      }
+      /* South Africa flyer background – replace URL with actual South African flyer */
+      .southafrica-flyer {
+        background-image: url('https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/LANDMAKRS/SZA.jpg');
+      }
+
+      /* Dark overlay for readability – increased darkness */
+      .landmark-half::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.75);
+        z-index: 1;
+      }
+      .landmark-half > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Register button style */
+      .register-btn {
+        background: var(--red);
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 1.1rem;
+        padding: 1rem 2.5rem;
+        border-radius: 0.5rem;
+        transition: transform 0.2s, background 0.2s;
+        display: inline-block;
+        margin-top: 1.5rem;
+      }
+      .register-btn:hover {
+        background: #b50000;
+        transform: translateY(-3px);
+      }
+
+      /* Sticky navbar styles */
+      .navbar {
+        transition: background 0.3s ease, padding 0.3s ease;
+      }
+      .navbar-scrolled {
+        background: #0a0a0a !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        .landmark-half {
+          min-height: 50vh;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <!-- NAVBAR with sticky scroll effect -->
+    <nav
+      id="mainNavbar"
+      class="navbar fixed top-0 left-0 w-full z-[1000] flex justify-center items-center gap-8 md:gap-12 py-4 bg-transparent text-white font-bold uppercase tracking-[0.1em] text-[0.8125rem] transition-all duration-300"
+    >
+      <a
+        href="index.html"
+        class="hover:text-[#e8000d] transition-colors duration-150"
+        >Home</a
       >
-        SUBMIT REGISTRATION →
-      </button>
+      <a
+        href="story.html"
+        class="hover:text-[#e8000d] transition-colors duration-150"
+        >Story</a
+      >
+      <a
+        href="people.html"
+        class="hover:text-[#e8000d] transition-colors duration-150"
+        >People</a
+      >
+      <a
+        href="get-involved.html"
+        class="hover:text-[#e8000d] transition-colors duration-150"
+        >Get Involved</a
+      >
+      <a
+        href="https://selar.com/showlove/amillionwomenafrica"
+        class="hover:text-[#e8000d] transition-colors duration-150"
+        >Donate</a
+      >
+    </nav>
 
+    <!-- SMALL HERO / TITLE SECTION -->
+    <section
+      class="relative w-full pt-32 pb-12 bg-[#0a0a0a] text-white text-center overflow-hidden"
+    >
+      <div class="relative z-10 max-w-4xl mx-auto px-6">
+        <h1 class="font-bebas text-5xl md:text-7xl tracking-tight hero-fade">
+          CHOOSE YOUR GATHERING
+        </h1>
+        <div class="adinkra-divider my-4">
+          <span class="adinkra-line"></span>
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <ellipse
+              cx="14"
+              cy="8"
+              rx="4"
+              ry="6"
+              stroke="#c9a84c"
+              stroke-width="1.5"
+              fill="none"
+            ></ellipse>
+            <ellipse
+              cx="14"
+              cy="20"
+              rx="4"
+              ry="6"
+              stroke="#c9a84c"
+              stroke-width="1.5"
+              fill="none"
+            ></ellipse>
+            <ellipse
+              cx="8"
+              cy="14"
+              rx="6"
+              ry="4"
+              stroke="#c9a84c"
+              stroke-width="1.5"
+              fill="none"
+            ></ellipse>
+            <ellipse
+              cx="20"
+              cy="14"
+              rx="6"
+              ry="4"
+              stroke="#c9a84c"
+              stroke-width="1.5"
+              fill="none"
+            ></ellipse>
+            <circle cx="14" cy="14" r="2" fill="#c9a84c"></circle>
+          </svg>
+          <span class="adinkra-line"></span>
+        </div>
+        <p
+          class="text-lg md:text-xl italic opacity-90 hero-fade"
+          style="animation-delay: 0.2s"
+        >
+          Nigeria · July 25, 2026 &nbsp;|&nbsp; South Africa · September 19,
+          2026
+        </p>
+      </div>
+      <!-- Torn edge bottom -->
+      <div class="absolute bottom-[-1px] left-0 w-full leading-[0] z-20">
+        <svg
+          class="relative block w-full h-[50px]"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,60 C50,70 100,40 150,55 C200,70 250,50 300,65 C350,80 400,45 450,60 C500,75 550,50 600,70 C650,90 700,55 750,75 C800,95 850,60 900,80 C950,100 1000,70 1050,85 C1100,100 1150,80 1200,90 L1200,120 L0,120 Z"
+            fill="#f2f2f2"
+          ></path>
+        </svg>
+      </div>
+    </section>
+
+    <div class="kente-bar"></div>
+
+    <!-- TWO‑COLUMN FLYER SECTION (background images) -->
+    <div class="grid grid-cols-1 md:grid-cols-2">
+      <!-- NIGERIA LEFT – replace background URL with actual Nigerian flyer -->
       <div
-        id="reg-success"
-        class="hidden text-[#c9a84c] text-center mt-4 font-bold"
+        class="landmark-half nigeria-flyer text-center p-8 flex flex-col items-center justify-center fade-up"
       >
-        Registration received! Check your email for event updates.
+        <h2 class="font-bebas text-5xl md:text-6xl text-white drop-shadow-md">
+          🇳🇬 NIGERIA
+        </h2>
+        <p class="text-white text-xl font-bold mt-2 drop-shadow">
+          July 25, 2026 — Solemn Assembly
+        </p>
+        <p class="text-white/90 max-w-xs mt-4 drop-shadow">
+          National Theatre, Surulere – a prophetic declaration for the nation.
+        </p>
+        <a
+          href="https://www.eventbrite.com/e/nigeria-solemn-assembly-tickets-AMWA-NG"
+          target="_blank"
+          class="register-btn"
+        >
+          Register for Nigeria →
+        </a>
+        <p class="text-white/70 text-xs mt-4 italic">
+          You will be redirected to Eventbrite
+        </p>
       </div>
-    </form>
-  </div>
-</section>
 
-<script>
-  // Replace with YOUR Google Apps Script deployment URL
-  const SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+      <!-- SOUTH AFRICA RIGHT – replace background URL with actual South African flyer -->
+      <div
+        class="landmark-half southafrica-flyer text-center p-8 flex flex-col items-center justify-center fade-up"
+      >
+        <h2 class="font-bebas text-5xl md:text-6xl text-white drop-shadow-md">
+          🇿🇦 SOUTH AFRICA
+        </h2>
+        <p class="text-white text-xl font-bold mt-2 drop-shadow">
+          September 19, 2026 — Solemn Assembly
+        </p>
+        <p class="text-white/90 max-w-xs mt-4 drop-shadow">
+          Table Mountain, Cape Town – uniting the Rainbow Nation in repentance
+          and revival.
+        </p>
+        <a
+          href="https://www.eventbrite.com/e/south-africa-solemn-assembly-tickets-AMWA-ZA"
+          target="_blank"
+          class="register-btn"
+        >
+          Register for South Africa →
+        </a>
+        <p class="text-white/70 text-xs mt-4 italic">
+          You will be redirected to Eventbrite
+        </p>
+      </div>
+    </div>
 
-  const form = document.getElementById('registration-form');
-  const successDiv = document.getElementById('reg-success');
+    <!-- FOOTER (identical to AMWA site) -->
+    <footer class="bg-[#0a0a0a] text-white w-full mt-0">
+      <div
+        class="text-center py-10 px-6 font-bebas text-[clamp(1.75rem,4vw,3.25rem)] tracking-[0.04em] border-b border-white/10"
+      >
+        JOIN THE MOVEMENT | CHANGE THE NATIONS
+      </div>
+      <div
+        class="flex flex-col md:flex-row items-start md:items-center justify-between py-7 px-6 md:px-12 gap-8 md:gap-5 flex-wrap"
+      >
+        <div class="font-bebas text-[2rem] tracking-[0.04em] leading-none">
+          A MILLION WOMEN AFRICA
+        </div>
+        <div
+          class="text-[0.6875rem] tracking-[0.08em] text-white/60 order-3 md:order-none w-full md:w-auto text-center md:text-left"
+        >
+          © 2026 Copyright AMWA
+        </div>
+        <nav
+          class="grid grid-cols-2 md:grid-cols-auto gap-x-6 gap-y-2 md:flex md:gap-x-6 md:items-center"
+        >
+          <a
+            href="index.html"
+            class="text-[0.6875rem] font-bold tracking-[0.1em] uppercase text-white/75 hover:text-white transition-colors"
+            >Home</a
+          >
+          <a
+            href="story.html"
+            class="text-[0.6875rem] font-bold tracking-[0.1em] uppercase text-white/75 hover:text-white transition-colors"
+            >Story</a
+          >
+          <a
+            href="people.html"
+            class="text-[0.6875rem] font-bold tracking-[0.1em] uppercase text-white/75 hover:text-white transition-colors"
+            >People</a
+          >
+          <a
+            href="get-involved.html"
+            class="text-[0.6875rem] font-bold tracking-[0.1em] uppercase bg-[#e8000d] text-white py-[3px] px-2 rounded-sm transition-opacity hover:opacity-90"
+            >Get Involved</a
+          >
+          <a
+            href="https://selar.com/showlove/amillionwomenafrica"
+            target="_blank"
+            class="text-[0.6875rem] font-bold tracking-[0.1em] uppercase bg-[#e8000d] text-white py-[3px] px-2 rounded-sm transition-opacity hover:opacity-90"
+            >DONATE</a
+          >
+        </nav>
+      </div>
+    </footer>
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const data = new FormData(form); // we'll construct it manually
+    <script>
+      lucide.createIcons();
 
-    const payload = {
-      event: document.getElementById('event').value,
-      firstName: document.getElementById('firstName').value,
-      lastName: document.getElementById('lastName').value,
-      email: document.getElementById('email').value,
-      phone: document.getElementById('phone').value,
-      country: document.getElementById('country').value,
-      city: document.getElementById('city').value,
-      state: document.getElementById('state').value,
-    };
-
-    try {
-      const response = await fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors', // required for Google Apps Script
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(payload).toString(),
+      // Sticky navbar on scroll
+      const navbar = document.getElementById('mainNavbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add('navbar-scrolled');
+        } else {
+          navbar.classList.remove('navbar-scrolled');
+        }
       });
 
-      // With no-cors, we can't check response.ok, but we assume success.
-      form.reset();
-      successDiv.classList.remove('hidden');
-    } catch (error) {
-      alert('Submission failed. Please check your connection and try again.');
-    }
-  });
-</script>
+      // Fade-up observer
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+          });
+        },
+        { threshold: 0.12 }
+      );
+      document
+        .querySelectorAll('.fade-up')
+        .forEach((el) => observer.observe(el));
+      document
+        .querySelectorAll('.hero-fade')
+        .forEach((el) => (el.style.opacity = '1'));
+    </script>
+  </body>
+</html>
