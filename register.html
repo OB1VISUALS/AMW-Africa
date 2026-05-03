@@ -1,0 +1,195 @@
+<!-- REGISTRATION FORM SECTION -->
+<section class="max-w-[55rem] mx-auto py-[5rem] px-6" id="register">
+  <h2
+    class="font-bebas text-[2.375rem] text-[#0a0a0a] tracking-tight text-center mb-4 fade-up"
+  >
+    REGISTER FOR A 2026 SOLEMN ASSEMBLY
+  </h2>
+  <p class="text-center text-[#444444] italic mb-10 fade-up">
+    Select your event below. Your data goes straight to our coordination
+    spreadsheet.
+  </p>
+
+  <div
+    class="bg-[#f9f9f7] p-8 md:p-12 border-l-[4px] border-l-[#c9a84c] fade-up"
+  >
+    <form id="registration-form" class="space-y-6">
+      <!-- Event Selection -->
+      <div class="space-y-2">
+        <label
+          class="block font-bold uppercase tracking-[0.1em] text-[0.75rem] text-[#0a0a0a]"
+        >
+          Which event are you registering for? *
+        </label>
+        <select
+          id="event"
+          name="event"
+          required
+          class="w-full p-3 font-mono text-sm border border-[#c9a84c] bg-white rounded-sm focus:ring-2 focus:ring-[#c9a84c] focus:border-[#c9a84c] outline-none transition-all text-[#111111]"
+        >
+          <option value="" disabled selected>— Select an event —</option>
+          <option value="Nigeria">🇳🇬 Nigeria — July 25, 2026</option>
+          <option value="South Africa">
+            🇿🇦 South Africa — September 19, 2026
+          </option>
+        </select>
+      </div>
+
+      <!-- Names -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="space-y-2">
+          <label
+            class="block font-bold uppercase tracking-[0.1em] text-[0.75rem] text-[#0a0a0a]"
+            >First Name *</label
+          >
+          <input
+            type="text"
+            id="firstName"
+            placeholder="First Name"
+            required
+            class="w-full p-3 font-mono text-sm border border-[#c9a84c] bg-white rounded-sm focus:ring-2 focus:ring-[#c9a84c] focus:border-[#c9a84c] outline-none placeholder-gray-400 transition-all text-[#111111]"
+          />
+        </div>
+        <div class="space-y-2">
+          <label
+            class="block font-bold uppercase tracking-[0.1em] text-[0.75rem] text-[#0a0a0a]"
+            >Last Name *</label
+          >
+          <input
+            type="text"
+            id="lastName"
+            placeholder="Last Name"
+            required
+            class="w-full p-3 font-mono text-sm border border-[#c9a84c] bg-white rounded-sm focus:ring-2 focus:ring-[#c9a84c] focus:border-[#c9a84c] outline-none placeholder-gray-400 transition-all text-[#111111]"
+          />
+        </div>
+      </div>
+
+      <!-- Email & Phone -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="space-y-2">
+          <label
+            class="block font-bold uppercase tracking-[0.1em] text-[0.75rem] text-[#0a0a0a]"
+            >Email *</label
+          >
+          <input
+            type="email"
+            id="email"
+            placeholder="Email"
+            required
+            class="w-full p-3 font-mono text-sm border border-[#c9a84c] bg-white rounded-sm focus:ring-2 focus:ring-[#c9a84c] focus:border-[#c9a84c] outline-none placeholder-gray-400 transition-all text-[#111111]"
+          />
+        </div>
+        <div class="space-y-2">
+          <label
+            class="block font-bold uppercase tracking-[0.1em] text-[0.75rem] text-[#0a0a0a]"
+            >Phone (WhatsApp) *</label
+          >
+          <input
+            type="tel"
+            id="phone"
+            placeholder="Phone"
+            required
+            class="w-full p-3 font-mono text-sm border border-[#c9a84c] bg-white rounded-sm focus:ring-2 focus:ring-[#c9a84c] focus:border-[#c9a84c] outline-none placeholder-gray-400 transition-all text-[#111111]"
+          />
+        </div>
+      </div>
+
+      <!-- Country -->
+      <div class="space-y-2">
+        <label
+          class="block font-bold uppercase tracking-[0.1em] text-[0.75rem] text-[#0a0a0a]"
+          >Country *</label
+        >
+        <input
+          type="text"
+          id="country"
+          placeholder="Country"
+          required
+          class="w-full p-3 font-mono text-sm border border-[#c9a84c] bg-white rounded-sm focus:ring-2 focus:ring-[#c9a84c] focus:border-[#c9a84c] outline-none placeholder-gray-400 transition-all text-[#111111]"
+        />
+      </div>
+
+      <!-- City & State -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="space-y-2">
+          <label
+            class="block font-bold uppercase tracking-[0.1em] text-[0.75rem] text-[#0a0a0a]"
+            >City</label
+          >
+          <input
+            type="text"
+            id="city"
+            placeholder="City"
+            class="w-full p-3 font-mono text-sm border border-[#c9a84c] bg-white rounded-sm focus:ring-2 focus:ring-[#c9a84c] focus:border-[#c9a84c] outline-none placeholder-gray-400 transition-all text-[#111111]"
+          />
+        </div>
+        <div class="space-y-2">
+          <label
+            class="block font-bold uppercase tracking-[0.1em] text-[0.75rem] text-[#0a0a0a]"
+            >State/Region</label
+          >
+          <input
+            type="text"
+            id="state"
+            placeholder="State"
+            class="w-full p-3 font-mono text-sm border border-[#c9a84c] bg-white rounded-sm focus:ring-2 focus:ring-[#c9a84c] focus:border-[#c9a84c] outline-none placeholder-gray-400 transition-all text-[#111111]"
+          />
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        class="w-full bg-[#e8000d] text-white font-bold uppercase tracking-[0.12em] text-[0.9375rem] py-4 transition-transform hover:-translate-y-1 hover:bg-[#b50000]"
+      >
+        SUBMIT REGISTRATION →
+      </button>
+
+      <div
+        id="reg-success"
+        class="hidden text-[#c9a84c] text-center mt-4 font-bold"
+      >
+        Registration received! Check your email for event updates.
+      </div>
+    </form>
+  </div>
+</section>
+
+<script>
+  // Replace with YOUR Google Apps Script deployment URL
+  const SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+
+  const form = document.getElementById('registration-form');
+  const successDiv = document.getElementById('reg-success');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form); // we'll construct it manually
+
+    const payload = {
+      event: document.getElementById('event').value,
+      firstName: document.getElementById('firstName').value,
+      lastName: document.getElementById('lastName').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      country: document.getElementById('country').value,
+      city: document.getElementById('city').value,
+      state: document.getElementById('state').value,
+    };
+
+    try {
+      const response = await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors', // required for Google Apps Script
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(payload).toString(),
+      });
+
+      // With no-cors, we can't check response.ok, but we assume success.
+      form.reset();
+      successDiv.classList.remove('hidden');
+    } catch (error) {
+      alert('Submission failed. Please check your connection and try again.');
+    }
+  });
+</script>

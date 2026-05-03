@@ -1,3 +1,7 @@
+I have added strategic placeholder images throughout your Get Involved page to
+break up text, enhance visual flow, and match the storytelling style of the Our
+Story page. You can easily replace the placeholder URLs with your own photos
+later. ```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
@@ -94,6 +98,14 @@
         opacity: 1;
         transform: none;
       }
+
+      .image-placeholder-caption {
+        font-size: 0.7rem;
+        letter-spacing: 0.03em;
+        color: #5a5a5a;
+        margin-top: 0.5rem;
+        text-align: center;
+      }
     </style>
   </head>
   <body class="text-[1rem] md:text-[1.0625rem]">
@@ -111,33 +123,33 @@
       <div
         class="hidden lg:flex items-center gap-8 font-bold text-[0.8125rem] uppercase tracking-[0.1em] text-white"
       >
-      <a
-      href="index.html"
-      class="hover:text-[#e8000d] transition-colors duration-150"
-      >Home</a
-    >
-    <a
-      href="story.html"
-      class="hover:text-[#e8000d] transition-colors duration-150"
-      >Story</a
-    >
-    <a
-      href="people.html"
-      class="hover:text-[#e8000d] transition-colors duration-150"
-      >People</a
-    >
-      <a
-      href="get-involved.html"
-      class="hover:text-[#e8000d] transition-colors duration-150"
-      >Get Involved</a
-    >
-    <a
-    href="https://donate.amillionwomen.org"
-    target="_blank"
-    class="hover:text-[#e8000d] transition-colors duration-150"
-    >Donate</a
-
-  </div>
+        <a
+          href="index.html"
+          class="hover:text-[#e8000d] transition-colors duration-150"
+          >Home</a
+        >
+        <a
+          href="story.html"
+          class="hover:text-[#e8000d] transition-colors duration-150"
+          >Story</a
+        >
+        <a
+          href="people.html"
+          class="hover:text-[#e8000d] transition-colors duration-150"
+          >People</a
+        >
+        <a
+          href="get-involved.html"
+          class="hover:text-[#e8000d] transition-colors duration-150"
+          >Get Involved</a
+        >
+        <a
+          href="https://selar.com/showlove/amillionwomenafrica"
+          target="_blank"
+          class="hover:text-[#e8000d] transition-colors duration-150"
+          >Donate</a
+        >
+      </div>
 
       <!-- Mobile menu icon placeholder -->
       <button class="lg:hidden text-white">
@@ -190,6 +202,19 @@
         </p>
       </header>
 
+      <!-- 📷 HERO IMAGE: continental gathering visual to break initial text area -->
+      <div class="max-w-[75rem] mx-auto px-6 pb-12 fade-up">
+        <img
+          src="https://placehold.co/1400x500/0a0a0a/c8e645?text=AFRICA+RISING+IN+PRAYER"
+          alt="Continental prayer gathering"
+          class="w-full rounded-sm shadow-md object-cover"
+          loading="lazy"
+        />
+        <div class="image-placeholder-caption">
+          Intercessors from across Africa united in solemn assembly
+        </div>
+      </div>
+
       <!-- 2. THREE PATHWAYS (cards) -->
       <section class="max-w-[75rem] mx-auto px-6 pb-16 pt-4">
         <h2
@@ -208,16 +233,14 @@
             <h3
               class="font-bebas text-[2rem] tracking-[0.04em] text-[#0a0a0a] mb-3"
             >
-            Bring A Million Women Africa to Your Nation
+              Bring A Million Women Africa to Your Nation
             </h3>
             <p class="text-[0.9375rem] leading-relaxed text-[#444444] mb-6">
-              Interested in bringing A Million Women Africa to your nation?
-              We are looking for men and women to stand in the gap. Apply now.
-              
+              Interested in bringing A Million Women Africa to your nation? We
+              are looking for men and women to stand in the gap. Apply now.
             </p>
-          
             <a
-              href="#"
+              href="https://bit.ly/MobilizeForAMWA"
               class="inline-block bg-[#e8000d] text-white font-bold uppercase tracking-[0.12em] text-[0.8125rem] py-3 px-8 transition-transform hover:-translate-y-1"
               >APPLY NOW →</a
             >
@@ -235,19 +258,20 @@
             <h3
               class="font-bebas text-[2rem] tracking-[0.04em] text-[#0a0a0a] mb-3"
             >
-            Connect with Intercessors in Your Nation
+              Connect with Intercessors in Your Nation
             </h3>
             <p class="text-[0.9375rem] leading-relaxed text-[#444444] mb-6">
-              Join a WhatsApp group for prayer updates, training calls, and regional coordination.
+              Join a WhatsApp community for prayer updates, training calls, and
+              regional coordination.
             </p>
             <a
-              href="#"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSe0YO57fEPfZi4_qY6wiP_z5SEUXBLUUuk6j_AXGXNZZORrZg/viewform"
               class="inline-block bg-[#e8000d] text-white font-bold uppercase tracking-[0.12em] text-[0.8125rem] py-3 px-8 transition-transform hover:-translate-y-1"
-              >FIND YOUR GROUP →</a
+              >CONNECT →</a
             >
             <p class="text-[0.6875rem] text-[#777] mt-4 tracking-wide">
-              (If your nation is not listed, we would love for you to bring A Million Women Africa to your
-nation.)
+              (If your nation is not listed, we would love for you to bring A
+              Million Women Africa to your nation.)
             </p>
           </div>
 
@@ -278,6 +302,27 @@ nation.)
         </div>
       </section>
 
+      <!-- 📷 INSPIRATIONAL IMAGE: worship and unity after the cards -->
+      <div class="max-w-[75rem] mx-auto px-6 pb-8 fade-up">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <img
+            src="https://placehold.co/800x550/f0ede8/3e362b?text=UNITED+IN+INTERCESSION"
+            alt="United intercession across Africa"
+            class="w-full rounded-sm shadow-sm object-cover"
+            loading="lazy"
+          />
+          <img
+            src="https://placehold.co/800x550/c9a84c/0a0a0a?text=NEXT+GENERATION+ARISING"
+            alt="Youth praying for Africa"
+            class="w-full rounded-sm shadow-sm object-cover"
+            loading="lazy"
+          />
+        </div>
+        <div class="image-placeholder-caption mt-1">
+          United prayer across generations — fulfilling Esther’s call
+        </div>
+      </div>
+
       <!-- ADINKRA DIVIDER -->
       <div class="adinkra-divider px-6 fade-up">
         <span class="adinkra-line"></span>
@@ -323,7 +368,7 @@ nation.)
         <span class="adinkra-line"></span>
       </div>
 
-      <!-- 3. EVENT SPECIFIC LINKS (Nigeria & SA) -->
+      <!-- 3. EVENT SPECIFIC LINKS (Nigeria & SA) with additional imagery -->
       <section class="max-w-[55rem] mx-auto px-6 pb-16">
         <h2
           class="font-bebas text-[2.375rem] text-[#0a0a0a] tracking-tight text-center mb-10 fade-up"
@@ -337,14 +382,22 @@ nation.)
             class="flex-1 bg-[#f9f9f7] p-8 md:p-10 border-l-[4px] border-l-[#c9a84c] text-center fade-up"
             style="transition-delay: 0.1s"
           >
-            <div class="text-5xl mb-4">🇳🇬</div>
+            <div class="mb-4 flex justify-center">
+              <img
+                src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/GET%20INVOLVED%20PAGE/AMW%20NG%20SA%20New%20Date_.png"
+                width="200"
+                height="200"
+                alt="Nigeria Solemn Assembly"
+                class="mx-auto"
+              />
+            </div>
             <h3
               class="font-bebas text-[2rem] tracking-[0.04em] text-[#0a0a0a] mb-2"
             >
               NIGERIA
             </h3>
             <p class="text-[0.9375rem] text-[#444444] mb-6">
-            July 25th, 2026 — Solemn Assembly
+              July 25th, 2026 — Solemn Assembly
             </p>
             <a
               href="https://amillionwomennigeria.org/"
@@ -358,7 +411,15 @@ nation.)
             class="flex-1 bg-[#f9f9f7] p-8 md:p-10 border-l-[4px] border-l-[#c9a84c] text-center fade-up"
             style="transition-delay: 0.2s"
           >
-            <div class="text-5xl mb-4">🇿🇦</div>
+            <div class="mb-4 flex justify-center">
+              <img
+                src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/GET%20INVOLVED%20PAGE/AMW%20SA2%20800x800.png"
+                width="200"
+                height="200"
+                alt="South Africa Solemn Assembly"
+                class="mx-auto"
+              />
+            </div>
             <h3
               class="font-bebas text-[2rem] tracking-[0.04em] text-[#0a0a0a] mb-2"
             >
@@ -374,6 +435,20 @@ nation.)
             >
           </div>
         </div>
+
+        <!-- 📷 additional banner for 2026 vision -->
+        <div class="mt-12 fade-up">
+          <img
+            src="https://placehold.co/1200x400/e8000d/ffffff?text=2026:+A+KAIROS+MOMENT+FOR+AFRICA"
+            alt="2026 Kairos Africa banner"
+            class="w-full rounded-sm shadow-md"
+            loading="lazy"
+          />
+          <div class="image-placeholder-caption mt-2">
+            Kenya, Uganda, South Africa, Nigeria — solemn assemblies across the
+            continent
+          </div>
+        </div>
       </section>
 
       <!-- ADINKRA DIVIDER -->
@@ -421,92 +496,123 @@ nation.)
         <span class="adinkra-line"></span>
       </div>
 
-      <!-- 4. PRAYER RHYTHMS -->
+      <!-- 4. PRAYER RHYTHMS (now with side image for visual break) -->
       <section class="bg-[#f9f9f7] w-full py-[5rem] px-6">
-        <div class="max-w-[48rem] mx-auto">
+        <div class="max-w-[75rem] mx-auto">
           <h2
             class="font-bebas text-[2.375rem] text-[#0a0a0a] tracking-tight text-center mb-10 fade-up"
           >
             OUR PRAYER RHYTHMS
           </h2>
 
-          <div class="space-y-6 fade-up">
-            <div class="bg-white p-6 border-l-[4px] border-[#c9a84c]">
-              <h4 class="font-bebas text-[1.5rem] text-[#0a0a0a] mb-2">
-                Monthly NC Prayer & Training
-              </h4>
-              <p class="text-[0.9375rem] text-[#444444]">
-                Closed call for National Coordinators — vision alignment and
-                continental gatekeeping.
-              </p>
+          <div class="flex flex-col md:flex-row gap-12 items-start fade-up">
+            <div class="flex-1 space-y-6">
+              <div class="bg-white p-6 border-l-[4px] border-[#c9a84c]">
+                <h4 class="font-bebas text-[1.5rem] text-[#0a0a0a] mb-2">
+                  Monthly NC Prayer & Training
+                </h4>
+                <p class="text-[0.9375rem] text-[#444444]">
+                  Closed call for National Coordinators — vision alignment and
+                  continental gatekeeping.
+                </p>
+              </div>
+              <div class="bg-white p-6 border-l-[4px] border-[#c9a84c]">
+                <h4 class="font-bebas text-[1.5rem] text-[#0a0a0a] mb-2">
+                  Community Prayer Call
+                </h4>
+                <p class="text-[0.9375rem] text-[#444444]">
+                  Open gathering for the wider AMWA family — strengthening and
+                  united intercession.
+                </p>
+              </div>
+              <div class="bg-white p-6 border-l-[4px] border-[#c9a84c]">
+                <h4 class="font-bebas text-[1.5rem] text-[#0a0a0a] mb-2">
+                  Day of Atonement Gathering
+                </h4>
+                <p class="text-[0.9375rem] text-[#444444]">
+                  Annual solemn assembly aligned with Yom Kippur — continental
+                  repentance and prophetic alignment.
+                </p>
+              </div>
+              <div class="bg-white p-6 border-l-[4px] border-[#c9a84c]">
+                <h4 class="font-bebas text-[1.5rem] text-[#0a0a0a] mb-2">
+                  Global AMW Initiatives
+                </h4>
+                <p class="text-[0.9375rem] text-[#444444]">
+                  Joining global family gatherings (e.g., AMW Brazil) for
+                  worldwide revival.
+                </p>
+              </div>
             </div>
-            <div class="bg-white p-6 border-l-[4px] border-[#c9a84c]">
-              <h4 class="font-bebas text-[1.5rem] text-[#0a0a0a] mb-2">
-                Community Prayer Call
-              </h4>
-              <p class="text-[0.9375rem] text-[#444444]">
-                Open gathering for the wider AMWA family — strengthening and
-                united intercession.
-              </p>
-            </div>
-            <div class="bg-white p-6 border-l-[4px] border-[#c9a84c]">
-              <h4 class="font-bebas text-[1.5rem] text-[#0a0a0a] mb-2">
-                Day of Atonement Gathering
-              </h4>
-              <p class="text-[0.9375rem] text-[#444444]">
-                Annual solemn assembly aligned with Yom Kippur — continental
-                repentance and prophetic alignment.
-              </p>
-            </div>
-            <div class="bg-white p-6 border-l-[4px] border-[#c9a84c]">
-              <h4 class="font-bebas text-[1.5rem] text-[#0a0a0a] mb-2">
-                Global AMW Initiatives
-              </h4>
-              <p class="text-[0.9375rem] text-[#444444]">
-                Joining global family gatherings (e.g., AMW Brazil) for
-                worldwide revival.
-              </p>
+            <!-- 📷 prayer rhythms companion image -->
+            <div class="flex-1">
+              <img
+                src="https://placehold.co/700x900/c8e645/0a0a0a?text=NIGHT+OF+INTERCESSION"
+                alt="Night of prayer and intercession"
+                class="w-full rounded-sm shadow-lg object-cover"
+                loading="lazy"
+              />
+              <div class="image-placeholder-caption mt-2">
+                Night watches — united prayer across time zones
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 5. PARTNERSHIP SECTION -->
-      <section class="max-w-[48rem] mx-auto py-[5rem] px-6">
-        <h2
-          class="font-bebas text-[2.375rem] text-[#0a0a0a] tracking-tight text-center mb-10 fade-up"
-        >
-          CHURCHES & MINISTRIES
-        </h2>
-
+      <!-- 5. PARTNERSHIP SECTION (now with supporting image) -->
+      <section class="max-w-[75rem] mx-auto py-[5rem] px-6">
         <div
-          class="bg-[#f9f9f7] p-8 md:p-12 border-l-[4px] border-[#c9a84c] fade-up"
+          class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center fade-up"
         >
-          <p class="text-[1.125rem] leading-relaxed text-[#111111] mb-6">
-            We welcome churches and ministries to partner with A Million Women
-            Africa by:
-          </p>
-          <ul class="space-y-3 mb-8 text-[0.9375rem] text-[#444444]">
-            <li class="flex items-start gap-3">
-              <span class="text-[#c9a84c]">✧</span> Hosting prayer gatherings
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-[#c9a84c]">✧</span> Supporting national or
-              regional mobilization
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-[#c9a84c]">✧</span> Equipping intercessors
-              within their congregations
-            </li>
-          </ul>
-         
-          <p class="font-bold text-[1.25rem] text-[#c9a84c] tracking-wide">
-            info@amillionwomenafrica.org
-          </p>
+          <div>
+            <h2
+              class="font-bebas text-[2.375rem] text-[#0a0a0a] tracking-tight mb-6"
+            >
+              CHURCHES & MINISTRIES
+            </h2>
+            <div
+              class="bg-[#f9f9f7] p-8 md:p-10 border-l-[4px] border-[#c9a84c]"
+            >
+              <p class="text-[1.125rem] leading-relaxed text-[#111111] mb-6">
+                We welcome churches and ministries to partner with A Million
+                Women Africa by:
+              </p>
+              <ul class="space-y-3 mb-8 text-[0.9375rem] text-[#444444]">
+                <li class="flex items-start gap-3">
+                  <span class="text-[#c9a84c]">✧</span> Hosting prayer
+                  gatherings
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-[#c9a84c]">✧</span> Supporting national or
+                  regional mobilization
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-[#c9a84c]">✧</span> Equipping intercessors
+                  within their congregations
+                </li>
+              </ul>
+              <p class="font-bold text-[1.25rem] text-[#c9a84c] tracking-wide">
+                info@amillionwomenafrica.org
+              </p>
+            </div>
+          </div>
+          <!-- 📷 Partnership visual: church leaders gathering -->
+          <div>
+            <img
+              src="https://placehold.co/800/0a0a0a/ffffff?text=CHURCHES+UNITED+IN+PRAYER"
+              alt="Church leaders partnering with AMWA"
+              class="rounded-sm shadow-md w-full"
+              loading="lazy"
+            />
+            <div class="image-placeholder-caption mt-2">
+              Pastors and intercessors standing together for national destiny
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- 6. CTA BANNER -->
+      <!-- 6. CTA BANNER (already strong, but we keep it) -->
       <section class="bg-[#0a0a0a] w-full py-[5rem] px-6 text-center fade-up">
         <div class="max-w-[48rem] mx-auto">
           <h2
@@ -553,15 +659,15 @@ nation.)
         class="flex flex-col md:flex-row items-start md:items-center justify-between py-7 px-6 md:px-12 gap-8 md:gap-5 flex-wrap"
       >
         <div class="font-bebas text-[2rem] tracking-[0.04em] leading-none">
-          A MILLION WOMEN
+          A MILLION WOMEN AFRICA
         </div>
 
         <div
           class="text-[0.6875rem] tracking-[0.08em] text-white/60 order-3 md:order-none w-full md:w-auto text-center md:text-left"
         >
-          © 2026 Copyright AMWN
+          © 2026 Copyright AMWA
         </div>
-<!-- nav -->
+        <!-- nav -->
         <nav
           class="grid grid-cols-2 md:grid-cols-auto gap-x-6 gap-y-2 md:flex md:gap-x-6 md:items-center"
         >
@@ -581,7 +687,7 @@ nation.)
             >GET INVOLVED</a
           >
           <a
-            href="https://donate.amillionwomen.org"
+            href="https://selar.com/showlove/amillionwomenafrica"
             target="_blank"
             class="text-[0.6875rem] font-bold tracking-[0.1em] uppercase bg-[#e8000d] text-white py-[3px] px-2 rounded-sm transition-opacity hover:opacity-90 mt-1 md:mt-0"
             >DONATE</a
@@ -619,3 +725,4 @@ nation.)
     </script>
   </body>
 </html>
+```
