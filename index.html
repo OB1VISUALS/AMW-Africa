@@ -16,8 +16,8 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons (fallback CDN if needed) -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/lucide.min.js"></script>
 
     <style>
       :root {
@@ -43,7 +43,7 @@
         font-family: 'Bebas Neue', sans-serif;
       }
 
-      /* African Christian Design System Elements */
+      /* African Christian Design System Element */
       .kente-bar {
         height: 0.25rem;
         width: 100%;
@@ -62,36 +62,6 @@
           var(--black) 4.25rem,
           var(--black) 4.5rem
         );
-      }
-
-      .adinkra-divider {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin: 3.5rem auto;
-        max-width: 37.5rem;
-      }
-
-      .adinkra-line {
-        flex: 1;
-        height: 1px;
-        background: linear-gradient(
-          to right,
-          transparent,
-          #c9a84c80,
-          transparent
-        );
-      }
-
-      .scripture-quote {
-        border-left: 3px solid var(--adinkra-gold);
-        padding: 0.75rem 1.5rem;
-        font-style: italic;
-        color: #444444;
-        font-size: 0.9375rem;
-        line-height: 1.8;
-        margin: 2rem 0;
-        background: #fafaf8;
       }
 
       /* Scroll Animations */
@@ -138,50 +108,84 @@
         animation: fadeUp 0.8s forwards, softScale 0.4s ease-out;
       }
 
-      /* Outline text for Nigeria section */
-      .text-outline-white {
-        -webkit-text-stroke: 1px white;
-        color: transparent;
+      /* Mobile menu overlay */
+      .mobile-menu {
+        display: none;
       }
-      .text-outline {
-        -webkit-text-stroke: 1px black;
-        color: transparent;
+      .mobile-menu.open {
+        display: flex;
       }
     </style>
   </head>
   <body class="text-[1rem] md:text-[1.0625rem] bg-white">
-    <!-- SHARED NAVBAR (transparent, fixed, centered) -->
+    <!-- SHARED NAVBAR (transparent, fixed) -->
     <nav
-      class="fixed top-0 left-0 w-full z-[1000] flex justify-center items-center gap-8 md:gap-12 py-4 bg-transparent text-white font-bold uppercase tracking-[0.1em] text-[0.8125rem]"
+      class="fixed top-0 left-0 w-full z-[1000] flex justify-between items-center px-6 md:px-12 py-4 bg-transparent text-white font-bold uppercase tracking-[0.1em] text-[0.8125rem]"
     >
-      <a
-        href="index.html"
-        class="hover:text-[#e8000d] transition-colors duration-150 border-b-2 border-[#e8000d] pb-1 text-[#e8000d]"
-        >Home</a
+      <!-- Desktop links (hidden on mobile) -->
+      <div class="hidden md:flex justify-center w-full gap-8 md:gap-12">
+        <a
+          href="index.html"
+          class="hover:text-[#e8000d] transition-colors duration-150 border-b-2 border-[#e8000d] pb-1 text-[#e8000d]"
+          >Home</a
+        >
+        <a
+          href="story.html"
+          class="hover:text-[#e8000d] transition-colors duration-150"
+          >Story</a
+        >
+        <a
+          href="people.html"
+          class="hover:text-[#e8000d] transition-colors duration-150"
+          >People</a
+        >
+        <a
+          href="get-involved.html"
+          class="hover:text-[#e8000d] transition-colors duration-150"
+          >Get Involved</a
+        >
+        <a
+          href="donate.html"
+          class="hover:text-[#e8000d] transition-colors duration-150"
+          >Donate</a
+        >
+      </div>
+
+      <!-- Hamburger icon (mobile) -->
+      <button
+        id="hamburger"
+        class="md:hidden text-white focus:outline-none ml-auto"
       >
-      <a
-        href="story.html"
-        class="hover:text-[#e8000d] transition-colors duration-150"
-        >Story</a
-      >
-      <a
-        href="people.html"
-        class="hover:text-[#e8000d] transition-colors duration-150"
-        >People</a
-      >
-      <a
-        href="get-involved.html"
-        class="hover:text-[#e8000d] transition-colors duration-150"
-        >Get Involved</a
-      >
-      <a
-        href="https://selar.com/showlove/amillionwomenafrica"
-        class="hover:text-[#e8000d] transition-colors duration-150"
-        >Donate</a
-      >
+        <i data-lucide="menu" stroke-width="1.5" class="w-6 h-6"></i>
+      </button>
     </nav>
 
-    <!-- HERO SECTION (full video background) -->
+    <!-- Mobile Menu Overlay -->
+    <div
+      id="mobileMenu"
+      class="mobile-menu fixed inset-0 z-[999] flex-col items-center justify-center bg-black/90 text-white font-bold uppercase tracking-[0.1em] text-xl gap-6"
+    >
+      <button id="closeMenu" class="absolute top-6 right-6 text-white">
+        <i data-lucide="x" stroke-width="1.5" class="w-8 h-8"></i>
+      </button>
+      <a href="index.html" class="hover:text-[#e8000d] transition-colors"
+        >Home</a
+      >
+      <a href="story.html" class="hover:text-[#e8000d] transition-colors"
+        >Story</a
+      >
+      <a href="people.html" class="hover:text-[#e8000d] transition-colors"
+        >People</a
+      >
+      <a href="get-involved.html" class="hover:text-[#e8000d] transition-colors"
+        >Get Involved</a
+      >
+      <a href="donate.html" class="hover:text-[#e8000d] transition-colors"
+        >Donate</a
+      >
+    </div>
+
+    <!-- HERO SECTION (full video background, no torn edge) -->
     <section
       class="relative w-screen h-screen overflow-hidden flex items-center justify-center"
     >
@@ -227,7 +231,7 @@
           Join us for historic solemn assemblies across the continent
         </div>
 
-        <!-- Button Group: Give (red) + Register (white) -->
+        <!-- Button Group -->
         <div class="flex flex-col sm:flex-row gap-4 justify-center mt-2">
           <a
             href="https://selar.com/showlove/amillionwomenafrica"
@@ -243,49 +247,30 @@
           </a>
         </div>
       </div>
-
-      <!-- Dark torn edge (bottom of hero) -->
-      <div class="absolute bottom-[-1px] left-0 w-full leading-[0] z-20">
-        <svg
-          class="relative block w-full h-[50px]"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0,60 C50,70 100,40 150,55 C200,70 250,50 300,65 C350,80 400,45 450,60 C500,75 550,50 600,70 C650,90 700,55 750,75 C800,95 850,60 900,80 C950,100 1000,70 1050,85 C1100,100 1150,80 1200,90 L1200,120 L0,120 Z"
-            fill="#111111"
-          ></path>
-        </svg>
-      </div>
     </section>
 
     <!-- KENTE BAR -->
     <div class="kente-bar"></div>
 
-    <!-- FRONTIER COMPANY / MOBILIZE (white section) -->
-    <section class="py-20 px-6 md:px-10 bg-[#f2f2f2] text-black relative">
-      <div class="max-w-5xl mx-auto">
-        <h2
-          class="font-bebas text-[clamp(28px,4vw,52px)] text-center max-w-3xl mx-auto mb-12 leading-tight fade-up"
+    <!-- NEW QUOTE SECTION (no torn edge) -->
+    <section class="py-20 px-6 md:px-10 bg-[#f2f2f2] text-black">
+      <div class="max-w-5xl mx-auto text-center">
+        <p
+          class="italic text-[clamp(1.25rem,3vw,2rem)] leading-relaxed text-[#111111] mb-4"
         >
-          A MILLION WOMEN WASN'T JUST AN EVENT<br />
-          IT WAS THE STARTING LINE.<br />
-          NOW IT'S TIME TO MOBILIZE.
-        </h2>
-        <!-- FRONTIER COMPANY (commented out) -->
-      </div>
-      <!-- Dark torn edge (bottom) -->
-      <div class="absolute bottom-[-1px] left-0 w-full leading-[0] z-20">
-        <svg
-          class="relative block w-full h-[50px]"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
+          "In 2026, the eyes of the world will turn toward Africa."
+        </p>
+        <p
+          class="font-bold text-[0.875rem] uppercase tracking-[0.1em] text-[#c9a84c] mb-8"
         >
-          <path
-            d="M0,60 C50,70 100,40 150,55 C200,70 250,50 300,65 C350,80 400,45 450,60 C500,75 550,50 600,70 C650,90 700,55 750,75 C800,95 850,60 900,80 C950,100 1000,70 1050,85 C1100,100 1150,80 1200,90 L1200,120 L0,120 Z"
-            fill="#111111"
-          ></path>
-        </svg>
+          — Apostle Isi
+        </p>
+        <p
+          class="text-[0.9375rem] leading-relaxed text-[#444444] max-w-2xl mx-auto"
+        >
+          In a critical hour for the continent, we are gathering in prayer,
+          consecration, and unity to contend for the destiny of nations.
+        </p>
       </div>
     </section>
 
@@ -312,241 +297,7 @@
       </div>
     </section>
 
-    <!-- ADINKRA DIVIDER -->
-    <div class="adinkra-divider px-6 fade-up">
-      <span class="adinkra-line"></span>
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <ellipse
-          cx="14"
-          cy="8"
-          rx="4"
-          ry="6"
-          stroke="#c9a84c"
-          stroke-width="1.5"
-          fill="none"
-        ></ellipse>
-        <ellipse
-          cx="14"
-          cy="20"
-          rx="4"
-          ry="6"
-          stroke="#c9a84c"
-          stroke-width="1.5"
-          fill="none"
-        ></ellipse>
-        <ellipse
-          cx="8"
-          cy="14"
-          rx="6"
-          ry="4"
-          stroke="#c9a84c"
-          stroke-width="1.5"
-          fill="none"
-        ></ellipse>
-        <ellipse
-          cx="20"
-          cy="14"
-          rx="6"
-          ry="4"
-          stroke="#c9a84c"
-          stroke-width="1.5"
-          fill="none"
-        ></ellipse>
-        <circle cx="14" cy="14" r="2" fill="#c9a84c"></circle>
-      </svg>
-      <span class="adinkra-line"></span>
-    </div>
-
-    <!-- OUR STORY (light background) -->
-    <section class="bg-[#f9f9f7] w-full py-[5rem] px-6">
-      <div class="max-w-[75rem] mx-auto">
-        <h2
-          class="font-bebas text-[2.625rem] text-[#0a0a0a] tracking-tight text-center mb-8 fade-up"
-        >
-          OUR STORY
-        </h2>
-        <div
-          class="max-w-3xl mx-auto text-base leading-loose text-[#111111] space-y-6 fade-up"
-        >
-          <p>
-            In studying the history of revivals, Francis Frangipane noticed
-            something striking: every revival was preceded by an organized
-            prayer movement—except one. Curious, he asked the Lord why. The Lord
-            replied,
-          </p>
-          <div class="scripture-quote">
-            “I answered the prayers of a million mothers.”
-          </div>
-          <p>
-            In 1999, the Lord spoke to
-            <strong class="text-[#c9a84c]">Papa Lou Engle</strong>, a prophetic
-            father to a generation, with a defining question: "How can I turn
-            America back to God?" That question set the trajectory for the next
-            25 years of prayer, fasting, and national repentance. In September
-            2000, after God miraculously provided for the work, 400,000 young
-            adults gathered on the National Mall in Washington, D.C. for a Joel
-            2-style solemn assembly of fasting and prayer.
-          </p>
-          <p>
-            In 2024, that legacy crescendoed into the launch of
-            <strong class="text-[#c9a84c]">A Million Women (AMW)</strong> on
-            October 12, the Day of Atonement. Out of this divine moment, A
-            Million Women Africa (AMWA) was born — under the continental
-            leadership of
-            <strong class="text-[#c9a84c]">Apostle Isi Igenegba</strong>.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ADINKRA DIVIDER -->
-    <div class="adinkra-divider px-6 fade-up">
-      <span class="adinkra-line"></span>
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <ellipse
-          cx="14"
-          cy="8"
-          rx="4"
-          ry="6"
-          stroke="#c9a84c"
-          stroke-width="1.5"
-          fill="none"
-        ></ellipse>
-        <ellipse
-          cx="14"
-          cy="20"
-          rx="4"
-          ry="6"
-          stroke="#c9a84c"
-          stroke-width="1.5"
-          fill="none"
-        ></ellipse>
-        <ellipse
-          cx="8"
-          cy="14"
-          rx="6"
-          ry="4"
-          stroke="#c9a84c"
-          stroke-width="1.5"
-          fill="none"
-        ></ellipse>
-        <ellipse
-          cx="20"
-          cy="14"
-          rx="6"
-          ry="4"
-          stroke="#c9a84c"
-          stroke-width="1.5"
-          fill="none"
-        ></ellipse>
-        <circle cx="14" cy="14" r="2" fill="#c9a84c"></circle>
-      </svg>
-      <span class="adinkra-line"></span>
-    </div>
-
-    <!-- VISION & MISSION (white cards) -->
-    <section class="max-w-[75rem] mx-auto px-6 pb-16 pt-4">
-      <h2
-        class="font-bebas text-[2.375rem] text-[#0a0a0a] tracking-tight text-center mb-10 fade-up"
-      >
-        OUR VISION &amp; MISSION
-      </h2>
-      <div class="flex flex-col md:flex-row gap-8">
-        <div
-          class="flex-1 p-8 md:p-10 border border-[#e0e0e0] border-t-[4px] border-t-[#0a0a0a] bg-white fade-up"
-        >
-          <h3
-            class="font-bebas text-[1.75rem] tracking-[0.06em] text-[#0a0a0a] mb-5"
-          >
-            VISION
-          </h3>
-          <p class="text-[0.9375rem] leading-[1.85] text-[#111111]">
-            As a parachurch prayer movement, A Million Women Africa exists to
-            <span class="text-[#c9a84c] font-bold">mobilize women and men</span>
-            as modern-day Esthers and Mordecais — calling nations to prayer,
-            fasting, and spiritual awakening for the fulfillment of their
-            prophetic destiny, and to secure a future for the next generation.
-          </p>
-        </div>
-        <div
-          class="flex-1 p-8 md:p-10 border border-[#e0e0e0] border-t-[4px] border-t-[#0a0a0a] bg-white fade-up"
-        >
-          <h3
-            class="font-bebas text-[1.75rem] tracking-[0.06em] text-[#0a0a0a] mb-5"
-          >
-            MISSION
-          </h3>
-          <p class="text-[0.9375rem] leading-[1.85] text-[#111111] mb-4">
-            A Million Women Africa exists to mobilize women and men as
-            modern-day Esthers and Mordecais — awakening nations to prayer,
-            fasting, and spiritual transformation through:
-          </p>
-          <ul class="text-[0.9375rem] leading-[1.85] text-[#111111] space-y-2">
-            <li class="flex items-start gap-2">
-              <span class="text-[#c9a84c] shrink-0">—</span>
-              <span>Monthly prayer and training</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#c9a84c] shrink-0">—</span>
-              <span
-                >Annual gatherings centered around the Day of Atonement</span
-              >
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#c9a84c] shrink-0">—</span>
-              <span>National solemn assemblies</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ADINKRA DIVIDER -->
-    <div class="adinkra-divider px-6 fade-up">
-      <span class="adinkra-line"></span>
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <ellipse
-          cx="14"
-          cy="8"
-          rx="4"
-          ry="6"
-          stroke="#c9a84c"
-          stroke-width="1.5"
-          fill="none"
-        ></ellipse>
-        <ellipse
-          cx="14"
-          cy="20"
-          rx="4"
-          ry="6"
-          stroke="#c9a84c"
-          stroke-width="1.5"
-          fill="none"
-        ></ellipse>
-        <ellipse
-          cx="8"
-          cy="14"
-          rx="6"
-          ry="4"
-          stroke="#c9a84c"
-          stroke-width="1.5"
-          fill="none"
-        ></ellipse>
-        <ellipse
-          cx="20"
-          cy="14"
-          rx="6"
-          ry="4"
-          stroke="#c9a84c"
-          stroke-width="1.5"
-          fill="none"
-        ></ellipse>
-        <circle cx="14" cy="14" r="2" fill="#c9a84c"></circle>
-      </svg>
-      <span class="adinkra-line"></span>
-    </div>
-
-    <!-- SHARED FOOTER -->
+    <!-- SHARED FOOTER (polished, copyright always centered) -->
     <footer class="bg-[#0a0a0a] text-white w-full">
       <div
         class="text-center py-10 px-6 font-bebas text-[clamp(1.75rem,4vw,3.25rem)] tracking-[0.04em] border-b border-white/10"
@@ -554,18 +305,46 @@
         JOIN THE MOVEMENT | CHANGE THE NATIONS
       </div>
       <div
-        class="flex flex-col md:flex-row items-start md:items-center justify-between py-7 px-6 md:px-12 gap-8 md:gap-5 flex-wrap"
+        class="flex flex-col md:flex-row items-center justify-between py-7 px-6 md:px-12 gap-8 md:gap-5 flex-wrap"
       >
-        <div class="font-bebas text-[2rem] tracking-[0.04em] leading-none">
+        <div
+          class="font-bebas text-[2rem] tracking-[0.04em] leading-none text-center md:text-left w-full md:w-auto"
+        >
           A MILLION WOMEN AFRICA
         </div>
-        <div
-          class="text-[0.6875rem] tracking-[0.08em] text-white/60 order-3 md:order-none w-full md:w-auto text-center md:text-left"
-        >
-          © 2026 Copyright AMWA
+
+        <!-- Social Media Icons (white, now with real links) -->
+        <div class="flex items-center gap-4 justify-center w-full md:w-auto">
+          <a
+            href="https://www.instagram.com/amillionwomenafrica"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-white hover:text-[#e8000d] transition-colors"
+            aria-label="Instagram"
+          >
+            <i data-lucide="instagram" stroke-width="1.5" class="w-6 h-6"></i>
+          </a>
+          <a
+            href="https://www.youtube.com/@AMillionWomenAfrica"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-white hover:text-[#e8000d] transition-colors"
+            aria-label="YouTube"
+          >
+            <i data-lucide="youtube" stroke-width="1.5" class="w-6 h-6"></i>
+          </a>
         </div>
+
+        <!-- Copyright (always centered) -->
+        <div class="w-full md:w-auto text-center order-3 md:order-none">
+          <p class="text-[0.6875rem] tracking-[0.08em] text-white/60">
+            © 2026 Copyright AMWA
+          </p>
+        </div>
+
+        <!-- Footer navigation -->
         <nav
-          class="grid grid-cols-2 md:grid-cols-auto gap-x-6 gap-y-2 md:flex md:gap-x-6 md:items-center"
+          class="grid grid-cols-2 md:grid-cols-auto gap-x-6 gap-y-2 md:flex md:gap-x-6 md:items-center justify-center w-full md:w-auto"
         >
           <a
             href="index.html"
@@ -583,7 +362,7 @@
             >Get Involved</a
           >
           <a
-            href="https://selar.com/showlove/amillionwomenafrica"
+            href="donate.html"
             target="_blank"
             class="text-[0.6875rem] font-bold tracking-[0.1em] uppercase bg-[#e8000d] text-white py-[3px] px-2 rounded-sm transition-opacity hover:opacity-90 mt-1 md:mt-0"
             >DONATE</a
@@ -594,8 +373,35 @@
 
     <!-- Scripts -->
     <script>
-      lucide.createIcons();
-      document.addEventListener('DOMContentLoaded', () => {
+      // Ensure the DOM is fully loaded before initialising icons and listeners
+      document.addEventListener('DOMContentLoaded', function () {
+        // Create Lucide icons
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+        } else {
+          console.warn('Lucide library not loaded – icons will not display.');
+        }
+
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+
+        if (hamburger && mobileMenu && closeMenu) {
+          hamburger.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+          });
+          closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+          });
+          mobileMenu.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+              mobileMenu.classList.remove('open');
+            });
+          });
+        }
+
+        // Scroll reveal
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
@@ -606,6 +412,7 @@
           },
           { threshold: 0.12 }
         );
+
         document
           .querySelectorAll('.fade-up')
           .forEach((el) => observer.observe(el));
@@ -614,33 +421,6 @@
             '.hero-tagline, .hero-dates, .hero-cta-text, .hero-btn'
           )
           .forEach((el) => el.classList.add('visible'));
-
-        // Form submission handling (Netlify)
-        const form = document.getElementById('register-form');
-        const successDiv = document.getElementById('form-success');
-        if (form) {
-          form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formData = new FormData(form);
-            try {
-              const response = await fetch(form.action, {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: new URLSearchParams(formData).toString(),
-              });
-              if (response.ok) {
-                form.reset();
-                if (successDiv) successDiv.classList.remove('hidden');
-              } else {
-                alert('Oops! Something went wrong. Please try again.');
-              }
-            } catch (error) {
-              alert('Submission failed. Check your internet.');
-            }
-          });
-        }
       });
     </script>
     <style>

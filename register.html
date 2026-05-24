@@ -2,12 +2,13 @@
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
     <title>Choose Your Solemn Assembly · A Million Women Africa</title>
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
@@ -16,7 +17,7 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Lucide Icons -->
+    <!-- Lucide Icons (used for decorative elements) -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
@@ -38,7 +39,7 @@
         font-family: 'Bebas Neue', sans-serif;
       }
 
-      /* Kente bar */
+      /* Kente woven bar */
       .kente-bar {
         height: 0.25rem;
         width: 100%;
@@ -59,7 +60,7 @@
         );
       }
 
-      /* Adinkra divider */
+      /* Adinkra-inspired divider */
       .adinkra-divider {
         display: flex;
         align-items: center;
@@ -78,7 +79,7 @@
         );
       }
 
-      /* Fade‑up animation */
+      /* Fade-up reveal animation */
       .fade-up {
         opacity: 0;
         transform: translateY(1.5rem);
@@ -103,11 +104,11 @@
         animation: fadeUp 0.8s ease forwards;
       }
 
-      /* Landmark containers – flyer as background */
+      /* Landmark container: flyer as background image */
       .landmark-half {
         min-height: 70vh;
         background-size: cover;
-        background-position: center;
+        background-position: center 30%;
         background-repeat: no-repeat;
         display: flex;
         flex-direction: column;
@@ -116,21 +117,21 @@
         position: relative;
       }
 
-      /* Nigeria flyer background – replace URL with actual Nigerian flyer */
+      /* Nigeria flyer background (unchanged) */
       .nigeria-flyer {
         background-image: url('https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/LANDMAKRS/LKEKKI.webp');
       }
-      /* South Africa flyer background – replace URL with actual South African flyer */
+      /* South Africa flyer background */
       .southafrica-flyer {
         background-image: url('https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/LANDMAKRS/SZA.jpg');
       }
 
-      /* Dark overlay for readability – increased darkness */
+      /* Dark overlay for readability — increased for contrast */
       .landmark-half::before {
         content: '';
         position: absolute;
         inset: 0;
-        background: rgba(0, 0, 0, 0.75);
+        background: rgba(0, 0, 0, 0.78);
         z-index: 1;
       }
       .landmark-half > * {
@@ -138,7 +139,7 @@
         z-index: 2;
       }
 
-      /* Register button style */
+      /* Bold register button */
       .register-btn {
         background: var(--red);
         color: white;
@@ -157,56 +158,163 @@
         transform: translateY(-3px);
       }
 
-      /* Sticky navbar styles */
+      /* Sticky navbar transition */
       .navbar {
         transition: background 0.3s ease, padding 0.3s ease;
       }
       .navbar-scrolled {
         background: #0a0a0a !important;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
       }
 
+      /* Mobile menu smooth appearance */
+      .mobile-menu {
+        transition: opacity 0.25s ease, visibility 0.25s ease,
+          transform 0.2s ease;
+        transform-origin: top;
+      }
+      .mobile-menu.hidden {
+        opacity: 0;
+        visibility: hidden;
+        transform: scaleY(0.95);
+        pointer-events: none;
+      }
+      .mobile-menu:not(.hidden) {
+        opacity: 1;
+        visibility: visible;
+        transform: scaleY(1);
+        pointer-events: auto;
+      }
+
+      /* Helper for responsive adjustments */
       @media (max-width: 768px) {
         .landmark-half {
-          min-height: 50vh;
+          min-height: 65vh;
+          background-position: center 20%;
         }
+        .register-btn {
+          font-size: 0.9rem;
+          padding: 0.85rem 1.8rem;
+        }
+      }
+      /* No horizontal overflow */
+      body,
+      html {
+        overflow-x: hidden;
       }
     </style>
   </head>
   <body class="bg-white">
-    <!-- NAVBAR with sticky scroll effect -->
+    <!-- DYNAMIC NAVBAR with hamburger for mobile, same desktop style -->
     <nav
       id="mainNavbar"
-      class="navbar fixed top-0 left-0 w-full z-[1000] flex justify-center items-center gap-8 md:gap-12 py-4 bg-transparent text-white font-bold uppercase tracking-[0.1em] text-[0.8125rem] transition-all duration-300"
+      class="navbar fixed top-0 left-0 w-full z-[1000] flex items-center justify-between md:justify-center py-4 px-5 md:px-8 transition-all duration-300 bg-transparent text-white"
+    >
+      <!-- Invisible placeholder for mobile spacing (keeps hamburger to the right) -->
+      <div class="w-8 h-8 md:hidden"></div>
+
+      <!-- DESKTOP NAVIGATION (visible from medium screens up) -->
+      <div
+        class="hidden md:flex items-center gap-6 lg:gap-10 font-bold uppercase tracking-[0.1em] text-[0.8125rem]"
+      >
+        <a
+          href="index.html"
+          class="hover:text-[#e8000d] transition-colors duration-150"
+          >Home</a
+        >
+        <a
+          href="story.html"
+          class="hover:text-[#e8000d] transition-colors duration-150"
+          >Story</a
+        >
+        <a
+          href="people.html"
+          class="hover:text-[#e8000d] transition-colors duration-150"
+          >People</a
+        >
+        <a
+          href="get-involved.html"
+          class="hover:text-[#e8000d] transition-colors duration-150"
+          >Get Involved</a
+        >
+        <a
+          href="donate.html"
+          class="hover:text-[#e8000d] transition-colors duration-150"
+          >Donate</a
+        >
+      </div>
+
+      <!-- HAMBURGER BUTTON (visible only on mobile) -->
+      <button
+        id="menuToggleBtn"
+        class="block md:hidden text-white focus:outline-none z-[1001] relative"
+        aria-label="Menu"
+      >
+        <!-- SVG: hamburger icon (three lines) -->
+        <svg
+          id="hamburgerIcon"
+          class="w-7 h-7 transition-all duration-200"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <svg
+          id="closeIcon"
+          class="w-7 h-7 absolute top-0 left-0 transition-all duration-200 opacity-0 scale-90"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- MOBILE DROPDOWN MENU (hidden by default, appears below navbar) -->
+    <div
+      id="mobileMenu"
+      class="mobile-menu hidden fixed left-0 w-full bg-[#0a0a0a]/95 backdrop-blur-md z-[999] pt-6 pb-8 px-6 flex flex-col items-center gap-6 border-t border-white/10 shadow-2xl transition-all duration-300"
+      style="top: 68px"
     >
       <a
         href="index.html"
-        class="hover:text-[#e8000d] transition-colors duration-150"
+        class="mobile-nav-link text-white font-bold uppercase tracking-[0.12em] text-base hover:text-[#e8000d] transition py-2"
         >Home</a
       >
       <a
         href="story.html"
-        class="hover:text-[#e8000d] transition-colors duration-150"
+        class="mobile-nav-link text-white font-bold uppercase tracking-[0.12em] text-base hover:text-[#e8000d] transition py-2"
         >Story</a
       >
       <a
         href="people.html"
-        class="hover:text-[#e8000d] transition-colors duration-150"
+        class="mobile-nav-link text-white font-bold uppercase tracking-[0.12em] text-base hover:text-[#e8000d] transition py-2"
         >People</a
       >
       <a
         href="get-involved.html"
-        class="hover:text-[#e8000d] transition-colors duration-150"
+        class="mobile-nav-link text-white font-bold uppercase tracking-[0.12em] text-base hover:text-[#e8000d] transition py-2"
         >Get Involved</a
       >
       <a
-        href="https://selar.com/showlove/amillionwomenafrica"
-        class="hover:text-[#e8000d] transition-colors duration-150"
+        href="donate.html"
+        class="mobile-nav-link text-white font-bold uppercase tracking-[0.12em] text-base hover:text-[#e8000d] transition py-2"
         >Donate</a
       >
-    </nav>
+    </div>
 
-    <!-- SMALL HERO / TITLE SECTION -->
+    <!-- HERO SECTION (Solemn assembly title) -->
     <section
       class="relative w-full pt-32 pb-12 bg-[#0a0a0a] text-white text-center overflow-hidden"
     >
@@ -265,7 +373,7 @@
           2026
         </p>
       </div>
-      <!-- Torn edge bottom -->
+      <!-- torn edge decorative -->
       <div class="absolute bottom-[-1px] left-0 w-full leading-[0] z-20">
         <svg
           class="relative block w-full h-[50px]"
@@ -282,9 +390,9 @@
 
     <div class="kente-bar"></div>
 
-    <!-- TWO‑COLUMN FLYER SECTION (background images) -->
+    <!-- TWO COLUMN FLYERS (NIGERIA + SOUTH AFRICA) -->
     <div class="grid grid-cols-1 md:grid-cols-2">
-      <!-- NIGERIA LEFT – replace background URL with actual Nigerian flyer -->
+      <!-- NIGERIA (left) -->
       <div
         class="landmark-half nigeria-flyer text-center p-8 flex flex-col items-center justify-center fade-up"
       >
@@ -301,15 +409,14 @@
           href="https://www.eventbrite.com/e/nigeria-solemn-assembly-tickets-AMWA-NG"
           target="_blank"
           class="register-btn"
+          >Register for Nigeria →</a
         >
-          Register for Nigeria →
-        </a>
         <p class="text-white/70 text-xs mt-4 italic">
           You will be redirected to Eventbrite
         </p>
       </div>
 
-      <!-- SOUTH AFRICA RIGHT – replace background URL with actual South African flyer -->
+      <!-- SOUTH AFRICA (right) -->
       <div
         class="landmark-half southafrica-flyer text-center p-8 flex flex-col items-center justify-center fade-up"
       >
@@ -327,16 +434,15 @@
           href="https://www.eventbrite.com/e/south-africa-solemn-assembly-tickets-AMWA-ZA"
           target="_blank"
           class="register-btn"
+          >Register for South Africa →</a
         >
-          Register for South Africa →
-        </a>
         <p class="text-white/70 text-xs mt-4 italic">
           You will be redirected to Eventbrite
         </p>
       </div>
     </div>
 
-    <!-- FOOTER (identical to AMWA site) -->
+    <!-- FOOTER (original AMWA style) -->
     <footer class="bg-[#0a0a0a] text-white w-full mt-0">
       <div
         class="text-center py-10 px-6 font-bebas text-[clamp(1.75rem,4vw,3.25rem)] tracking-[0.04em] border-b border-white/10"
@@ -378,7 +484,7 @@
             >Get Involved</a
           >
           <a
-            href="https://selar.com/showlove/amillionwomenafrica"
+            href="donate.html"
             target="_blank"
             class="text-[0.6875rem] font-bold tracking-[0.1em] uppercase bg-[#e8000d] text-white py-[3px] px-2 rounded-sm transition-opacity hover:opacity-90"
             >DONATE</a
@@ -388,9 +494,12 @@
     </footer>
 
     <script>
-      lucide.createIcons();
+      // Initialize lucide icons (for decorative icons, not critical for hamburger)
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
 
-      // Sticky navbar on scroll
+      // ---------- STICKY NAVBAR SCROLL EFFECT ----------
       const navbar = document.getElementById('mainNavbar');
       window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -400,21 +509,134 @@
         }
       });
 
-      // Fade-up observer
+      // ---------- MOBILE MENU HAMBURGER LOGIC ----------
+      const menuToggle = document.getElementById('menuToggleBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const hamburgerIcon = document.getElementById('hamburgerIcon');
+      const closeIcon = document.getElementById('closeIcon');
+
+      // Helper to open/close menu
+      function openMobileMenu() {
+        mobileMenu.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // prevent background scroll when menu open (better UX)
+        if (hamburgerIcon && closeIcon) {
+          hamburgerIcon.style.opacity = '0';
+          hamburgerIcon.style.transform = 'scale(0.8)';
+          closeIcon.style.opacity = '1';
+          closeIcon.style.transform = 'scale(1)';
+        }
+      }
+
+      function closeMobileMenu() {
+        mobileMenu.classList.add('hidden');
+        document.body.style.overflow = '';
+        if (hamburgerIcon && closeIcon) {
+          hamburgerIcon.style.opacity = '1';
+          hamburgerIcon.style.transform = 'scale(1)';
+          closeIcon.style.opacity = '0';
+          closeIcon.style.transform = 'scale(0.9)';
+        }
+      }
+
+      function toggleMobileMenu() {
+        if (mobileMenu.classList.contains('hidden')) {
+          openMobileMenu();
+        } else {
+          closeMobileMenu();
+        }
+      }
+
+      if (menuToggle) {
+        menuToggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleMobileMenu();
+        });
+      }
+
+      // Close mobile menu when a nav link is clicked (on mobile)
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+      mobileNavLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          closeMobileMenu();
+        });
+      });
+
+      // On window resize: if the viewport becomes desktop (>=768px) and menu is open, auto-close and reset
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) {
+          if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+            closeMobileMenu();
+          }
+          document.body.style.overflow = '';
+        }
+      });
+
+      // Optionally close if clicking outside the menu (on document tap, but not on toggle button)
+      document.addEventListener('click', (event) => {
+        const isClickInsideMenu =
+          mobileMenu &&
+          !mobileMenu.classList.contains('hidden') &&
+          mobileMenu.contains(event.target);
+        const isClickOnToggle = menuToggle && menuToggle.contains(event.target);
+        if (
+          !isClickInsideMenu &&
+          !isClickOnToggle &&
+          mobileMenu &&
+          !mobileMenu.classList.contains('hidden')
+        ) {
+          closeMobileMenu();
+        }
+      });
+
+      // Prevent background scrolling issues while menu is open & touchmove
+      mobileMenu?.addEventListener('touchmove', (e) => {
+        e.stopPropagation();
+      });
+
+      // ---------- FADE-UP OBSERVER (scroll reveal) ----------
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting) entry.target.classList.add('visible');
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
           });
         },
-        { threshold: 0.12 }
+        { threshold: 0.12, rootMargin: '0px 0px -20px 0px' }
       );
+
       document
         .querySelectorAll('.fade-up')
         .forEach((el) => observer.observe(el));
+
+      // Force hero text visible (already animated by CSS)
       document
         .querySelectorAll('.hero-fade')
         .forEach((el) => (el.style.opacity = '1'));
+
+      // Ensure that the register buttons and content stay accessible (no conflict)
+      // Additional small fix: images lazy? nothing needed.
+
+      // Handle dynamic logo icons/smooth navbar init (set initial state to transparent)
+      if (window.scrollY === 0) {
+        navbar.classList.remove('navbar-scrolled');
+      }
+
+      // Prevents any possible mobile menu flickering on load
+      if (mobileMenu) mobileMenu.classList.add('hidden');
+      if (closeIcon && hamburgerIcon) {
+        closeIcon.style.opacity = '0';
+        closeIcon.style.transform = 'scale(0.9)';
+        hamburgerIcon.style.opacity = '1';
+        hamburgerIcon.style.transform = 'scale(1)';
+      }
+
+      // Edge: in case some dynamic content loads later, set background images fully
+      // Already set in inline classes - no issue.
+      // Force Lucide icons inside footer after any potential update:
+      setTimeout(() => {
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      }, 100);
     </script>
   </body>
 </html>

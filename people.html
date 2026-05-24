@@ -103,16 +103,97 @@
         justify-content: center;
         color: #9ca3af;
       }
+
+      /* Mobile Menu Styles */
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: 100vh;
+        height: 100dvh;
+        background: #0a0a0a;
+        z-index: 9999;
+        transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem;
+        overflow-y: auto;
+      }
+      .mobile-menu.open {
+        right: 0;
+      }
+      .mobile-menu-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 9998;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease;
+      }
+      .mobile-menu-overlay.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      body.no-scroll {
+        overflow: hidden;
+      }
+      .mobile-menu a {
+        display: block;
+        padding: 0.85rem 0;
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #ffffff;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: color 0.15s;
+        text-decoration: none;
+      }
+      .mobile-menu a:hover {
+        color: #e8000d;
+      }
+      .mobile-menu-close {
+        align-self: flex-end;
+        background: none;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+      }
     </style>
   </head>
   <body class="text-[1rem] md:text-[1.0625rem]">
+    <!-- MOBILE MENU OVERLAY -->
+    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+
+    <!-- MOBILE SIDE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+      <button
+        class="mobile-menu-close"
+        id="mobileMenuClose"
+        aria-label="Close menu"
+      >
+        <i data-lucide="x" stroke-width="2" class="w-7 h-7"></i>
+      </button>
+      <a href="index.html">Home</a>
+      <a href="story.html">Story</a>
+      <a href="people.html">People</a>
+      <a href="get-involved.html">Get Involved</a>
+      <a href="donate.html">Donate</a>
+    </div>
+
     <!-- SHARED NAVBAR -->
     <nav
       class="sticky top-0 z-[1000] bg-[#0a0a0a] h-[3.75rem] flex items-center justify-between px-6 md:px-12"
     >
       <div class="flex items-center gap-2 text-white">
         <i data-lucide="globe" stroke-width="1.5" class="w-6 h-6"></i>
-        <span class="font-bebas text-[1.75rem] tracking-[0.03em] mt-1"
+        <span
+          class="font-bebas text-[1.5rem] sm:text-[1.75rem] tracking-[0.03em] mt-1"
           >A MILLION WOMEN AFRICA</span
         >
       </div>
@@ -141,16 +222,19 @@
           >Get Involved</a
         >
         <a
-          href="https://selar.com/showlove/amillionwomenafrica"
-          target="_blank"
+          href="donate.html"
           class="hover:text-[#e8000d] transition-colors duration-150"
           >Donate</a
         >
       </div>
 
-      <!-- Mobile menu icon placeholder -->
-      <button class="lg:hidden text-white">
-        <i data-lucide="menu" stroke-width="1.5" class="w-6 h-6"></i>
+      <!-- Mobile hamburger button -->
+      <button
+        class="lg:hidden text-white p-1 -mr-1"
+        id="mobileHamburger"
+        aria-label="Open menu"
+      >
+        <i data-lucide="menu" stroke-width="2" class="w-7 h-7"></i>
       </button>
     </nav>
 
@@ -194,14 +278,14 @@
         </p>
       </header>
 
-      <!-- 2. CONTINENTAL TEAM (large circles, actual images) -->
+      <!-- 2. CONTINENTAL TEAM -->
       <section class="max-w-[75rem] mx-auto px-6 pb-16 pt-4">
         <h2
           class="font-bebas text-[2.375rem] text-[#0a0a0a] tracking-tight text-center mb-10 fade-up"
         >
           CONTINENTAL TEAM
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- Apostle Isi Igenegba -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
@@ -224,9 +308,6 @@
               class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
             >
               Continental Apostolic Lead
-            </p>
-            <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              Visionary leader carrying the mandate for A Million Women Africa.
             </p>
           </div>
 
@@ -253,10 +334,6 @@
             >
               Director
             </p>
-            <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              Overseeing operations and strategic implementation across the
-              continent.
-            </p>
           </div>
 
           <!-- Pastor Sarah Seeggane -->
@@ -281,9 +358,6 @@
               class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
             >
               Ministry Relations Lead
-            </p>
-            <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              Building bridges with churches and ministries for united prayer.
             </p>
           </div>
 
@@ -310,22 +384,24 @@
             >
               Administrator
             </p>
-            <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              Ensuring smooth coordination and support for all AMWA initiatives.
-            </p>
           </div>
         </div>
       </section>
 
-      <!-- 3. REGIONAL PRAYER COORDINATORS (smaller circles, FIXED images) -->
+      <!-- 3. REGIONAL PRAYER COORDINATORS -->
       <section class="max-w-[75rem] mx-auto px-6 pb-16 pt-4">
         <h2
-          class="font-bebas text-[2.375rem] text-[#0a0a0a] tracking-tight text-center mb-10 fade-up"
+          class="font-bebas text-[2.375rem] text-[#0a0a0a] tracking-tight text-center mb-2 fade-up"
         >
           REGIONAL PRAYER COORDINATORS
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Coordinator 1 - West Africa -->
+        <p
+          class="text-center text-[0.875rem] text-[#666666] italic mb-10 fade-up"
+        >
+          Coordinating prayer across Africa's regions.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Coordinator 1 - East Africa -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
           >
@@ -344,12 +420,9 @@
               Minister Selam Bekele
             </h3>
             <p
-              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
+              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d]"
             >
               East Africa Region
-            </p>
-            <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              Leading intercessory teams across East Africa.
             </p>
           </div>
           <!-- Coordinator 2 - Western Africa -->
@@ -371,12 +444,9 @@
               Pastor Petronela Deba
             </h3>
             <p
-              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
+              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d]"
             >
               Western African Region
-            </p>
-            <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              Mobilizing prayer hubs in Western Africa
             </p>
           </div>
           <!-- Coordinator 3 - Southern Africa -->
@@ -398,13 +468,9 @@
               Minister Venilla Marimotoo
             </h3>
             <p
-              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
+              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d]"
             >
               Southern Africa Region
-            </p>
-            <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              Coordinating solemn assemblies in South Africa and neighbouring
-              nations.
             </p>
           </div>
         </div>
@@ -455,210 +521,272 @@
         <span class="adinkra-line"></span>
       </div>
 
-      <!-- 4. NIGERIA'S NATIONAL TEAM (silhouettes, no photos) -->
+      <!-- 4. NIGERIA'S NATIONAL TEAM -->
       <section class="max-w-[75rem] mx-auto px-6 pb-16 pt-4">
         <h2
           class="font-bebas text-[2.375rem] text-[#0a0a0a] tracking-tight text-center mb-10 fade-up"
         >
           NIGERIA'S NATIONAL TEAM
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- Placeholder 1 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Rev Victor Adeyemi -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
           >
             <div
-              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-5xl"
+              class="w-28 h-28 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-4xl"
             >
               👤
             </div>
             <h3
-              class="font-bebas text-[1.75rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
+              class="font-bebas text-[1.5rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
             >
-              Nigeria Lead 1
+              Rev Victor Adeyemi
             </h3>
             <p
-              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
+              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d]"
+            >
+              Apostolic Lead
+            </p>
+          </div>
+          <!-- Delphine Wonder -->
+          <div
+            class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
+          >
+            <div
+              class="w-28 h-28 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-4xl"
+            >
+              👤
+            </div>
+            <h3
+              class="font-bebas text-[1.5rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
+            >
+              Delphine Wonder
+            </h3>
+            <p
+              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d]"
             >
               National Coordinator
             </p>
-            <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              (Name & details coming soon)
-            </p>
           </div>
-          <!-- Placeholder 2 -->
+          <!-- Pastor Yemi Davids -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
           >
             <div
-              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-5xl"
+              class="w-28 h-28 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-4xl"
             >
               👤
             </div>
             <h3
-              class="font-bebas text-[1.75rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
+              class="font-bebas text-[1.5rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
             >
-              Nigeria Lead 2
+              Pastor Yemi Davids
             </h3>
             <p
-              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
+              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d]"
             >
-              Prayer Hub Director
-            </p>
-            <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              (Name & details coming soon)
+              &nbsp;
             </p>
           </div>
-          <!-- Placeholder 3 -->
+          <!-- Pastor Gideon Mba -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
           >
             <div
-              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-5xl"
+              class="w-28 h-28 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-4xl"
             >
               👤
             </div>
             <h3
-              class="font-bebas text-[1.75rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
+              class="font-bebas text-[1.5rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
             >
-              Nigeria Lead 3
+              Pastor Gideon Mba
             </h3>
             <p
-              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
+              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d]"
             >
-              Administrative Lead
-            </p>
-            <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              (Name & details coming soon)
+              &nbsp;
             </p>
           </div>
-          <!-- Placeholder 4 -->
+          <!-- Pastor Dare -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
           >
             <div
-              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-5xl"
+              class="w-28 h-28 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-4xl"
             >
               👤
             </div>
             <h3
-              class="font-bebas text-[1.75rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
+              class="font-bebas text-[1.5rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
             >
-              Nigeria Lead 4
+              Pastor Dare
             </h3>
             <p
-              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
+              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d]"
             >
-              Youth & Mobilization
+              &nbsp;
             </p>
-            <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              (Name & details coming soon)
+          </div>
+          <!-- Yemi Adamolekun -->
+          <div
+            class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
+          >
+            <div
+              class="w-28 h-28 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-4xl"
+            >
+              👤
+            </div>
+            <h3
+              class="font-bebas text-[1.5rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
+            >
+              Yemi Adamolekun
+            </h3>
+            <p
+              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d]"
+            >
+              &nbsp;
             </p>
           </div>
         </div>
+        <p
+          class="text-center text-[0.75rem] text-[#999999] italic mt-8 fade-up"
+        ></p>
       </section>
 
-      <!-- 5. SOUTH AFRICA'S NATIONAL TEAM (silhouettes) -->
+      <!-- 5. SOUTH AFRICA'S NATIONAL TEAM -->
       <section class="max-w-[75rem] mx-auto px-6 pb-16 pt-4">
         <h2
           class="font-bebas text-[2.375rem] text-[#0a0a0a] tracking-tight text-center mb-10 fade-up"
         >
           SOUTH AFRICA'S NATIONAL TEAM
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- Placeholder 1 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Dr Pearl Kupe -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
           >
             <div
-              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-5xl"
+              class="w-28 h-28 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-4xl"
             >
               👤
             </div>
             <h3
-              class="font-bebas text-[1.75rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
+              class="font-bebas text-[1.5rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
             >
-              SA Lead 1
+              Dr Pearl Kupe
             </h3>
             <p
-              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
+              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d]"
             >
-              National Coordinator
-            </p>
-            <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              (Name & details coming soon)
+              &nbsp;
             </p>
           </div>
-          <!-- Placeholder 2 -->
+          <!-- Engelize DeLange -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
           >
             <div
-              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-5xl"
+              class="w-28 h-28 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-4xl"
             >
               👤
             </div>
             <h3
-              class="font-bebas text-[1.75rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
+              class="font-bebas text-[1.5rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
             >
-              SA Lead 2
+              Engelize DeLange
             </h3>
             <p
-              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
+              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d]"
             >
-              Prayer Hub Director
-            </p>
-            <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              (Name & details coming soon)
+              &nbsp;
             </p>
           </div>
-          <!-- Placeholder 3 -->
+          <!-- Nontobeko Ndlovu -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
           >
             <div
-              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-5xl"
+              class="w-28 h-28 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-4xl"
             >
               👤
             </div>
             <h3
-              class="font-bebas text-[1.75rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
+              class="font-bebas text-[1.5rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
             >
-              SA Lead 3
+              Nontobeko Ndlovu
             </h3>
             <p
-              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
+              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d]"
             >
-              Administrative Lead
-            </p>
-            <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              (Name & details coming soon)
+              &nbsp;
             </p>
           </div>
-          <!-- Placeholder 4 -->
+          <!-- Liza Englebrecht -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
           >
             <div
-              class="w-32 h-32 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-5xl"
+              class="w-28 h-28 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-4xl"
             >
               👤
             </div>
             <h3
-              class="font-bebas text-[1.75rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
+              class="font-bebas text-[1.5rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
             >
-              SA Lead 4
+              Liza Englebrecht
             </h3>
             <p
-              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d] mb-3"
+              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d]"
             >
-              Youth & Mobilization
+              &nbsp;
             </p>
-            <p class="text-[0.8125rem] leading-relaxed text-[#444444]">
-              (Name & details coming soon)
+          </div>
+          <!-- Sylvia Siphugu Ravhutulu -->
+          <div
+            class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
+          >
+            <div
+              class="w-28 h-28 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-4xl"
+            >
+              👤
+            </div>
+            <h3
+              class="font-bebas text-[1.5rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
+            >
+              Sylvia Siphugu Ravhutulu
+            </h3>
+            <p
+              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d]"
+            >
+              &nbsp;
+            </p>
+          </div>
+          <!-- Dr. David McDonald -->
+          <div
+            class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-6 text-center fade-up"
+          >
+            <div
+              class="w-28 h-28 mx-auto mb-5 rounded-full border-2 border-[#c9a84c] silhouette flex items-center justify-center text-4xl"
+            >
+              👤
+            </div>
+            <h3
+              class="font-bebas text-[1.5rem] tracking-[0.04em] text-[#0a0a0a] mb-1"
+            >
+              Dr. David McDonald
+            </h3>
+            <p
+              class="font-bold uppercase text-[0.6875rem] tracking-[0.12em] text-[#e8000d]"
+            >
+              &nbsp;
             </p>
           </div>
         </div>
+        <p
+          class="text-center text-[0.75rem] text-[#999999] italic mt-8 fade-up"
+        ></p>
       </section>
 
       <!-- 6. CTA BANNER -->
@@ -728,7 +856,7 @@
             >Get Involved</a
           >
           <a
-            href="https://selar.com/showlove/amillionwomenafrica"
+            href="donate.hml"
             target="_blank"
             class="text-[0.6875rem] font-bold tracking-[0.1em] uppercase bg-[#e8000d] text-white py-[3px] px-2 rounded-sm transition-opacity hover:opacity-90 mt-1 md:mt-0"
             >DONATE</a
@@ -740,6 +868,8 @@
     <!-- Initialize Scripts -->
     <script>
       lucide.createIcons();
+
+      // Scroll animations
       document.addEventListener('DOMContentLoaded', () => {
         const observer = new IntersectionObserver(
           (entries) => {
@@ -755,6 +885,43 @@
         document
           .querySelectorAll('.fade-up')
           .forEach((el) => observer.observe(el));
+      });
+
+      // Mobile menu logic
+      const hamburger = document.getElementById('mobileHamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileOverlay = document.getElementById('mobileOverlay');
+      const mobileClose = document.getElementById('mobileMenuClose');
+      const body = document.body;
+
+      function openMenu() {
+        mobileMenu.classList.add('open');
+        mobileOverlay.classList.add('open');
+        body.classList.add('no-scroll');
+      }
+
+      function closeMenu() {
+        mobileMenu.classList.remove('open');
+        mobileOverlay.classList.remove('open');
+        body.classList.remove('no-scroll');
+      }
+
+      hamburger.addEventListener('click', openMenu);
+      mobileClose.addEventListener('click', closeMenu);
+      mobileOverlay.addEventListener('click', closeMenu);
+
+      // Close menu when a link inside mobile menu is clicked
+      mobileMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          closeMenu();
+        });
+      });
+
+      // Close menu on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+          closeMenu();
+        }
       });
     </script>
   </body>

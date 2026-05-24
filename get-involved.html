@@ -2,7 +2,10 @@
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"
+    />
     <title>Get Involved · A Million Women Africa</title>
 
     <!-- Google Fonts: Bebas Neue & Courier Prime -->
@@ -44,7 +47,7 @@
         font-family: 'Bebas Neue', sans-serif;
       }
 
-      /* African Christian Design System Elements */
+      /* Kente pattern */
       .kente-bar {
         height: 0.25rem;
         width: 100%;
@@ -102,55 +105,111 @@
         margin-top: 0.5rem;
         text-align: center;
       }
+
+      /* Mobile menu smooth transition */
+      .mobile-menu-open {
+        max-height: 380px;
+        opacity: 1;
+        visibility: visible;
+        transition: max-height 0.35s ease-in-out, opacity 0.25s ease,
+          visibility 0s;
+      }
+      .mobile-menu-closed {
+        max-height: 0px;
+        opacity: 0;
+        visibility: hidden;
+        transition: max-height 0.3s ease-in-out, opacity 0.2s ease,
+          visibility 0s 0.2s;
+      }
     </style>
   </head>
   <body class="text-[1rem] md:text-[1.0625rem]">
-    <!-- SHARED NAVBAR -->
-    <nav
-      class="sticky top-0 z-[1000] bg-[#0a0a0a] h-[3.75rem] flex items-center justify-between px-6 md:px-12"
-    >
-      <div class="flex items-center gap-2 text-white">
-        <i data-lucide="globe" stroke-width="1.5" class="w-6 h-6"></i>
-        <span class="font-bebas text-[1.75rem] tracking-[0.03em] mt-1"
-          >A MILLION WOMEN AFRICA</span
+    <!-- SHARED NAVBAR with fully responsive hamburger menu -->
+    <nav class="sticky top-0 z-[1000] bg-[#0a0a0a] w-full">
+      <div class="h-[3.75rem] flex items-center justify-between px-6 md:px-12">
+        <div class="flex items-center gap-2 text-white">
+          <i data-lucide="globe" stroke-width="1.5" class="w-6 h-6"></i>
+          <span
+            class="font-bebas text-[1.75rem] tracking-[0.03em] mt-1 leading-tight whitespace-nowrap"
+            >A MILLION WOMEN AFRICA</span
+          >
+        </div>
+
+        <!-- Desktop navigation -->
+        <div
+          class="hidden lg:flex items-center gap-8 font-bold text-[0.8125rem] uppercase tracking-[0.1em] text-white"
         >
+          <a
+            href="index.html"
+            class="hover:text-[#e8000d] transition-colors duration-150"
+            >Home</a
+          >
+          <a
+            href="story.html"
+            class="hover:text-[#e8000d] transition-colors duration-150"
+            >Story</a
+          >
+          <a
+            href="people.html"
+            class="hover:text-[#e8000d] transition-colors duration-150"
+            >People</a
+          >
+          <a
+            href="get-involved.html"
+            class="hover:text-[#e8000d] transition-colors duration-150"
+            >Get Involved</a
+          >
+          <a
+            href="donate.html"
+            class="hover:text-[#e8000d] transition-colors duration-150"
+            >Donate</a
+          >
+        </div>
+
+        <!-- Mobile hamburger button -->
+        <button
+          id="mobileMenuButton"
+          class="lg:hidden text-white focus:outline-none z-20"
+          aria-label="Menu"
+        >
+          <i data-lucide="menu" stroke-width="1.5" class="w-7 h-7"></i>
+        </button>
       </div>
 
+      <!-- Mobile menu drawer (accordion style) -->
       <div
-        class="hidden lg:flex items-center gap-8 font-bold text-[0.8125rem] uppercase tracking-[0.1em] text-white"
+        id="mobileMenuDrawer"
+        class="lg:hidden bg-[#0a0a0a] w-full overflow-hidden mobile-menu-closed shadow-lg border-t border-white/10"
       >
-        <a
-          href="index.html"
-          class="hover:text-[#e8000d] transition-colors duration-150"
-          >Home</a
-        >
-        <a
-          href="story.html"
-          class="hover:text-[#e8000d] transition-colors duration-150"
-          >Story</a
-        >
-        <a
-          href="people.html"
-          class="hover:text-[#e8000d] transition-colors duration-150"
-          >People</a
-        >
-        <a
-          href="get-involved.html"
-          class="hover:text-[#e8000d] transition-colors duration-150"
-          >Get Involved</a
-        >
-        <a
-          href="https://selar.com/showlove/amillionwomenafrica"
-          target="_blank"
-          class="hover:text-[#e8000d] transition-colors duration-150"
-          >Donate</a
-        >
+        <div class="flex flex-col px-6 py-6 gap-5 text-white">
+          <a
+            href="index.html"
+            class="font-bold text-[1rem] uppercase tracking-[0.12em] py-2 border-b border-white/20 hover:text-[#e8000d] transition"
+            >Home</a
+          >
+          <a
+            href="story.html"
+            class="font-bold text-[1rem] uppercase tracking-[0.12em] py-2 border-b border-white/20 hover:text-[#e8000d] transition"
+            >Story</a
+          >
+          <a
+            href="people.html"
+            class="font-bold text-[1rem] uppercase tracking-[0.12em] py-2 border-b border-white/20 hover:text-[#e8000d] transition"
+            >People</a
+          >
+          <a
+            href="get-involved.html"
+            class="font-bold text-[1rem] uppercase tracking-[0.12em] py-2 border-b border-white/20 text-[#e8000d]"
+            >Get Involved</a
+          >
+          <a
+            href="donate.html"
+            target="_blank"
+            class="font-bold text-[1rem] uppercase tracking-[0.12em] py-2 border-b border-white/20 hover:text-[#e8000d] transition"
+            >Donate</a
+          >
+        </div>
       </div>
-
-      <!-- Mobile menu icon placeholder -->
-      <button class="lg:hidden text-white">
-        <i data-lucide="menu" stroke-width="1.5" class="w-6 h-6"></i>
-      </button>
     </nav>
 
     <!-- Torn edge below navbar -->
@@ -169,20 +228,15 @@
         style="width: 100%; height: 2rem; display: block"
       >
         <path
-          d="M0,0 L0,18 L30,8 L60,22 L90,10 L120,24 L155,6 L185,20 L215,8 L245,22
-                     L275,12 L310,26 L340,4 L370,18 L400,8 L435,24 L465,10 L495,22 L525,6
-                     L555,20 L590,10 L620,26 L650,8 L680,22 L715,12 L745,28 L775,6 L810,20
-                     L840,10 L870,24 L900,8 L935,22 L965,12 L995,26 L1025,6 L1060,20 L1090,10
-                     L1120,24 L1150,8 L1185,22 L1215,12 L1245,28 L1275,8 L1310,22 L1340,10
-                     L1370,26 L1400,8 L1440,18 L1440,0 Z"
+          d="M0,0 L0,18 L30,8 L60,22 L90,10 L120,24 L155,6 L185,20 L215,8 L245,22 L275,12 L310,26 L340,4 L370,18 L400,8 L435,24 L465,10 L495,22 L525,6 L555,20 L590,10 L620,26 L650,8 L680,22 L715,12 L745,28 L775,6 L810,20 L840,10 L870,24 L900,8 L935,22 L965,12 L995,26 L1025,6 L1060,20 L1090,10 L1120,24 L1150,8 L1185,22 L1215,12 L1245,28 L1275,8 L1310,22 L1340,10 L1370,26 L1400,8 L1440,18 L1440,0 Z"
           fill="#0a0a0a"
         ></path>
       </svg>
     </div>
 
-    <!-- PAGE CONTENT -->
+    <!-- MAIN CONTENT -->
     <main>
-      <!-- 1. PAGE HERO -->
+      <!-- PAGE HERO -->
       <div class="kente-bar"></div>
       <header class="text-center pt-[4.5rem] px-6 pb-12 fade-up">
         <h1
@@ -198,7 +252,7 @@
         </p>
       </header>
 
-      <!-- 📷 HERO IMAGE: continental gathering visual to break initial text area -->
+      <!-- HERO IMAGE -->
       <div class="max-w-[75rem] mx-auto px-6 pb-12 fade-up">
         <img
           src="https://placehold.co/1400x500/0a0a0a/c8e645?text=AFRICA+RISING+IN+PRAYER"
@@ -211,16 +265,15 @@
         </div>
       </div>
 
-      <!-- 2. THREE PATHWAYS (cards) -->
-      <section class="max-w-[75rem] mx-auto px-6 pb-16 pt-4">
+      <!-- 1. THREE PATHWAYS (cards) -->
+      <section class="max-w-[75rem] mx-auto px-6 pb-10 pt-4">
         <h2
           class="font-bebas text-[2.375rem] text-[#0a0a0a] tracking-tight text-center mb-10 fade-up"
         >
           WAYS TO JOIN THE MOVEMENT
         </h2>
-
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Pathway 1: Lead Prayer -->
+          <!-- Pathway 1 -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-8 text-center fade-up"
             style="transition-delay: 0.1s"
@@ -244,8 +297,7 @@
               (If your nation is not listed, you may be called to pioneer it.)
             </p>
           </div>
-
-          <!-- Pathway 2: Connect with Intercessors in Your Nation -->
+          <!-- Pathway 2 -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-8 text-center fade-up"
             style="transition-delay: 0.2s"
@@ -266,12 +318,11 @@
               >CONNECT →</a
             >
             <p class="text-[0.6875rem] text-[#777] mt-4 tracking-wide">
-              (If your nation is not listed, we would love for you to bring A
-              Million Women Africa to your nation.)
+              (If your nation is not listed, we would love for you to bring AMWA
+              to your nation.)
             </p>
           </div>
-
-          <!-- Pathway 3: Attend a Gathering -->
+          <!-- Pathway 3 -->
           <div
             class="bg-white border border-[#e0e0e0] border-t-[4px] border-t-[#c9a84c] p-8 text-center fade-up"
             style="transition-delay: 0.3s"
@@ -298,7 +349,169 @@
         </div>
       </section>
 
-      <!-- 📷 INSPIRATIONAL IMAGE: worship and unity after the cards -->
+      <!-- NEW SECTION: ADDITIONAL CONNECTION OPTIONS (boxes beneath existing pathways) -->
+      <section class="max-w-[75rem] mx-auto px-6 pb-16">
+        <div class="adinkra-divider my-4 fade-up">
+          <span class="adinkra-line"></span>
+          <span class="font-bebas text-[1.2rem] tracking-[0.2em] text-[#c9a84c]"
+            >➕ MORE WAYS TO CONNECT</span
+          >
+          <span class="adinkra-line"></span>
+        </div>
+        <h2
+          class="font-bebas text-[2rem] md:text-[2.375rem] text-[#0a0a0a] tracking-tight text-center mb-12 fade-up"
+        >
+          JOIN THE PRAYER MOVEMENT
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+          <!-- Daily Prayer Watch -->
+          <div
+            class="bg-[#fefcf6] border border-[#e2dccd] border-l-[6px] border-l-[#c8e645] p-6 shadow-sm hover:shadow-md transition-all duration-200 fade-up"
+            style="transition-delay: 0.05s"
+          >
+            <div class="flex items-center gap-3 mb-3">
+              <i data-lucide="clock" class="w-7 h-7 text-[#c9a84c]"></i>
+              <h3 class="font-bebas text-[1.8rem] tracking-wide text-[#0a0a0a]">
+                Daily Prayer Watch
+              </h3>
+            </div>
+            <p class="text-[0.9rem] text-[#3a3a3a] mb-4 leading-relaxed">
+              Join the 24/7 intercessory chain covering Africa. Take a 1-hour
+              slot to pray for revival, peace and continental breakthrough.
+            </p>
+            <a
+              href="#"
+              class="inline-flex items-center gap-1 text-[0.75rem] font-bold uppercase tracking-wider text-[#e8000d] border-b border-[#e8000d]/30 hover:border-[#e8000d] transition"
+              >SIGN UP FOR SLOT →</a
+            >
+          </div>
+
+          <!-- Zoom Link - dedicated space -->
+          <div
+            class="bg-[#fefcf6] border border-[#e2dccd] border-l-[6px] border-l-[#c9a84c] p-6 shadow-sm hover:shadow-md transition-all duration-200 fade-up"
+            style="transition-delay: 0.1s"
+          >
+            <div class="flex items-center gap-3 mb-3">
+              <i data-lucide="video" class="w-7 h-7 text-[#c9a84c]"></i>
+              <h3 class="font-bebas text-[1.8rem] tracking-wide text-[#0a0a0a]">
+                Zoom Prayer Link
+              </h3>
+            </div>
+            <p class="text-[0.9rem] text-[#3a3a3a] mb-3">
+              Weekly Continental Intercession Call<br /><span class="font-bold"
+                >Every Thursday | 7 PM GMT+1</span
+              >
+            </p>
+            <div
+              class="bg-[#0a0a0a]/5 p-2 rounded-md mb-4 font-mono text-[0.7rem] break-all text-[#222]"
+            >
+              Meeting ID: 876 1043 2891 | Passcode: AMWA2026
+            </div>
+            <a
+              href="https://us06web.zoom.us/j/87610432891?pwd=QVNlblpldGRLdU5aL2hKdUlrbnpZUT09"
+              target="_blank"
+              class="inline-block bg-[#e8000d] text-white text-[0.7rem] font-bold uppercase tracking-wider px-5 py-2 rounded-sm hover:bg-[#b3000a] transition"
+              >JOIN ZOOM GATHERING →</a
+            >
+          </div>
+
+          <!-- WhatsApp Channel -->
+          <div
+            class="bg-[#fefcf6] border border-[#e2dccd] border-l-[6px] border-l-[#c8e645] p-6 shadow-sm hover:shadow-md transition-all duration-200 fade-up"
+            style="transition-delay: 0.15s"
+          >
+            <div class="flex items-center gap-3 mb-3">
+              <i
+                data-lucide="message-circle"
+                class="w-7 h-7 text-[#25D366]"
+              ></i>
+              <h3 class="font-bebas text-[1.8rem] tracking-wide text-[#0a0a0a]">
+                WhatsApp Channel
+              </h3>
+            </div>
+            <p class="text-[0.9rem] text-[#3a3a3a] mb-5">
+              Get real-time prayer points, urgent alerts, and prophetic updates
+              from our official AMWA channel.
+            </p>
+            <a
+              href="https://whatsapp.com/channel/0029VaUxZk6A9cDd4eWjF23B"
+              target="_blank"
+              class="inline-flex items-center gap-2 text-[0.75rem] font-bold uppercase tracking-wider bg-[#25D366] text-white px-5 py-2 rounded-sm hover:bg-[#128C7E] transition"
+              >Join Channel →</a
+            >
+          </div>
+
+          <!-- Instagram -->
+          <div
+            class="bg-[#fefcf6] border border-[#e2dccd] border-l-[6px] border-l-[#c9a84c] p-6 shadow-sm hover:shadow-md transition-all duration-200 fade-up"
+            style="transition-delay: 0.2s"
+          >
+            <div class="flex items-center gap-3 mb-3">
+              <i data-lucide="instagram" class="w-7 h-7 text-[#E4405F]"></i>
+              <h3 class="font-bebas text-[1.8rem] tracking-wide text-[#0a0a0a]">
+                Instagram
+              </h3>
+            </div>
+            <p class="text-[0.9rem] text-[#3a3a3a] mb-5">
+              Follow daily devotionals, testimonies, and live prayer updates.
+              Join the global community.
+            </p>
+            <a
+              href="https://instagram.com/amillionwomenafrica"
+              target="_blank"
+              class="inline-flex items-center gap-2 text-[0.75rem] font-bold uppercase tracking-wider bg-gradient-to-r from-[#833AB4] via-[#E1306C] to-[#F56040] text-white px-5 py-2 rounded-sm hover:opacity-90 transition"
+              >FOLLOW @AMWA →</a
+            >
+          </div>
+
+          <!-- YouTube -->
+          <div
+            class="bg-[#fefcf6] border border-[#e2dccd] border-l-[6px] border-l-[#c8e645] p-6 shadow-sm hover:shadow-md transition-all duration-200 fade-up"
+            style="transition-delay: 0.25s"
+          >
+            <div class="flex items-center gap-3 mb-3">
+              <i data-lucide="youtube" class="w-7 h-7 text-[#FF0000]"></i>
+              <h3 class="font-bebas text-[1.8rem] tracking-wide text-[#0a0a0a]">
+                YouTube
+              </h3>
+            </div>
+            <p class="text-[0.9rem] text-[#3a3a3a] mb-5">
+              Watch recorded solemn assemblies, teachings, and prophetic
+              declarations for Africa.
+            </p>
+            <a
+              href="https://youtube.com/@amillionwomenafrica"
+              target="_blank"
+              class="inline-flex items-center gap-2 text-[0.75rem] font-bold uppercase tracking-wider bg-[#FF0000] text-white px-5 py-2 rounded-sm hover:bg-[#cc0000] transition"
+              >SUBSCRIBE →</a
+            >
+          </div>
+
+          <!-- Bonus: Partner Email Alert (extra connection) -->
+          <div
+            class="bg-[#0a0a0a] text-white border-l-[6px] border-l-[#c9a84c] p-6 shadow-sm fade-up"
+            style="transition-delay: 0.3s"
+          >
+            <div class="flex items-center gap-3 mb-3">
+              <i data-lucide="mail" class="w-7 h-7 text-[#c8e645]"></i>
+              <h3 class="font-bebas text-[1.8rem] tracking-wide">
+                Prayer Alerts
+              </h3>
+            </div>
+            <p class="text-[0.85rem] text-white/80 mb-4">
+              Sign up for prophetic newsletters and urgent prayer initiatives.
+            </p>
+            <a
+              href="#"
+              class="inline-block border border-[#c8e645] text-[#c8e645] text-[0.7rem] font-bold uppercase px-5 py-2 hover:bg-[#c8e645] hover:text-black transition"
+              >SUBSCRIBE →</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- 📷 INSPIRATIONAL IMAGE: worship and unity (moved after connection boxes, but still present) -->
       <div class="max-w-[75rem] mx-auto px-6 pb-8 fade-up">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <img
@@ -364,16 +577,14 @@
         <span class="adinkra-line"></span>
       </div>
 
-      <!-- 3. EVENT SPECIFIC LINKS (Nigeria & SA) with additional imagery -->
+      <!-- 2026 SOLEMN ASSEMBLIES -->
       <section class="max-w-[55rem] mx-auto px-6 pb-16">
         <h2
           class="font-bebas text-[2.375rem] text-[#0a0a0a] tracking-tight text-center mb-10 fade-up"
         >
           2026 SOLEMN ASSEMBLIES
         </h2>
-
         <div class="flex flex-col md:flex-row gap-8">
-          <!-- NIGERIA -->
           <div
             class="flex-1 bg-[#f9f9f7] p-8 md:p-10 border-l-[4px] border-l-[#c9a84c] text-center fade-up"
             style="transition-delay: 0.1s"
@@ -401,8 +612,6 @@
               >NIGERIA PAGE →</a
             >
           </div>
-
-          <!-- SOUTH AFRICA -->
           <div
             class="flex-1 bg-[#f9f9f7] p-8 md:p-10 border-l-[4px] border-l-[#c9a84c] text-center fade-up"
             style="transition-delay: 0.2s"
@@ -431,8 +640,6 @@
             >
           </div>
         </div>
-
-        <!-- 📷 additional banner for 2026 vision -->
         <div class="mt-12 fade-up">
           <img
             src="https://placehold.co/1200x400/e8000d/ffffff?text=2026:+A+KAIROS+MOMENT+FOR+AFRICA"
@@ -447,10 +654,9 @@
         </div>
       </section>
 
-      <!-- ADINKRA DIVIDER -->
       <div class="adinkra-divider px-6 fade-up">
-        <span class="adinkra-line"></span>
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <span class="adinkra-line"></span
+        ><svg width="28" height="28" viewBox="0 0 28 28" fill="none">
           <ellipse
             cx="14"
             cy="8"
@@ -487,12 +693,11 @@
             stroke-width="1.5"
             fill="none"
           ></ellipse>
-          <circle cx="14" cy="14" r="2" fill="#c9a84c"></circle>
-        </svg>
-        <span class="adinkra-line"></span>
+          <circle cx="14" cy="14" r="2" fill="#c9a84c"></circle></svg
+        ><span class="adinkra-line"></span>
       </div>
 
-      <!-- 4. PRAYER RHYTHMS (now with side image for visual break) -->
+      <!-- PRAYER RHYTHMS SECTION -->
       <section class="bg-[#f9f9f7] w-full py-[5rem] px-6">
         <div class="max-w-[75rem] mx-auto">
           <h2
@@ -500,7 +705,6 @@
           >
             OUR PRAYER RHYTHMS
           </h2>
-
           <div class="flex flex-col md:flex-row gap-12 items-start fade-up">
             <div class="flex-1 space-y-6">
               <div class="bg-white p-6 border-l-[4px] border-[#c9a84c]">
@@ -540,11 +744,10 @@
                 </p>
               </div>
             </div>
-            <!-- 📷 prayer rhythms companion image -->
             <div class="flex-1">
               <img
                 src="https://placehold.co/700x900/c8e645/0a0a0a?text=NIGHT+OF+INTERCESSION"
-                alt="Night of prayer and intercession"
+                alt="Night of prayer"
                 class="w-full rounded-sm shadow-lg object-cover"
                 loading="lazy"
               />
@@ -556,7 +759,7 @@
         </div>
       </section>
 
-      <!-- 5. PARTNERSHIP SECTION (now with supporting image) -->
+      <!-- PARTNERSHIP SECTION -->
       <section class="max-w-[75rem] mx-auto py-[5rem] px-6">
         <div
           class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center fade-up"
@@ -593,11 +796,10 @@
               </p>
             </div>
           </div>
-          <!-- 📷 Partnership visual: church leaders gathering -->
           <div>
             <img
               src="https://placehold.co/800/0a0a0a/ffffff?text=CHURCHES+UNITED+IN+PRAYER"
-              alt="Church leaders partnering with AMWA"
+              alt="Church leaders"
               class="rounded-sm shadow-md w-full"
               loading="lazy"
             />
@@ -608,7 +810,7 @@
         </div>
       </section>
 
-      <!-- 6. CTA BANNER (already strong, but we keep it) -->
+      <!-- CTA BANNER -->
       <section class="bg-[#0a0a0a] w-full py-[5rem] px-6 text-center fade-up">
         <div class="max-w-[48rem] mx-auto">
           <h2
@@ -620,50 +822,41 @@
             "And who knows whether you have come to the kingdom for such a time
             as this?" — Esther 4:14
           </p>
-
           <div
             class="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
             <a
               href="story.html"
               class="inline-block bg-[#e8000d] text-white font-bold uppercase tracking-[0.12em] text-[0.9375rem] py-4 px-12 transition-transform hover:-translate-y-1"
-            >
-              READ OUR STORY →
-            </a>
-            <a
+              >READ OUR STORY →</a
+            ><a
               href="people.html"
               class="inline-block text-white text-[0.8125rem] hover:text-[#c8e645] transition-colors underline decoration-white/30 underline-offset-4"
+              >MEET THE TEAM →</a
             >
-              MEET THE TEAM →
-            </a>
           </div>
         </div>
       </section>
     </main>
 
-    <!-- SHARED FOOTER -->
+    <!-- FOOTER -->
     <footer class="bg-[#0a0a0a] text-white w-full">
-      <!-- Tagline banner -->
       <div
         class="text-center py-10 px-6 font-bebas text-[clamp(1.75rem,4vw,3.25rem)] tracking-[0.04em] border-b border-white/10"
       >
         JOIN THE MOVEMENT | CHANGE THE NATIONS
       </div>
-
-      <!-- Footer bottom bar -->
       <div
         class="flex flex-col md:flex-row items-start md:items-center justify-between py-7 px-6 md:px-12 gap-8 md:gap-5 flex-wrap"
       >
         <div class="font-bebas text-[2rem] tracking-[0.04em] leading-none">
           A MILLION WOMEN AFRICA
         </div>
-
         <div
           class="text-[0.6875rem] tracking-[0.08em] text-white/60 order-3 md:order-none w-full md:w-auto text-center md:text-left"
         >
           © 2026 Copyright AMWA
         </div>
-        <!-- nav -->
         <nav
           class="grid grid-cols-2 md:grid-cols-auto gap-x-6 gap-y-2 md:flex md:gap-x-6 md:items-center"
         >
@@ -671,19 +864,16 @@
             href="index.html"
             class="text-[0.6875rem] font-bold tracking-[0.1em] uppercase text-white/75 hover:text-white transition-colors"
             >HOME</a
-          >
-          <a
+          ><a
             href="story.html"
             class="text-[0.6875rem] font-bold tracking-[0.1em] uppercase text-white/75 hover:text-white transition-colors"
             >STORY</a
-          >
-          <a
+          ><a
             href="get-involved.html"
             class="text-[0.6875rem] font-bold tracking-[0.1em] uppercase bg-[#e8000d] text-white py-[3px] px-2 rounded-sm transition-opacity hover:opacity-90 mt-1 md:mt-0"
             >GET INVOLVED</a
-          >
-          <a
-            href="https://selar.com/showlove/amillionwomenafrica"
+          ><a
+            href="donate.html"
             target="_blank"
             class="text-[0.6875rem] font-bold tracking-[0.1em] uppercase bg-[#e8000d] text-white py-[3px] px-2 rounded-sm transition-opacity hover:opacity-90 mt-1 md:mt-0"
             >DONATE</a
@@ -692,20 +882,43 @@
       </div>
     </footer>
 
-    <!-- Initialize Scripts -->
     <script>
-      // Initialize Lucide Icons
+      // Initialize Lucide Icons (dynamic for all new icons)
       lucide.createIcons();
 
-      // Scroll Reveal Animation Observer
+      // Mobile Menu Hamburger Logic
+      const menuBtn = document.getElementById('mobileMenuButton');
+      const drawer = document.getElementById('mobileMenuDrawer');
+      if (menuBtn && drawer) {
+        menuBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isOpen = drawer.classList.contains('mobile-menu-open');
+          if (isOpen) {
+            drawer.classList.remove('mobile-menu-open');
+            drawer.classList.add('mobile-menu-closed');
+          } else {
+            drawer.classList.remove('mobile-menu-closed');
+            drawer.classList.add('mobile-menu-open');
+          }
+        });
+        // Close drawer when clicking any mobile link
+        const mobileLinks = drawer.querySelectorAll('a');
+        mobileLinks.forEach((link) => {
+          link.addEventListener('click', () => {
+            drawer.classList.remove('mobile-menu-open');
+            drawer.classList.add('mobile-menu-closed');
+          });
+        });
+      }
+
+      // Scroll reveal observer
       document.addEventListener('DOMContentLoaded', () => {
         const observerOptions = {
           root: null,
           rootMargin: '0px',
           threshold: 0.12,
         };
-
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add('visible');
@@ -713,11 +926,15 @@
             }
           });
         }, observerOptions);
-
-        document.querySelectorAll('.fade-up').forEach((element) => {
-          observer.observe(element);
-        });
+        document
+          .querySelectorAll('.fade-up')
+          .forEach((element) => observer.observe(element));
+        // ensure lucide icons after potential dynamic rerender
+        lucide.createIcons();
       });
+
+      // Re-run icon creation when window fully loaded
+      window.addEventListener('load', () => lucide.createIcons());
     </script>
   </body>
 </html>
