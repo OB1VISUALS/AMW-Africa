@@ -2,8 +2,13 @@
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Million Women Africa · Esthers & Mordecais</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>
+      A Million Women Africa · Esthers & Mordecais | Solemn Assemblies 2026
+    </title>
 
     <!-- Google Fonts: Bebas Neue & Courier Prime -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,96 +21,112 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Lucide Icons (fallback CDN if needed) -->
+    <!-- Lucide Icons -->
     <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/lucide.min.js"></script>
 
     <style>
+      /* ---------- AFRICAN DESIGN SYSTEM · PALETTE (5 sacred tones) ---------- */
       :root {
-        --black: #0a0a0a;
-        --white: #ffffff;
-        --red: #e8000d;
-        --yellow-lime: #c8e645;
-        --warm-brown: #5c2a00;
+        --palette-unry: #93a6d1; /* UnRy · serene blue */
+        --palette-resilience: #eaa639; /* Resilience · warm gold / brown-gold */
+        --palette-arise: #ec6547; /* Arise · red-earth / burnt orange */
+        --palette-courage: #f4afce; /* Courage · soft blush pink */
+        --palette-empower: #dedf55; /* Empower · lime vitality */
+
+        --black-deep: #0a0a0a;
+        --white-pure: #ffffff;
         --off-white: #f2f2f2;
-        --dark-gray: #111111;
-        --deep-overlay: rgba(10, 10, 40, 0.65);
-        --adinkra-gold: #c9a84c;
+        --dark-overlay: rgba(10, 10, 30, 0.68);
       }
 
       body {
         font-family: 'Courier Prime', monospace;
         -webkit-font-smoothing: antialiased;
-        overflow-x: hidden;
-        background-color: var(--white);
+        background-color: var(--white-pure);
       }
 
       .font-bebas {
         font-family: 'Bebas Neue', sans-serif;
       }
 
-      /* African Christian Design System Element */
+      /* KENTE BAR – fully rebuilt with PALETTE colors + black separators */
       .kente-bar {
-        height: 0.25rem;
+        height: 0.35rem;
         width: 100%;
         background: repeating-linear-gradient(
           to right,
-          var(--adinkra-gold) 0,
-          var(--adinkra-gold) 1.25rem,
-          var(--black) 1.25rem,
-          var(--black) 1.5rem,
-          var(--red) 1.5rem,
-          var(--red) 2.75rem,
-          var(--black) 2.75rem,
-          var(--black) 3rem,
-          var(--yellow-lime) 3rem,
-          var(--yellow-lime) 4.25rem,
-          var(--black) 4.25rem,
-          var(--black) 4.5rem
+          var(--palette-unry) 0,
+          var(--palette-unry) 1.5rem,
+          var(--black-deep) 1.5rem,
+          var(--black-deep) 1.8rem,
+          var(--palette-arise) 1.8rem,
+          var(--palette-arise) 3.2rem,
+          var(--black-deep) 3.2rem,
+          var(--black-deep) 3.5rem,
+          var(--palette-resilience) 3.5rem,
+          var(--palette-resilience) 5rem,
+          var(--black-deep) 5rem,
+          var(--black-deep) 5.3rem,
+          var(--palette-empower) 5.3rem,
+          var(--palette-empower) 6.8rem,
+          var(--black-deep) 6.8rem,
+          var(--black-deep) 7.1rem,
+          var(--palette-courage) 7.1rem,
+          var(--palette-courage) 8.6rem,
+          var(--black-deep) 8.6rem,
+          var(--black-deep) 8.9rem
         );
       }
 
-      /* Scroll Animations */
+      /* Scroll reveal animation */
       .fade-up {
         opacity: 0;
-        transform: translateY(1.5rem);
-        transition: opacity 0.6s ease, transform 0.6s ease;
+        transform: translateY(1.8rem);
+        transition: opacity 0.65s cubic-bezier(0.2, 0.9, 0.4, 1.1),
+          transform 0.65s ease;
       }
       .fade-up.visible {
         opacity: 1;
-        transform: none;
+        transform: translateY(0);
       }
 
-      /* Hero specific animations */
-      @keyframes fadeUp {
+      /* Hero animation overrides */
+      @keyframes fadeUpSoft {
         0% {
           opacity: 0;
-          transform: translateY(30px);
+          transform: translateY(28px);
         }
         100% {
           opacity: 1;
           transform: translateY(0);
         }
       }
-      @keyframes softScale {
-        0% {
-          transform: scale(0.95);
-        }
-        100% {
-          transform: scale(1);
-        }
+      .hero-logo-animate {
+        animation: fadeUpSoft 0.8s ease forwards;
       }
       .hero-tagline {
-        animation-delay: 0.7s;
+        animation: fadeUpSoft 0.8s ease forwards;
+        animation-delay: 0.2s;
+        opacity: 0;
+        animation-fill-mode: forwards;
       }
       .hero-dates {
-        animation-delay: 0.85s;
+        animation: fadeUpSoft 0.8s ease forwards;
+        animation-delay: 0.35s;
+        opacity: 0;
+        animation-fill-mode: forwards;
       }
       .hero-cta-text {
-        animation-delay: 0.95s;
+        animation: fadeUpSoft 0.8s ease forwards;
+        animation-delay: 0.5s;
+        opacity: 0;
+        animation-fill-mode: forwards;
       }
-      .hero-btn {
-        animation-delay: 1s;
-        animation: fadeUp 0.8s forwards, softScale 0.4s ease-out;
+      .hero-btn-group a {
+        animation: fadeUpSoft 0.8s ease forwards;
+        animation-delay: 0.65s;
+        opacity: 0;
+        animation-fill-mode: forwards;
       }
 
       /* Mobile menu overlay */
@@ -115,77 +136,101 @@
       .mobile-menu.open {
         display: flex;
       }
+
+      /* custom subtle glow for CTA */
+      .btn-arise {
+        transition: all 0.25s ease;
+        background-color: var(--palette-arise);
+        box-shadow: 0 8px 20px rgba(236, 101, 71, 0.25);
+      }
+      .btn-arise:hover {
+        background-color: #c53f2e;
+        transform: translateY(-2px);
+        box-shadow: 0 12px 24px rgba(236, 101, 71, 0.35);
+      }
+      .btn-register {
+        transition: all 0.25s ease;
+        border: 1.5px solid var(--palette-resilience);
+        background: var(--white-pure);
+      }
+      .btn-register:hover {
+        background-color: #fef7e0;
+        border-color: var(--palette-arise);
+        transform: translateY(-2px);
+      }
     </style>
   </head>
-  <body class="text-[1rem] md:text-[1.0625rem] bg-white">
-    <!-- SHARED NAVBAR (transparent, fixed) -->
+  <body class="text-[1rem] md:text-[1.0625rem]">
+    <!-- ========== FIXED NAVIGATION (DESKTOP + MOBILE HAMBURGER) ========== -->
     <nav
-      class="fixed top-0 left-0 w-full z-[1000] flex justify-between items-center px-6 md:px-12 py-4 bg-transparent text-white font-bold uppercase tracking-[0.1em] text-[0.8125rem]"
+      class="fixed top-0 left-0 w-full z-[1000] flex justify-between items-center px-6 md:px-12 py-4 bg-transparent text-white font-bold uppercase tracking-[0.1em] text-[0.8125rem] backdrop-blur-sm"
     >
-      <!-- Desktop links (hidden on mobile) -->
-      <div class="hidden md:flex justify-center w-full gap-8 md:gap-12">
+      <!-- Desktop links (centered) -->
+      <div class="hidden md:flex justify-center w-full gap-8 lg:gap-12">
         <a
           href="index.html"
-          class="hover:text-[#e8000d] transition-colors duration-150 border-b-2 border-[#e8000d] pb-1 text-[#e8000d]"
+          class="border-b-2 border-[#EC6547] pb-1 text-[#EC6547] transition-colors duration-150"
           >Home</a
         >
         <a
           href="story.html"
-          class="hover:text-[#e8000d] transition-colors duration-150"
+          class="hover:text-[#EC6547] transition-colors duration-150"
           >Story</a
         >
         <a
           href="people.html"
-          class="hover:text-[#e8000d] transition-colors duration-150"
+          class="hover:text-[#EC6547] transition-colors duration-150"
           >People</a
         >
         <a
           href="get-involved.html"
-          class="hover:text-[#e8000d] transition-colors duration-150"
+          class="hover:text-[#EC6547] transition-colors duration-150"
           >Get Involved</a
         >
         <a
           href="donate.html"
-          class="hover:text-[#e8000d] transition-colors duration-150"
+          class="hover:text-[#EC6547] transition-colors duration-150"
           >Donate</a
         >
       </div>
 
-      <!-- Hamburger icon (mobile) -->
+      <!-- Hamburger (mobile only) -->
       <button
         id="hamburger"
         class="md:hidden text-white focus:outline-none ml-auto"
       >
-        <i data-lucide="menu" stroke-width="1.5" class="w-6 h-6"></i>
+        <i data-lucide="menu" stroke-width="1.5" class="w-7 h-7"></i>
       </button>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
+    <!-- Mobile Menu Overlay (PALETTE colors on hover) -->
     <div
       id="mobileMenu"
-      class="mobile-menu fixed inset-0 z-[999] flex-col items-center justify-center bg-black/90 text-white font-bold uppercase tracking-[0.1em] text-xl gap-6"
+      class="mobile-menu fixed inset-0 z-[999] flex-col items-center justify-center bg-black/95 text-white font-bold uppercase tracking-[0.1em] text-xl gap-7 backdrop-blur-lg"
     >
       <button id="closeMenu" class="absolute top-6 right-6 text-white">
         <i data-lucide="x" stroke-width="1.5" class="w-8 h-8"></i>
       </button>
-      <a href="index.html" class="hover:text-[#e8000d] transition-colors"
+      <a
+        href="index.html"
+        class="border-b-2 border-[#EC6547] pb-1 text-[#EC6547] transition-all"
         >Home</a
       >
-      <a href="story.html" class="hover:text-[#e8000d] transition-colors"
+      <a href="story.html" class="hover:text-[#EC6547] transition-colors"
         >Story</a
       >
-      <a href="people.html" class="hover:text-[#e8000d] transition-colors"
+      <a href="people.html" class="hover:text-[#EC6547] transition-colors"
         >People</a
       >
-      <a href="get-involved.html" class="hover:text-[#e8000d] transition-colors"
+      <a href="get-involved.html" class="hover:text-[#EC6547] transition-colors"
         >Get Involved</a
       >
-      <a href="donate.html" class="hover:text-[#e8000d] transition-colors"
+      <a href="donate.html" class="hover:text-[#EC6547] transition-colors"
         >Donate</a
       >
     </div>
 
-    <!-- HERO SECTION (full video background, no torn edge) -->
+    <!-- ========== HERO SECTION – VIDEO BACKGROUND WITH PALETTE OVERLAY ========== -->
     <section
       class="relative w-screen h-screen overflow-hidden flex items-center justify-center"
     >
@@ -201,125 +246,135 @@
           type="video/mp4"
         />
       </video>
-      <div class="absolute inset-0 bg-[#3c1400]/55 z-10"></div>
+      <!-- Overlay enriched with palette depth: warm brown + subtle arise tint -->
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-[#2d1705]/70 via-[#1f0e02]/60 to-[#0a0501]/75 z-10"
+      ></div>
 
       <div
         class="relative z-20 text-center text-white w-[90%] max-w-[1100px] mx-auto flex flex-col items-center"
       >
-        <div class="flex flex-col items-center leading-[0.9] mb-5"></div>
-        <div>
+        <div class="hero-logo-animate">
           <img
             src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/AMWA%20AFRICA%20OFFICIAL.png"
-            alt="logo"
-            width="300px"
-            height="300px"
+            alt="A Million Women Africa logo"
+            width="310"
+            height="310"
+            class="mx-auto drop-shadow-xl"
           />
         </div>
 
         <div
-          class="font-bold uppercase tracking-[0.1em] text-[clamp(11px,1.4vw,15px)] max-w-[680px] mx-auto mb-6 fade-up hero-tagline"
+          class="hero-tagline font-bold uppercase tracking-[0.12em] text-[clamp(12px,1.5vw,16px)] max-w-[680px] mx-auto mt-3 mb-5 text-[#F4AFCE]"
         ></div>
+
         <div
-          class="font-bebas text-[clamp(18px,2.2vw,26px)] leading-relaxed mb-7 fade-up hero-dates"
+          class="font-bebas text-[clamp(20px,2.5vw,28px)] leading-relaxed tracking-wide hero-dates"
         >
           NIGERIA — JULY 25, 2026<br />
           SOUTH AFRICA — SEPTEMBER 19, 2026
         </div>
-        <div
-          class="font-bold uppercase tracking-[0.1em] text-[clamp(11px,1.3vw,14px)] max-w-[680px] mb-7 fade-up hero-cta-text"
-        >
-          Join us for historic solemn assemblies across the continent
-        </div>
 
-        <!-- Button Group -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center mt-2">
+        <div
+          class="font-bold uppercase tracking-[0.12em] text-[clamp(11px,1.4vw,14px)] max-w-[680px] mb-7 hero-cta-text text-[#EAA639]"
+        ></div>
+
+        <!-- Button Group: palette-driven -->
+        <div
+          class="hero-btn-group flex flex-col sm:flex-row gap-5 justify-center mt-2"
+        >
           <a
             href="https://selar.com/showlove/amillionwomenafrica"
-            class="bg-[#e8000d] text-white font-bold uppercase tracking-[0.12em] text-[15px] py-4 px-10 border-0 shadow-lg hover:bg-[#b50000] transition-colors fade-up hero-btn inline-block text-center"
+            target="_blank"
+            class="btn-arise text-white font-bold uppercase tracking-[0.12em] text-[15px] py-4 px-10 inline-block text-center rounded-sm shadow-xl"
           >
-            Give
+            ✦ Give ✦
           </a>
           <a
             href="register.html"
-            class="bg-white text-black font-bold uppercase tracking-[0.12em] text-[15px] py-4 px-10 border border-gray-300 shadow-lg hover:bg-gray-100 transition-colors fade-up hero-btn inline-block text-center"
+            class="btn-register text-black font-bold uppercase tracking-[0.12em] text-[15px] py-4 px-10 inline-block text-center rounded-sm shadow-md bg-white"
           >
-            Register
+            ⟡ Register ⟡
           </a>
         </div>
       </div>
     </section>
 
-    <!-- KENTE BAR -->
+    <!-- KENTE BAR - palette rhythm -->
     <div class="kente-bar"></div>
 
-    <!-- NEW QUOTE SECTION (no torn edge) -->
-    <section class="py-20 px-6 md:px-10 bg-[#f2f2f2] text-black">
+    <!-- ========== QUOTE SECTION – APOSTLE ISI with RESILIENCE GOLD ========== -->
+    <section
+      class="py-20 px-6 md:px-10 bg-[#faf9f6] text-black border-b border-[#EAA639]/20"
+    >
       <div class="max-w-5xl mx-auto text-center">
         <p
-          class="italic text-[clamp(1.25rem,3vw,2rem)] leading-relaxed text-[#111111] mb-4"
+          class="italic text-[clamp(1.3rem,3.2vw,2.1rem)] leading-relaxed text-[#1f1a12] mb-4 font-semibold"
         >
-          "In 2026, the eyes of the world will turn toward Africa."
+          “In 2026, the eyes of the world will turn toward Africa.”
         </p>
         <p
-          class="font-bold text-[0.875rem] uppercase tracking-[0.1em] text-[#c9a84c] mb-8"
+          class="font-bold text-[0.9rem] uppercase tracking-[0.12em] text-[#EAA639] mb-8"
         >
-          — Apostle Isi
+          — Apostle Isi Igenegba
         </p>
         <p
-          class="text-[0.9375rem] leading-relaxed text-[#444444] max-w-2xl mx-auto"
+          class="text-[0.95rem] leading-relaxed text-[#4a3b28] max-w-2xl mx-auto border-l-4 border-[#EC6547] pl-6"
         >
           In a critical hour for the continent, we are gathering in prayer,
-          consecration, and unity to contend for the destiny of nations.
+          consecration, and unity to contend for the destiny of nations. Arise,
+          daughters of Africa.
         </p>
       </div>
     </section>
 
-    <!-- GLOBAL RALLIES DARK BANNER -->
+    <!-- ========== GLOBAL RALLIES DARK BANNER ========== -->
     <section
       class="relative py-28 px-6 bg-cover bg-center text-white"
       style="
         background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600&q=80');
       "
     >
-      <div class="absolute inset-0 bg-[#0a0a28]/65 z-10"></div>
+      <div class="absolute inset-0 bg-[#0f0b05]/75 z-10"></div>
       <div class="relative z-20 max-w-3xl mx-auto text-center">
         <div
-          class="font-bold uppercase tracking-[0.12em] text-[clamp(13px,1.8vw,18px)] mb-8 fade-up"
+          class="font-bold uppercase tracking-[0.15em] text-[clamp(13px,1.8vw,18px)] mb-8 fade-up text-[#F4AFCE]"
         >
-          Pray about joining us for one of our solemn assemblies in 2026
+          ⚔️ JOIN THE SOLEMN ASSEMBLY MOVEMENT ⚔️
         </div>
         <div
-          class="font-bebas text-[clamp(22px,3vw,36px)] leading-relaxed fade-up"
+          class="font-bebas text-[clamp(24px,3.2vw,40px)] leading-relaxed fade-up drop-shadow-md"
         >
           NIGERIA — JULY 25, 2026<br />
           SOUTH AFRICA — SEPTEMBER 19, 2026
         </div>
+        <div class="w-24 h-1 bg-[#EAA639] mx-auto mt-8 rounded-full"></div>
       </div>
     </section>
 
-    <!-- SHARED FOOTER (polished, copyright always centered) -->
+    <!-- ========== FOOTER (PALETTE ENHANCED) ========== -->
     <footer class="bg-[#0a0a0a] text-white w-full">
       <div
-        class="text-center py-10 px-6 font-bebas text-[clamp(1.75rem,4vw,3.25rem)] tracking-[0.04em] border-b border-white/10"
+        class="text-center py-10 px-6 font-bebas text-[clamp(1.8rem,4.5vw,3.3rem)] tracking-[0.04em] border-b border-white/10"
       >
         JOIN THE MOVEMENT | CHANGE THE NATIONS
       </div>
       <div
-        class="flex flex-col md:flex-row items-center justify-between py-7 px-6 md:px-12 gap-8 md:gap-5 flex-wrap"
+        class="flex flex-col md:flex-row items-center justify-between py-8 px-6 md:px-12 gap-8 md:gap-5 flex-wrap"
       >
         <div
-          class="font-bebas text-[2rem] tracking-[0.04em] leading-none text-center md:text-left w-full md:w-auto"
+          class="font-bebas text-[2rem] tracking-[0.04em] leading-none text-center md:text-left w-full md:w-auto text-[#EAA639]"
         >
           A MILLION WOMEN AFRICA
         </div>
 
-        <!-- Social Media Icons (white, now with real links) -->
-        <div class="flex items-center gap-4 justify-center w-full md:w-auto">
+        <!-- Social Media Icons (palette hover) -->
+        <div class="flex items-center gap-5 justify-center w-full md:w-auto">
           <a
             href="https://www.instagram.com/amillionwomenafrica"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-white hover:text-[#e8000d] transition-colors"
+            class="text-white hover:text-[#EC6547] transition-all duration-200"
             aria-label="Instagram"
           >
             <i data-lucide="instagram" stroke-width="1.5" class="w-6 h-6"></i>
@@ -328,61 +383,64 @@
             href="https://www.youtube.com/@AMillionWomenAfrica"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-white hover:text-[#e8000d] transition-colors"
+            class="text-white hover:text-[#EC6547] transition-all duration-200"
             aria-label="YouTube"
           >
             <i data-lucide="youtube" stroke-width="1.5" class="w-6 h-6"></i>
           </a>
+          <a
+            href="#"
+            class="text-white hover:text-[#EAA639] transition-all duration-200"
+            aria-label="Facebook"
+          >
+            <i data-lucide="facebook" stroke-width="1.5" class="w-6 h-6"></i>
+          </a>
         </div>
 
-        <!-- Copyright (always centered) -->
+        <!-- Copyright text -->
         <div class="w-full md:w-auto text-center order-3 md:order-none">
-          <p class="text-[0.6875rem] tracking-[0.08em] text-white/60">
-            © 2026 Copyright AMWA
+          <p class="text-[0.7rem] tracking-[0.08em] text-white/60">
+            © 2026 Copyright AMWA · All Rights Reserved
           </p>
         </div>
 
-        <!-- Footer navigation -->
+        <!-- Footer nav (pill buttons with palette red/gold) -->
         <nav
-          class="grid grid-cols-2 md:grid-cols-auto gap-x-6 gap-y-2 md:flex md:gap-x-6 md:items-center justify-center w-full md:w-auto"
+          class="grid grid-cols-2 md:flex md:gap-x-5 gap-y-3 justify-center w-full md:w-auto"
         >
           <a
             href="index.html"
-            class="text-[0.6875rem] font-bold tracking-[0.1em] uppercase text-white/75 hover:text-white transition-colors"
+            class="text-[0.7rem] font-bold tracking-[0.12em] uppercase text-white/80 hover:text-white transition-colors"
             >Home</a
           >
           <a
             href="story.html"
-            class="text-[0.6875rem] font-bold tracking-[0.1em] uppercase text-white/75 hover:text-white transition-colors"
+            class="text-[0.7rem] font-bold tracking-[0.12em] uppercase text-white/80 hover:text-white transition-colors"
             >Story</a
           >
           <a
             href="get-involved.html"
-            class="text-[0.6875rem] font-bold tracking-[0.1em] uppercase bg-[#e8000d] text-white py-[3px] px-2 rounded-sm transition-opacity hover:opacity-90 mt-1 md:mt-0"
+            class="text-[0.7rem] font-bold tracking-[0.12em] uppercase bg-[#EC6547] text-white py-1.5 px-3 rounded-sm transition-all hover:bg-[#c43f2b] shadow-md"
             >Get Involved</a
           >
           <a
             href="donate.html"
             target="_blank"
-            class="text-[0.6875rem] font-bold tracking-[0.1em] uppercase bg-[#e8000d] text-white py-[3px] px-2 rounded-sm transition-opacity hover:opacity-90 mt-1 md:mt-0"
+            class="text-[0.7rem] font-bold tracking-[0.12em] uppercase bg-[#EAA639] text-black py-1.5 px-3 rounded-sm transition-all hover:bg-[#d4952c] shadow-md"
             >DONATE</a
           >
         </nav>
       </div>
     </footer>
 
-    <!-- Scripts -->
     <script>
-      // Ensure the DOM is fully loaded before initialising icons and listeners
       document.addEventListener('DOMContentLoaded', function () {
-        // Create Lucide icons
+        // Lucide icons rendering
         if (typeof lucide !== 'undefined') {
           lucide.createIcons();
-        } else {
-          console.warn('Lucide library not loaded – icons will not display.');
         }
 
-        // Mobile menu toggle
+        // ---- Mobile Menu Toggle (hamburger + close + links) ----
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobileMenu');
         const closeMenu = document.getElementById('closeMenu');
@@ -390,18 +448,23 @@
         if (hamburger && mobileMenu && closeMenu) {
           hamburger.addEventListener('click', () => {
             mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
           });
           closeMenu.addEventListener('click', () => {
             mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
           });
-          mobileMenu.querySelectorAll('a').forEach((link) => {
+          // Close when any mobile link is clicked
+          const mobileLinks = mobileMenu.querySelectorAll('a');
+          mobileLinks.forEach((link) => {
             link.addEventListener('click', () => {
               mobileMenu.classList.remove('open');
+              document.body.style.overflow = '';
             });
           });
         }
 
-        // Scroll reveal
+        // ---- Scroll Reveal (fade-up) ----
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
@@ -410,29 +473,43 @@
               }
             });
           },
-          { threshold: 0.12 }
+          { threshold: 0.12, rootMargin: '0px 0px -20px 0px' }
         );
 
         document
           .querySelectorAll('.fade-up')
           .forEach((el) => observer.observe(el));
+
+        // Hero elements are already visible via custom animation + ensure no conflict
         document
           .querySelectorAll(
-            '.hero-tagline, .hero-dates, .hero-cta-text, .hero-btn'
+            '.hero-logo-animate, .hero-tagline, .hero-dates, .hero-cta-text, .hero-btn-group a'
           )
-          .forEach((el) => el.classList.add('visible'));
+          .forEach((el) => {
+            el.style.opacity = '1';
+          });
       });
     </script>
     <style>
+      /* guarantee visibility for fade-up elements */
       .fade-up.visible {
         opacity: 1 !important;
-        transform: none !important;
+        transform: translateY(0) !important;
       }
+      .hero-logo-animate,
       .hero-tagline,
       .hero-dates,
       .hero-cta-text,
-      .hero-btn {
-        opacity: 1 !important;
+      .hero-btn-group a {
+        opacity: 1; /* animation already handles from 0→1, but prevents flicker */
+      }
+      /* additional global polish: links & interactive */
+      a,
+      button {
+        transition: all 0.2s ease;
+      }
+      .mobile-menu a {
+        transition: color 0.2s, border 0.2s;
       }
     </style>
   </body>

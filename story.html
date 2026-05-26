@@ -6,7 +6,9 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
-    <title>Our Story — A Million Women Africa</title>
+    <title>
+      Our Story — A Million Women Africa | Esther & Mordecai Movement
+    </title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,51 +22,61 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/lucide.min.js"></script>
 
     <style>
+      /* ---------- AFRICAN DESIGN SYSTEM · SACRED PALETTE (5 tones) ---------- */
       :root {
-        --black: #0a0a0a;
-        --white: #ffffff;
-        --red: #e8000d;
-        --yellow-lime: #c8e645;
-        --page-bg: #ffffff;
-        --text-dark: #111111;
-        --text-muted: #444444;
-        --border-light: #e0e0e0;
-        --adinkra-gold: #c9a84c;
+        --unry: #93a6d1; /* UnRy · serene prophetic blue */
+        --resilience: #eaa639; /* Resilience · gold / brown-gold */
+        --arise: #ec6547; /* Arise · red-earth / burnt orange */
+        --courage: #f4afce; /* Courage · soft blush pink */
+        --empower: #dedf55; /* Empower · lime vitality */
+
+        --black-deep: #0a0a0a;
+        --white-pure: #ffffff;
+        --off-white: #faf9f6;
+        --text-dark: #1e1b16;
+        --text-muted: #4a4238;
       }
 
       body {
         font-family: 'Courier Prime', monospace;
-        background-color: var(--white);
+        background-color: var(--white-pure);
         color: var(--text-dark);
         -webkit-font-smoothing: antialiased;
-        overflow-x: hidden;
       }
 
       .font-bebas {
         font-family: 'Bebas Neue', sans-serif;
       }
 
-      /* African Christian Design System Elements */
+      /* KENTE BAR — built with full palette */
       .kente-bar {
-        height: 0.25rem;
+        height: 0.35rem;
         width: 100%;
         background: repeating-linear-gradient(
           to right,
-          var(--adinkra-gold) 0,
-          var(--adinkra-gold) 1.25rem,
-          var(--black) 1.25rem,
-          var(--black) 1.5rem,
-          var(--red) 1.5rem,
-          var(--red) 2.75rem,
-          var(--black) 2.75rem,
-          var(--black) 3rem,
-          var(--yellow-lime) 3rem,
-          var(--yellow-lime) 4.25rem,
-          var(--black) 4.25rem,
-          var(--black) 4.5rem
+          var(--unry) 0,
+          var(--unry) 1.5rem,
+          var(--black-deep) 1.5rem,
+          var(--black-deep) 1.8rem,
+          var(--arise) 1.8rem,
+          var(--arise) 3.2rem,
+          var(--black-deep) 3.2rem,
+          var(--black-deep) 3.5rem,
+          var(--resilience) 3.5rem,
+          var(--resilience) 5rem,
+          var(--black-deep) 5rem,
+          var(--black-deep) 5.3rem,
+          var(--empower) 5.3rem,
+          var(--empower) 6.8rem,
+          var(--black-deep) 6.8rem,
+          var(--black-deep) 7.1rem,
+          var(--courage) 7.1rem,
+          var(--courage) 8.6rem,
+          var(--black-deep) 8.6rem,
+          var(--black-deep) 8.9rem
         );
       }
 
@@ -75,220 +87,164 @@
         margin: 3rem auto;
         max-width: 37.5rem;
       }
-
       .adinkra-line {
         flex: 1;
         height: 1px;
         background: linear-gradient(
           to right,
           transparent,
-          #c9a84c80,
+          var(--resilience),
           transparent
         );
       }
-
       .scripture-quote {
-        border-left: 3px solid var(--adinkra-gold);
+        border-left: 3px solid var(--resilience);
+        background: #fefaf5;
         padding: 0.75rem 1.5rem;
         font-style: italic;
         color: var(--text-muted);
-        font-size: 0.9375rem;
-        line-height: 1.8;
-        margin: 2rem 0;
-        background: #fafaf8;
       }
 
-      /* Scroll Animations */
+      /* scroll reveal */
       .fade-up {
         opacity: 0;
         transform: translateY(1.5rem);
-        transition: opacity 0.6s ease, transform 0.6s ease;
+        transition: opacity 0.65s cubic-bezier(0.2, 0.9, 0.4, 1.1),
+          transform 0.65s ease;
       }
       .fade-up.visible {
         opacity: 1;
         transform: none;
       }
+
       .image-caption {
         font-size: 0.7rem;
         letter-spacing: 0.03em;
-        color: #5a5a5a;
+        color: #6b5a48;
         margin-top: 0.5rem;
         text-align: center;
       }
 
-      /* Mobile Menu Styles */
+      /* mobile menu (fullscreen overlay like home page) */
       .mobile-menu {
+        display: none;
         position: fixed;
-        top: 0;
-        right: -100%;
-        width: 80%;
-        max-width: 320px;
-        height: 100%;
-        background-color: #0a0a0a;
+        inset: 0;
         z-index: 1100;
-        transition: right 0.3s ease-in-out;
-        padding: 2rem 1.5rem;
-        display: flex;
         flex-direction: column;
-        gap: 1.5rem;
-        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
-      }
-      .mobile-menu.open {
-        right: 0;
-      }
-      .mobile-menu a {
-        color: white;
-        font-size: 1rem;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(10, 10, 10, 0.96);
+        backdrop-filter: blur(12px);
+        gap: 2rem;
         font-weight: bold;
         text-transform: uppercase;
         letter-spacing: 0.1em;
-        text-decoration: none;
-        padding: 0.75rem 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 1.3rem;
+      }
+      .mobile-menu.open {
+        display: flex;
+      }
+      .mobile-menu a {
+        color: white;
         transition: color 0.2s;
+        border-bottom: 2px solid transparent;
+        padding-bottom: 0.25rem;
       }
       .mobile-menu a:hover {
-        color: #e8000d;
+        color: var(--arise);
+        border-bottom-color: var(--arise);
       }
-      .menu-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1050;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s;
-      }
-      .menu-overlay.active {
-        opacity: 1;
-        visibility: visible;
-      }
-      .close-menu {
-        align-self: flex-end;
+      .close-menu-btn {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
         background: none;
         border: none;
         color: white;
-        font-size: 1.8rem;
         cursor: pointer;
-        margin-bottom: 1rem;
-      }
-      body.menu-open {
-        overflow: hidden;
       }
     </style>
   </head>
   <body class="text-[1rem] md:text-[1.0625rem]">
-    <!-- SHARED NAVBAR -->
+    <!-- ========== NAVBAR (fixed style, transparent but with background on scroll? using solid for consistency) ========== -->
     <nav
-      class="sticky top-0 z-[1000] bg-[#0a0a0a] h-[3.75rem] flex items-center justify-between px-4 sm:px-6 md:px-12"
+      class="sticky top-0 z-[1000] bg-[#0a0a0a] w-full flex items-center justify-between px-5 md:px-12 py-3 md:py-4 shadow-md"
     >
-      <div class="flex items-center gap-2 text-white">
+      <div class="flex items-center">
         <span
-          class="font-bebas text-[1.4rem] sm:text-[1.75rem] tracking-[0.03em] mt-1 whitespace-nowrap"
+          class="font-bebas text-[1.4rem] md:text-[1.8rem] tracking-[0.03em] text-white whitespace-nowrap"
           >A MILLION WOMEN AFRICA</span
         >
       </div>
 
-      <!-- Desktop Navigation -->
+      <!-- Desktop Navigation (full palette hover) -->
       <div
         class="hidden lg:flex items-center gap-8 font-bold text-[0.8125rem] uppercase tracking-[0.1em] text-white"
       >
         <a
           href="index.html"
-          class="hover:text-[#e8000d] transition-colors duration-150"
+          class="hover:text-[#EC6547] transition-colors duration-150"
           >Home</a
         >
         <a
           href="story.html"
-          class="hover:text-[#e8000d] transition-colors duration-150"
+          class="text-[#EC6547] border-b-2 border-[#EC6547] pb-0.5"
           >Story</a
         >
-        <a
-          href="people.html"
-          class="hover:text-[#e8000d] transition-colors duration-150"
+        <a href="people.html" class="hover:text-[#EC6547] transition-colors"
           >People</a
         >
         <a
           href="get-involved.html"
-          class="hover:text-[#e8000d] transition-colors duration-150"
+          class="hover:text-[#EC6547] transition-colors"
           >Get Involved</a
         >
-        <a
-          href="donate.html"
-          class="hover:text-[#e8000d] transition-colors duration-150"
+        <a href="donate.html" class="hover:text-[#EC6547] transition-colors"
           >Donate</a
         >
       </div>
 
-      <!-- Mobile Menu Button -->
-      <button
-        id="menuToggle"
-        class="lg:hidden text-white focus:outline-none z-[1100] relative"
-      >
+      <!-- Hamburger (mobile) -->
+      <button id="hamburger" class="lg:hidden text-white focus:outline-none">
         <i data-lucide="menu" stroke-width="1.5" class="w-6 h-6"></i>
       </button>
     </nav>
 
-    <!-- Mobile Menu Overlay & Panel -->
-    <div id="menuOverlay" class="menu-overlay"></div>
+    <!-- Mobile Menu (fullscreen) -->
     <div id="mobileMenu" class="mobile-menu">
-      <button id="closeMenu" class="close-menu">
-        <i data-lucide="x" class="w-6 h-6"></i>
+      <button id="closeMobileMenu" class="close-menu-btn">
+        <i data-lucide="x" stroke-width="1.5" class="w-8 h-8"></i>
       </button>
       <a href="index.html">Home</a>
-      <a href="story.html">Story</a>
+      <a href="story.html" class="text-[#EC6547]">Story</a>
       <a href="people.html">People</a>
       <a href="get-involved.html">Get Involved</a>
       <a href="donate.html">Donate</a>
     </div>
 
-    <!-- Torn edge below navbar -->
-    <div
-      style="
-        background: var(--black);
-        line-height: 0;
-        margin-bottom: -1px;
-        position: relative;
-        z-index: 999;
-      "
-    >
-      <svg
-        viewBox="0 0 1440 32"
-        preserveAspectRatio="none"
-        style="width: 100%; height: 2rem; display: block"
-      >
-        <path
-          d="M0,0 L0,18 L30,8 L60,22 L90,10 L120,24 L155,6 L185,20 L215,8 L245,22 L275,12 L310,26 L340,4 L370,18 L400,8 L435,24 L465,10 L495,22 L525,6 L555,20 L590,10 L620,26 L650,8 L680,22 L715,12 L745,28 L775,6 L810,20 L840,10 L870,24 L900,8 L935,22 L965,12 L995,26 L1025,6 L1060,20 L1090,10 L1120,24 L1150,8 L1185,22 L1215,12 L1245,28 L1275,8 L1310,22 L1340,10 L1370,26 L1400,8 L1440,18 L1440,0 Z"
-          fill="#0a0a0a"
-        ></path>
-      </svg>
-    </div>
+    <!-- decorative torn edge / kente bar start -->
+    <div class="kente-bar"></div>
 
     <main>
-      <!-- HERO SECTION (unchanged) -->
-      <div class="kente-bar"></div>
-      <header
-        class="text-center pt-[3rem] sm:pt-[4.5rem] px-4 pb-8 sm:pb-12 fade-up"
-      >
+      <!-- HERO -->
+      <header class="text-center pt-[3rem] sm:pt-[5rem] px-4 pb-8 fade-up">
         <h1
           class="font-bebas text-[clamp(2.8rem,8vw,6rem)] text-[#0a0a0a] tracking-tight leading-[0.9]"
         >
           OUR STORY
         </h1>
-        <div class="w-[3.75rem] h-[3px] bg-[#e8000d] mx-auto my-3"></div>
+        <div class="w-[3.75rem] h-[3px] bg-[#EC6547] mx-auto my-3"></div>
         <p
-          class="font-bold uppercase text-[0.7rem] sm:text-[0.75rem] tracking-[0.2em] text-[#e8000d] mt-2 px-2"
+          class="font-bold uppercase text-[0.7rem] sm:text-[0.75rem] tracking-[0.2em] text-[#EAA639] mt-2"
         >
           A MILLION WOMEN AFRICA
         </p>
       </header>
 
-      <!-- 1. PAPA LOU ENGLE SECTION (shortened, with images) -->
-      <section class="max-w-[75rem] mx-auto px-4 py-6 fade-up">
-        <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
+      <!-- 1. Papa Lou Engle (palette friendly) -->
+      <section class="max-w-[75rem] mx-auto px-4 py-8 fade-up">
+        <div class="flex flex-col md:flex-row gap-10 md:gap-14 items-center">
           <div class="md:w-1/2">
             <img
               src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/lou%202.JPG"
@@ -307,118 +263,46 @@
               PAPA LOU ENGLE
             </h2>
             <p
-              class="text-[0.95rem] sm:text-[1.05rem] leading-relaxed text-[#111111]"
+              class="text-[0.95rem] sm:text-[1.05rem] leading-relaxed text-[#1e1b16]"
             >
               Over the last 25 years, Papa Lou has stewarded Joel 2 gatherings
               that contended for repentance, renewal, and the prophetic destiny
-              of nations.
+              of nations. His fatherhood released a mantle that now burns across
+              Africa.
             </p>
           </div>
         </div>
-        <!-- Additional images (kept for visual richness) -->
-        <!-- <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-10">
-          <div>
-            <img
-              src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/pmo%201.JPG"
-              alt="Prayer gathering"
-              class="w-full h-auto object-cover rounded-sm shadow-md"
-              loading="lazy"
-            />
-            <div class="image-caption">
-              Early morning solemn assembly, East Africa
-            </div>
-          </div>
-          <div>
-            <img
-              src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/isi.JPG"
-              alt="United intercession"
-              class="w-full h-auto object-cover rounded-sm shadow-md"
-              loading="lazy"
-            />
-            <div class="image-caption">
-              Women and men praying as modern-day Esthers
-            </div>
-          </div>
-        </div> -->
       </section>
 
-      <!-- <div class="adinkra-divider px-4 fade-up">
-        <span class="adinkra-line"></span
-        ><svg
-          width="28"
-          height="28"
-          viewBox="0 0 28 28"
-          fill="none"
-          class="w-5 h-5 sm:w-7 sm:h-7"
-        >
-          <ellipse
-            cx="14"
-            cy="8"
-            rx="4"
-            ry="6"
-            stroke="#c9a84c"
-            stroke-width="1.5"
-            fill="none"
-          ></ellipse>
-          <ellipse
-            cx="14"
-            cy="20"
-            rx="4"
-            ry="6"
-            stroke="#c9a84c"
-            stroke-width="1.5"
-            fill="none"
-          ></ellipse>
-          <ellipse
-            cx="8"
-            cy="14"
-            rx="6"
-            ry="4"
-            stroke="#c9a84c"
-            stroke-width="1.5"
-            fill="none"
-          ></ellipse>
-          <ellipse
-            cx="20"
-            cy="14"
-            rx="6"
-            ry="4"
-            stroke="#c9a84c"
-            stroke-width="1.5"
-            fill="none"
-          ></ellipse>
-          <circle cx="14" cy="14" r="2" fill="#c9a84c"></circle></svg
-        ><span class="adinkra-line"></span>
-      </div> -->
-
-      <!-- 2. THE BIRTH OF A MILLION WOMEN AFRICA (with Apostle Isi image) -->
-      <section class="bg-[#f9f9f7] w-full py-[3rem] sm:py-[5rem] px-4">
+      <!-- 2. Birth of AMWA (with Apostle Isi) -->
+      <section class="bg-[#fefaf5] w-full py-[3rem] sm:py-[5rem] px-4">
         <div class="max-w-[75rem] mx-auto text-center fade-up">
           <h2
-            class="font-bebas text-[2rem] sm:text-[2.625rem] text-[#0a0a0a] tracking-tight mb-6 sm:mb-8"
+            class="font-bebas text-[2rem] sm:text-[2.625rem] text-[#0a0a0a] tracking-tight mb-6"
           >
             THE BIRTH OF A Million Women Africa
           </h2>
           <p
-            class="leading-[1.8] text-[#111111] text-[0.9rem] sm:text-[1rem] mb-5 text-left sm:text-center"
+            class="leading-[1.8] text-[#1e1b16] text-[0.9rem] sm:text-[1rem] mb-5 text-left sm:text-center"
           >
-            In 2024, that legacy crescendoed into the launch of A Million Women
-            (AMW) on October 12, the Day of Atonement. This global call summoned
-            Esthers and Mordecais to rise and contend for their nations.
+            In 2024, up to 300,000 people gathered in Washington, D.C., while
+            more than 10 million joined online for A Million Women (AMW) on
+            October 12th, the Day of Atonement. Together, we prayed, fasted, and
+            repented for the nations in a historic gathering that became a
+            global summons for Esthers and Mordecais to rise and contend for
+            their nations.
           </p>
           <p
-            class="leading-[1.8] text-[#111111] text-[0.9rem] sm:text-[1rem] mb-8 text-left sm:text-center"
+            class="leading-[1.8] text-[#1e1b16] text-[0.9rem] sm:text-[1rem] mb-8 text-left sm:text-center"
           >
             Out of this divine moment, A Million Women Africa (AMWA) was born —
             under the continental leadership of Apostle Isi Igenegba. Through
             solemn assemblies, equipping sessions, and strategic intercession
             across the nations of Africa and the diaspora, AMWA aims to equip
             the Body of Christ in prophetic intercession and facilitate national
-            awakening for the fulfillment of prophetic destiny and the securing
-            of a righteous future for the next generation.
+            awakening.
           </p>
 
-          <!-- Apostle Isi image (replaced previous group photo) -->
           <div class="my-6 max-w-2xl mx-auto">
             <img
               src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/isi.JPG"
@@ -431,30 +315,29 @@
             </div>
           </div>
 
-          <!-- Participation Highlight Box -->
           <div
-            class="border-l-[4px] border-[#c9a84c] bg-[#fffef5] p-5 sm:p-7 text-left mx-auto"
+            class="border-l-[4px] border-[#EAA639] bg-white p-5 sm:p-7 text-left mx-auto shadow-sm"
           >
             <p
-              class="text-[0.9rem] sm:text-[0.9375rem] leading-[1.8] text-[#111111]"
+              class="text-[0.9rem] sm:text-[0.9375rem] leading-[1.8] text-[#1e1b16]"
             >
               On October 12, 2024, the inaugural gathering brought together
               nations from:<br /><br />
               <span class="font-bold"
                 >East Africa • Central Africa • Southern Africa • West Africa<br />North
-                &amp; Horn of Africa • South America • Middle East • Europe •
-                North America</span
+                & Horn of Africa • South America • Middle East • Europe • North
+                America</span
               ><br /><br />
-              <span class="text-[#c9a84c]">—</span> 35+ African nations
-              represented
+              <span class="text-[#EAA639] font-bold">✦</span> 35+ African
+              nations represented
             </p>
           </div>
         </div>
       </section>
 
       <div class="adinkra-divider px-4 fade-up">
-        <span class="adinkra-line"></span
-        ><svg
+        <span class="adinkra-line"></span>
+        <svg
           width="28"
           height="28"
           viewBox="0 0 28 28"
@@ -466,7 +349,7 @@
             cy="8"
             rx="4"
             ry="6"
-            stroke="#c9a84c"
+            stroke="#EAA639"
             stroke-width="1.5"
             fill="none"
           ></ellipse>
@@ -475,7 +358,7 @@
             cy="20"
             rx="4"
             ry="6"
-            stroke="#c9a84c"
+            stroke="#EAA639"
             stroke-width="1.5"
             fill="none"
           ></ellipse>
@@ -484,7 +367,7 @@
             cy="14"
             rx="6"
             ry="4"
-            stroke="#c9a84c"
+            stroke="#EAA639"
             stroke-width="1.5"
             fill="none"
           ></ellipse>
@@ -493,15 +376,16 @@
             cy="14"
             rx="6"
             ry="4"
-            stroke="#c9a84c"
+            stroke="#EAA639"
             stroke-width="1.5"
             fill="none"
           ></ellipse>
-          <circle cx="14" cy="14" r="2" fill="#c9a84c"></circle></svg
-        ><span class="adinkra-line"></span>
+          <circle cx="14" cy="14" r="2" fill="#EAA639"></circle>
+        </svg>
+        <span class="adinkra-line"></span>
       </div>
 
-      <!-- 3. KAIROS AFRICA & THE ROAD TO 2026 (includes Why 2026 Matters) -->
+      <!-- 3. KAIROS & ROAD TO 2026 -->
       <section class="max-w-[75rem] mx-auto py-[3rem] sm:py-[5rem] px-4">
         <div class="fade-up">
           <h2
@@ -509,7 +393,7 @@
           >
             KAIROS AFRICA &amp; THE ROAD TO 2026
           </h2>
-          <p class="leading-[1.8] text-[#111111] text-[0.9rem] sm:text-[1rem]">
+          <p class="leading-[1.8] text-[#1e1b16] text-[0.9rem] sm:text-[1rem]">
             In 2025, on the Day of Atonement, Kairos Africa brought together
             leaders and intercessors from 35 African nations in a unified cry of
             repentance and consecration. Representatives stood in the gap for
@@ -518,18 +402,17 @@
             posture before the Lord.
           </p>
         </div>
-
         <div class="my-8 fade-up">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
             <img
               src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/IMG_7565.JPG"
               alt="Kairos Africa gathering"
-              class="w-full rounded-sm shadow-sm"
+              class="w-full rounded-sm shadow-md"
               loading="lazy"
             />
-            <div class="text-[0.9rem] leading-relaxed text-[#444]">
+            <div class="text-[0.9rem] leading-relaxed text-[#4a4238]">
               <p
-                class="font-bebas text-[1.4rem] sm:text-[1.6rem] text-[#c9a84c] mb-2"
+                class="font-bebas text-[1.4rem] sm:text-[1.6rem] text-[#EAA639] mb-2"
               >
                 A continent united in prayer
               </p>
@@ -548,7 +431,7 @@
             WHY 2026 MATTERS
           </h3>
           <p
-            class="leading-[1.8] text-[#111111] text-[0.9rem] sm:text-[1rem] mb-6"
+            class="leading-[1.8] text-[#1e1b16] text-[0.9rem] sm:text-[1rem] mb-6"
           >
             The Lord has made clear that 2026 is a pivotal year for Africa. The
             eyes of the world will turn toward the continent. Africa stands at a
@@ -556,39 +439,39 @@
           </p>
           <div class="space-y-3 mb-8">
             <div
-              class="flex items-center gap-4 bg-[#f9f9f7] p-3 border-l-[3px] border-[#c9a84c]"
+              class="flex items-center gap-4 bg-[#fefaf5] p-3 border-l-[3px] border-[#EAA639]"
             >
-              <span class="text-[0.9rem] text-[#111111]"
-                >Global political shifts and conflict</span
+              <span class="text-[0.9rem]"
+                >🌍 Global political shifts and conflict</span
               >
             </div>
             <div
-              class="flex items-center gap-4 bg-[#f9f9f7] p-3 border-l-[3px] border-[#c9a84c]"
+              class="flex items-center gap-4 bg-[#fefaf5] p-3 border-l-[3px] border-[#EAA639]"
             >
-              <span class="text-[0.9rem] text-[#111111]"
-                >Rising pressure on the Church</span
+              <span class="text-[0.9rem]"
+                >⛪ Rising pressure on the Church</span
               >
             </div>
             <div
-              class="flex items-center gap-4 bg-[#f9f9f7] p-3 border-l-[3px] border-[#c9a84c]"
+              class="flex items-center gap-4 bg-[#fefaf5] p-3 border-l-[3px] border-[#EAA639]"
             >
-              <span class="text-[0.9rem] text-[#111111]"
-                >Accelerating creativity, innovation, and influence</span
+              <span class="text-[0.9rem]"
+                >⚡ Accelerating creativity, innovation, and influence</span
               >
             </div>
             <div
-              class="flex items-center gap-4 bg-[#f9f9f7] p-3 border-l-[3px] border-[#c9a84c]"
+              class="flex items-center gap-4 bg-[#fefaf5] p-3 border-l-[3px] border-[#EAA639]"
             >
-              <span class="text-[0.9rem] text-[#111111]"
-                >The youngest and most dynamic population on earth</span
+              <span class="text-[0.9rem]"
+                >🌟 The youngest and most dynamic population on earth</span
               >
             </div>
           </div>
           <div class="my-6">
             <img
-              src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/DSC_1985.jpg"
+              src=""
               alt="Youth praying"
-              class="w-full object-cover rounded-sm"
+              class="w-full object-cover rounded-sm shadow-sm"
               loading="lazy"
             />
             <div class="image-caption mt-1">
@@ -603,12 +486,12 @@
           >
             OUR RESPONSE IN 2026
           </h3>
-          <h4 class="mb-4 text-[0.9rem] sm:text-base">
-            <b>
-              ● Kenya – March 4th <br />
-              ● Uganda – March 5th <br />
-              ● South Africa – March 10th
-            </b>
+          <h4
+            class="mb-4 text-[0.9rem] sm:text-base font-semibold text-[#EC6547]"
+          >
+            ● Kenya – March 4th <br />
+            ● Uganda – March 5th <br />
+            ● South Africa – March 10th
           </h4>
           <p class="mb-6 text-[0.9rem] sm:text-base">
             Focused gatherings for leaders for prayer, discernment, and
@@ -616,21 +499,21 @@
           </p>
           <div class="flex flex-col">
             <div
-              class="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4 py-4 border-b border-[#e0e0e0]"
+              class="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4 py-4 border-b border-[#e0dcd5]"
             >
               <span class="font-bold text-[0.85rem] text-[#0a0a0a] sm:w-1/3"
                 >🇳🇬 Nigeria — April 4, 2026 & July 25th, 2026</span
-              ><span class="text-[0.8rem] text-[#444444]"
+              ><span class="text-[0.8rem] text-[#4a4238]"
                 >A national prayer gathering for the prophetic destiny of a
                 nation in crisis</span
               >
             </div>
             <div
-              class="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4 py-4 border-b border-[#e0e0e0]"
+              class="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4 py-4 border-b border-[#e0dcd5]"
             >
               <span class="font-bold text-[0.85rem] text-[#0a0a0a] sm:w-1/3"
                 >🇿🇦 South Africa — September 19, 2026</span
-              ><span class="text-[0.8rem] text-[#444444]"
+              ><span class="text-[0.8rem] text-[#4a4238]"
                 >A call to unity, positioning the nation as a beacon to the
                 continent.</span
               >
@@ -640,7 +523,7 @@
             >
               <span class="font-bold text-[0.85rem] text-[#0a0a0a] sm:w-1/3"
                 >✦ Regional Leadership Roundtables</span
-              ><span class="text-[0.8rem] text-[#444444]"
+              ><span class="text-[0.8rem] text-[#4a4238]"
                 >Focused gatherings for prayer, discernment, and
                 preparation.</span
               >
@@ -650,8 +533,8 @@
       </section>
 
       <div class="adinkra-divider px-4 fade-up">
-        <span class="adinkra-line"></span
-        ><svg
+        <span class="adinkra-line"></span>
+        <svg
           width="28"
           height="28"
           viewBox="0 0 28 28"
@@ -663,7 +546,7 @@
             cy="8"
             rx="4"
             ry="6"
-            stroke="#c9a84c"
+            stroke="#EAA639"
             stroke-width="1.5"
             fill="none"
           ></ellipse>
@@ -672,7 +555,7 @@
             cy="20"
             rx="4"
             ry="6"
-            stroke="#c9a84c"
+            stroke="#EAA639"
             stroke-width="1.5"
             fill="none"
           ></ellipse>
@@ -681,7 +564,7 @@
             cy="14"
             rx="6"
             ry="4"
-            stroke="#c9a84c"
+            stroke="#EAA639"
             stroke-width="1.5"
             fill="none"
           ></ellipse>
@@ -690,12 +573,13 @@
             cy="14"
             rx="6"
             ry="4"
-            stroke="#c9a84c"
+            stroke="#EAA639"
             stroke-width="1.5"
             fill="none"
           ></ellipse>
-          <circle cx="14" cy="14" r="2" fill="#c9a84c"></circle></svg
-        ><span class="adinkra-line"></span>
+          <circle cx="14" cy="14" r="2" fill="#EAA639"></circle>
+        </svg>
+        <span class="adinkra-line"></span>
       </div>
 
       <!-- 4. VISION & MISSION -->
@@ -707,7 +591,7 @@
         </h2>
         <div class="flex flex-col md:flex-row gap-6">
           <div
-            class="flex-1 p-6 sm:p-10 border border-[#e0e0e0] border-t-[4px] border-t-[#0a0a0a] bg-white fade-up"
+            class="flex-1 p-6 sm:p-10 border border-[#e0dcd5] border-t-[4px] border-t-[#EC6547] bg-white fade-up shadow-sm"
           >
             <h3
               class="font-bebas text-[1.75rem] tracking-[0.06em] text-[#0a0a0a] mb-4"
@@ -715,7 +599,7 @@
               VISION
             </h3>
             <p
-              class="text-[0.9rem] sm:text-[0.9375rem] leading-[1.8] text-[#111111]"
+              class="text-[0.9rem] sm:text-[0.9375rem] leading-[1.8] text-[#1e1b16]"
             >
               As a parachurch prayer movement, A Million Women Africa exists to
               mobilize women and men as modern-day Esthers and Mordecais —
@@ -725,7 +609,7 @@
             </p>
           </div>
           <div
-            class="flex-1 p-6 sm:p-10 border border-[#e0e0e0] border-t-[4px] border-t-[#0a0a0a] bg-white fade-up"
+            class="flex-1 p-6 sm:p-10 border border-[#e0dcd5] border-t-[4px] border-t-[#EC6547] bg-white fade-up shadow-sm"
           >
             <h3
               class="font-bebas text-[1.75rem] tracking-[0.06em] text-[#0a0a0a] mb-4"
@@ -733,27 +617,27 @@
               MISSION
             </h3>
             <p
-              class="text-[0.9rem] sm:text-[0.9375rem] leading-[1.8] text-[#111111] mb-4"
+              class="text-[0.9rem] sm:text-[0.9375rem] leading-[1.8] text-[#1e1b16] mb-4"
             >
               A Million Women Africa exists to mobilize women and men as
               modern-day Esthers and Mordecais — awakening nations to prayer,
               fasting, and spiritual transformation through:
             </p>
             <ul
-              class="text-[0.9rem] sm:text-[0.9375rem] leading-[1.8] text-[#111111] space-y-2"
+              class="text-[0.9rem] sm:text-[0.9375rem] leading-[1.8] text-[#1e1b16] space-y-2"
             >
               <li class="flex items-start gap-2">
-                <span class="text-[#c9a84c] shrink-0">—</span
+                <span class="text-[#EAA639] shrink-0">—</span
                 ><span>Monthly prayer and training</span>
               </li>
               <li class="flex items-start gap-2">
-                <span class="text-[#c9a84c] shrink-0">—</span
+                <span class="text-[#EAA639] shrink-0">—</span
                 ><span
                   >Annual gatherings centered around the Day of Atonement</span
                 >
               </li>
               <li class="flex items-start gap-2">
-                <span class="text-[#c9a84c] shrink-0">—</span
+                <span class="text-[#EAA639] shrink-0">—</span
                 ><span>National solemn assemblies</span>
               </li>
             </ul>
@@ -761,7 +645,7 @@
         </div>
       </section>
 
-      <!-- 5. CORE VALUES -->
+      <!-- 5. CORE VALUES (dark section with palette accents) -->
       <section class="bg-[#0a0a0a] w-full py-[3rem] sm:py-[5rem] px-4">
         <div class="max-w-[75rem] mx-auto">
           <h2
@@ -774,11 +658,11 @@
               class="bg-[#161616] border border-[#2a2a2a] p-6 relative fade-up"
             >
               <span
-                class="font-bebas text-[3rem] text-white/5 absolute top-2 right-4 leading-none select-none"
+                class="font-bebas text-[3rem] text-white/5 absolute top-2 right-4"
                 >1</span
               >
               <h4
-                class="font-bold text-[0.8rem] uppercase tracking-[0.12em] text-[#c8e645] mb-3 pr-6"
+                class="font-bold text-[0.8rem] uppercase tracking-[0.12em] text-[#DEDF55] mb-3"
               >
                 Israel Is Central
               </h4>
@@ -786,9 +670,7 @@
                 class="text-[0.75rem] sm:text-[0.8125rem] leading-[1.7] text-white/80"
               >
                 We affirm that Israel remains central to God's redemptive
-                purposes and prophetic timeline. Our prayers honor God's
-                covenantal faithfulness, recognizing that the destiny of the
-                nations is inseparably connected to His plans for Israel. (Joel
+                purposes. Our prayers honor God's covenantal faithfulness. (Joel
                 3; Romans 11)
               </p>
             </div>
@@ -796,32 +678,30 @@
               class="bg-[#161616] border border-[#2a2a2a] p-6 relative fade-up"
             >
               <span
-                class="font-bebas text-[3rem] text-white/5 absolute top-2 right-4 leading-none select-none"
+                class="font-bebas text-[3rem] text-white/5 absolute top-2 right-4"
                 >2</span
               >
               <h4
-                class="font-bold text-[0.8rem] uppercase tracking-[0.12em] text-[#c8e645] mb-3 pr-6"
+                class="font-bold text-[0.8rem] uppercase tracking-[0.12em] text-[#DEDF55] mb-3"
               >
                 Nations Belong to Jesus
               </h4>
               <p
                 class="text-[0.75rem] sm:text-[0.8125rem] leading-[1.7] text-white/80"
               >
-                Jesus is the rightful King of the nations, and every people
-                group exists within His sovereign design. We contend in prayer
-                for nations to align with heaven's purposes and fulfill their
-                God-given destinies. (Psalm 2)
+                Jesus is the rightful King of the nations. We contend for
+                nations to align with heaven's purposes. (Psalm 2)
               </p>
             </div>
             <div
               class="bg-[#161616] border border-[#2a2a2a] p-6 relative fade-up"
             >
               <span
-                class="font-bebas text-[3rem] text-white/5 absolute top-2 right-4 leading-none select-none"
+                class="font-bebas text-[3rem] text-white/5 absolute top-2 right-4"
                 >3</span
               >
               <h4
-                class="font-bold text-[0.8rem] uppercase tracking-[0.12em] text-[#c8e645] mb-3 pr-6"
+                class="font-bold text-[0.8rem] uppercase tracking-[0.12em] text-[#DEDF55] mb-3"
               >
                 Solemn Assemblies Shift Outcomes
               </h4>
@@ -829,72 +709,84 @@
                 class="text-[0.75rem] sm:text-[0.8125rem] leading-[1.7] text-white/80"
               >
                 God responds to consecrated gatherings marked by repentance,
-                fasting, and humility. Solemn assemblies create divine moments
-                where heaven intervenes and national outcomes are shifted. (Joel
-                2; Esther 4)
+                fasting, and humility. (Joel 2; Esther 4)
               </p>
             </div>
             <div
               class="bg-[#161616] border border-[#2a2a2a] p-6 relative fade-up"
             >
               <span
-                class="font-bebas text-[3rem] text-white/5 absolute top-2 right-4 leading-none select-none"
+                class="font-bebas text-[3rem] text-white/5 absolute top-2 right-4"
                 >4</span
               >
               <h4
-                class="font-bold text-[0.8rem] uppercase tracking-[0.12em] text-[#c8e645] mb-3 pr-6"
+                class="font-bold text-[0.8rem] uppercase tracking-[0.12em] text-[#DEDF55] mb-3"
               >
                 United Prayer Releases Authority
               </h4>
               <p
                 class="text-[0.75rem] sm:text-[0.8125rem] leading-[1.7] text-white/80"
               >
-                United prayer and fasting dismantle spiritual strongholds and
-                confront governing principalities over nations. Through
-                agreement, God's people receive divine strategy and enforce
-                heaven's authority on the earth. (Daniel 9)
+                United prayer and fasting dismantle strongholds and enforce
+                heaven's authority. (Daniel 9)
               </p>
             </div>
             <div
               class="bg-[#161616] border border-[#2a2a2a] p-6 relative fade-up"
             >
               <span
-                class="font-bebas text-[3rem] text-white/5 absolute top-2 right-4 leading-none select-none"
+                class="font-bebas text-[3rem] text-white/5 absolute top-2 right-4"
                 >5</span
               >
               <h4
-                class="font-bold text-[0.8rem] uppercase tracking-[0.12em] text-[#c8e645] mb-3 pr-6"
+                class="font-bold text-[0.8rem] uppercase tracking-[0.12em] text-[#DEDF55] mb-3"
               >
                 We Set the Table for Unity
               </h4>
               <p
                 class="text-[0.75rem] sm:text-[0.8125rem] leading-[1.7] text-white/80"
               >
-                We intentionally cultivate unity across generations,
-                denominations, cultures, and nations. Unity carries God's
-                commanded blessing and multiplies the power of prayer and
-                proclamation. (Psalm 133; Psalm 68:11)
+                Intentional unity across generations, denominations, cultures
+                carries God's blessing. (Psalm 133)
               </p>
             </div>
             <div
               class="bg-[#161616] border border-[#2a2a2a] p-6 relative fade-up"
             >
               <span
-                class="font-bebas text-[3rem] text-white/5 absolute top-2 right-4 leading-none select-none"
+                class="font-bebas text-[3rem] text-white/5 absolute top-2 right-4"
                 >6</span
               >
               <h4
-                class="font-bold text-[0.8rem] uppercase tracking-[0.12em] text-[#c8e645] mb-3 pr-6"
+                class="font-bold text-[0.8rem] uppercase tracking-[0.12em] text-[#DEDF55] mb-3"
               >
                 We Live With Future Generations in View
               </h4>
               <p
                 class="text-[0.75rem] sm:text-[0.8125rem] leading-[1.7] text-white/80"
               >
-                We build with a generational vision, stewarding obedience today
-                for inheritance tomorrow. Our labor ensures that truth,
-                testimony, and spiritual foundations are preserved for those yet
-                to be born. (Psalm 102:18)
+                We steward obedience today for inheritance tomorrow. (Psalm
+                102:18)
+              </p>
+            </div>
+            <div
+              class="bg-[#161616] border border-[#2a2a2a] p-6 relative fade-up"
+            >
+              <span
+                class="font-bebas text-[3rem] text-white/5 absolute top-2 right-4"
+                >7</span
+              >
+              <h4
+                class="font-bold text-[0.8rem] uppercase tracking-[0.12em] text-[#DEDF55] mb-3"
+              >
+                The Voices of Righteous Women Reinforce Righteous Cultur
+              </h4>
+              <p
+                class="text-[0.75rem] sm:text-[0.8125rem] leading-[1.7] text-white/80"
+              >
+                When righteous women speak with conviction, they strengthen and
+                protect the godly values that hold families, communities, and
+                nations together.
               </p>
             </div>
           </div>
@@ -902,8 +794,8 @@
       </section>
 
       <div class="adinkra-divider px-4 fade-up">
-        <span class="adinkra-line"></span
-        ><svg
+        <span class="adinkra-line"></span>
+        <svg
           width="28"
           height="28"
           viewBox="0 0 28 28"
@@ -915,7 +807,7 @@
             cy="8"
             rx="4"
             ry="6"
-            stroke="#c9a84c"
+            stroke="#EAA639"
             stroke-width="1.5"
             fill="none"
           ></ellipse>
@@ -924,7 +816,7 @@
             cy="20"
             rx="4"
             ry="6"
-            stroke="#c9a84c"
+            stroke="#EAA639"
             stroke-width="1.5"
             fill="none"
           ></ellipse>
@@ -933,7 +825,7 @@
             cy="14"
             rx="6"
             ry="4"
-            stroke="#c9a84c"
+            stroke="#EAA639"
             stroke-width="1.5"
             fill="none"
           ></ellipse>
@@ -942,52 +834,48 @@
             cy="14"
             rx="6"
             ry="4"
-            stroke="#c9a84c"
+            stroke="#EAA639"
             stroke-width="1.5"
             fill="none"
           ></ellipse>
-          <circle cx="14" cy="14" r="2" fill="#c9a84c"></circle></svg
-        ><span class="adinkra-line"></span>
+          <circle cx="14" cy="14" r="2" fill="#EAA639"></circle>
+        </svg>
+        <span class="adinkra-line"></span>
       </div>
 
-      <!-- 6. OUR STORY (longer section - the original Francis Frangipane narrative) -->
-      <section class="max-w-[75rem] mx-auto px-4 py-8 fade-up">
+      <!-- 6. Francis Frangipane narrative (prayers of million mothers) -->
+      <section class="max-w-[75rem] mx-auto px-4 py-10 fade-up">
         <div class="text-center mb-8">
           <h2
             class="font-bebas text-[2rem] sm:text-[2.5rem] text-[#0a0a0a] tracking-tight"
           >
             THE PRAYERS OF A MILLION MOTHERS
           </h2>
-          <div class="w-16 h-0.5 bg-[#e8000d] mx-auto my-4"></div>
+          <div class="w-16 h-0.5 bg-[#EC6547] mx-auto my-4"></div>
         </div>
-
         <div
-          class="leading-[1.9] text-[#111111] text-[0.9rem] sm:text-[1rem] max-w-4xl mx-auto"
+          class="leading-[1.9] text-[#1e1b16] text-[0.9rem] sm:text-[1rem] max-w-4xl mx-auto"
         >
           <p class="mb-5 italic text-center text-lg">
             "I answered the prayers of a million mothers." — The Lord to Francis
             Frangipane
           </p>
-
           <p class="mb-5">
             In studying the history of revivals, Francis Frangipane noticed
             something striking: every revival was preceded by an organized
             prayer movement—except one. Curious, he asked the Lord why. The Lord
             replied, "I answered the prayers of a million mothers."
           </p>
-
           <div class="scripture-quote my-6">
             "Blow the trumpet, consecrate a fast, gather the people" — the
             gathering called every generation to the altar, with no one exempt.
           </div>
-
           <p class="mb-5">
             In September 2000, after God miraculously provided for the work,
             400,000 young adults gathered on the National Mall in Washington
             D.C. for a Joel 2-style solemn assembly of fasting and prayer —
             modeled after heaven's prescription for a nation in crisis.
           </p>
-
           <p>
             The Lord answered the prayers of mothers across generations, and
             that cry continues to echo across Africa today. A Million Women
@@ -997,7 +885,7 @@
         </div>
       </section>
 
-      <!-- 7. CTA BANNER -->
+      <!-- 7. CTA Banner (palette based) -->
       <section
         class="bg-[#0a0a0a] w-full py-[3rem] sm:py-[5rem] px-4 text-center fade-up"
       >
@@ -1017,12 +905,12 @@
           >
             <a
               href="get-involved.html"
-              class="inline-block bg-[#e8000d] text-white font-bold uppercase tracking-[0.12em] text-[0.9rem] py-3 px-8 transition-transform hover:-translate-y-1"
+              class="inline-block bg-[#EC6547] text-white font-bold uppercase tracking-[0.12em] text-[0.9rem] py-3 px-8 transition-all hover:bg-[#c53f2e] shadow-md"
               >GET INVOLVED →</a
             >
             <a
               href="people.html"
-              class="inline-block text-white text-[0.8rem] hover:text-[#c8e645] transition-colors underline decoration-white/30 underline-offset-4"
+              class="inline-block text-white text-[0.8rem] hover:text-[#DEDF55] transition-colors underline decoration-white/30 underline-offset-4"
               >MEET THE TEAM →</a
             >
           </div>
@@ -1030,29 +918,41 @@
       </section>
     </main>
 
-    <!-- FOOTER (responsive) -->
+    <!-- FOOTER (palette integrated) -->
     <footer class="bg-[#0a0a0a] text-white w-full">
       <div
-        class="text-center py-8 px-4 font-bebas text-[clamp(1.4rem,4vw,3.25rem)] tracking-[0.04em] border-b border-white/10"
+        class="text-center py-8 px-4 font-bebas text-[clamp(1.4rem,4vw,3rem)] tracking-[0.04em] border-b border-white/10"
       >
         JOIN THE MOVEMENT | CHANGE THE NATIONS
       </div>
       <div
-        class="flex flex-col md:flex-row items-start md:items-center justify-between py-6 px-4 md:px-12 gap-6 flex-wrap"
+        class="flex flex-col md:flex-row items-center justify-between py-6 px-4 md:px-12 gap-6 flex-wrap"
       >
         <div
-          class="font-bebas text-[1.6rem] sm:text-[2rem] tracking-[0.04em] leading-none"
+          class="font-bebas text-[1.6rem] sm:text-[2rem] tracking-[0.04em] text-[#EAA639]"
         >
           A MILLION WOMEN AFRICA
         </div>
+        <div class="flex gap-5">
+          <a
+            href="https://www.instagram.com/amillionwomenafrica"
+            target="_blank"
+            class="text-white hover:text-[#EC6547] transition"
+            ><i data-lucide="instagram" class="w-5 h-5"></i
+          ></a>
+          <a
+            href="https://www.youtube.com/@AMillionWomenAfrica"
+            target="_blank"
+            class="text-white hover:text-[#EC6547] transition"
+            ><i data-lucide="youtube" class="w-5 h-5"></i
+          ></a>
+        </div>
         <div
-          class="text-[0.65rem] tracking-[0.08em] text-white/60 order-3 md:order-none text-center md:text-left"
+          class="text-[0.65rem] tracking-[0.08em] text-white/60 order-3 md:order-none"
         >
           © 2026 Copyright AMWA
         </div>
-        <nav
-          class="grid grid-cols-2 gap-x-4 gap-y-2 sm:flex sm:gap-x-6 sm:items-center"
-        >
+        <nav class="grid grid-cols-2 gap-x-4 gap-y-2 sm:flex sm:gap-x-6">
           <a
             href="index.html"
             class="text-[0.65rem] font-bold tracking-[0.1em] uppercase text-white/75 hover:text-white"
@@ -1060,18 +960,18 @@
           >
           <a
             href="story.html"
-            class="text-[0.65rem] font-bold tracking-[0.1em] uppercase text-white/75 hover:text-white"
+            class="text-[0.65rem] font-bold tracking-[0.1em] uppercase text-[#EC6547]"
             >Our Story</a
           >
           <a
             href="get-involved.html"
-            class="text-[0.65rem] font-bold tracking-[0.1em] uppercase bg-[#e8000d] text-white py-[2px] px-2 rounded-sm hover:opacity-90"
+            class="text-[0.65rem] font-bold tracking-[0.1em] uppercase bg-[#EC6547] text-white py-[2px] px-2 rounded-sm hover:opacity-90"
             >Get Involved</a
           >
           <a
             href="donate.html"
             target="_blank"
-            class="text-[0.65rem] font-bold tracking-[0.1em] uppercase bg-[#e8000d] text-white py-[2px] px-2 rounded-sm hover:opacity-90"
+            class="text-[0.65rem] font-bold tracking-[0.1em] uppercase bg-[#EAA639] text-black py-[2px] px-2 rounded-sm hover:opacity-90"
             >DONATE</a
           >
         </nav>
@@ -1079,42 +979,46 @@
     </footer>
 
     <script>
-      lucide.createIcons();
-      // Mobile menu functionality
-      const menuToggle = document.getElementById('menuToggle');
-      const mobileMenu = document.getElementById('mobileMenu');
-      const menuOverlay = document.getElementById('menuOverlay');
-      const closeMenuBtn = document.getElementById('closeMenu');
-      function openMenu() {
-        mobileMenu.classList.add('open');
-        menuOverlay.classList.add('active');
-        document.body.classList.add('menu-open');
-      }
-      function closeMenu() {
-        mobileMenu.classList.remove('open');
-        menuOverlay.classList.remove('active');
-        document.body.classList.remove('menu-open');
-      }
-      menuToggle.addEventListener('click', openMenu);
-      closeMenuBtn.addEventListener('click', closeMenu);
-      menuOverlay.addEventListener('click', closeMenu);
-      document
-        .querySelectorAll('#mobileMenu a')
-        .forEach((link) => link.addEventListener('click', closeMenu));
-      // Scroll animations
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener('DOMContentLoaded', function () {
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+
+        // Mobile menu toggle (fullscreen)
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeBtn = document.getElementById('closeMobileMenu');
+        const toggleMenu = () => mobileMenu.classList.toggle('open');
+        const closeMenu = () => mobileMenu.classList.remove('open');
+        if (hamburger) hamburger.addEventListener('click', toggleMenu);
+        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+        mobileMenu
+          ?.querySelectorAll('a')
+          .forEach((link) => link.addEventListener('click', closeMenu));
+
+        // scroll reveal
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((e) => {
               if (e.isIntersecting) e.target.classList.add('visible');
             });
           },
-          { threshold: 0.12 }
+          { threshold: 0.1 }
         );
         document
           .querySelectorAll('.fade-up')
           .forEach((el) => observer.observe(el));
       });
     </script>
+    <style>
+      .fade-up.visible {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+      }
+      .mobile-menu a {
+        transition: all 0.2s;
+      }
+      .btn-arise-palette {
+        transition: transform 0.2s;
+      }
+    </style>
   </body>
 </html>
