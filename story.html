@@ -21,18 +21,17 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Lucide Icons -->
+    <!-- Lucide Icons (for social / decorative only) -->
     <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/lucide.min.js"></script>
 
     <style>
-      /* ---------- AFRICAN DESIGN SYSTEM · SACRED PALETTE (5 tones) ---------- */
+      /* ---------- AFRICAN DESIGN SYSTEM · SACRED PALETTE ---------- */
       :root {
-        --unry: #93a6d1; /* UnRy · serene prophetic blue */
-        --resilience: #eaa639; /* Resilience · gold / brown-gold */
-        --arise: #ec6547; /* Arise · red-earth / burnt orange */
-        --courage: #f4afce; /* Courage · soft blush pink */
-        --empower: #dedf55; /* Empower · lime vitality */
-
+        --unry: #93a6d1;
+        --resilience: #eaa639;
+        --arise: #ec6547;
+        --courage: #f4afce;
+        --empower: #dedf55;
         --black-deep: #0a0a0a;
         --white-pure: #ffffff;
         --off-white: #faf9f6;
@@ -51,7 +50,7 @@
         font-family: 'Bebas Neue', sans-serif;
       }
 
-      /* KENTE BAR — built with full palette */
+      /* KENTE BAR */
       .kente-bar {
         height: 0.35rem;
         width: 100%;
@@ -97,6 +96,7 @@
           transparent
         );
       }
+
       .scripture-quote {
         border-left: 3px solid var(--resilience);
         background: #fefaf5;
@@ -125,49 +125,112 @@
         text-align: center;
       }
 
-      /* mobile menu (fullscreen overlay like home page) */
+      /* ------ MOBILE MENU (fullscreen overlay with pure CSS hamburger) ------ */
       .mobile-menu {
-        display: none;
         position: fixed;
         inset: 0;
         z-index: 1100;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(12px);
+        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: rgba(10, 10, 10, 0.96);
-        backdrop-filter: blur(12px);
         gap: 2rem;
         font-weight: bold;
         text-transform: uppercase;
         letter-spacing: 0.1em;
         font-size: 1.3rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        pointer-events: none;
       }
       .mobile-menu.open {
-        display: flex;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
       }
       .mobile-menu a {
         color: white;
-        transition: color 0.2s;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        transition: color 0.2s, border-bottom 0.2s;
         border-bottom: 2px solid transparent;
-        padding-bottom: 0.25rem;
       }
-      .mobile-menu a:hover {
+      .mobile-menu a:hover,
+      .mobile-menu a:active {
         color: var(--arise);
         border-bottom-color: var(--arise);
       }
-      .close-menu-btn {
+      .mobile-menu .active-link {
+        color: var(--arise);
+        border-bottom-color: var(--arise);
+      }
+
+      /* Pure CSS hamburger icon (always visible on mobile) */
+      .hamburger-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 26px;
+        height: 20px;
+        cursor: pointer;
+      }
+      .hamburger-icon span {
+        display: block;
+        height: 2.5px;
+        width: 100%;
+        background-color: white;
+        border-radius: 2px;
+        transition: all 0.2s ease;
+      }
+
+      /* Close button (X) inside mobile menu */
+      .close-icon {
         position: absolute;
         top: 1.5rem;
         right: 1.5rem;
-        background: none;
-        border: none;
-        color: white;
+        width: 28px;
+        height: 28px;
         cursor: pointer;
+      }
+      .close-icon::before,
+      .close-icon::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 2.5px;
+        background-color: white;
+        border-radius: 2px;
+        transition: background 0.2s;
+      }
+      .close-icon::before {
+        transform: translateY(-50%) rotate(45deg);
+      }
+      .close-icon::after {
+        transform: translateY(-50%) rotate(-45deg);
+      }
+      .close-icon:hover::before,
+      .close-icon:hover::after {
+        background-color: var(--arise);
+      }
+
+      /* Responsive tweaks */
+      @media (max-width: 640px) {
+        .adinkra-divider {
+          margin: 2rem auto;
+        }
+        .scripture-quote {
+          padding: 0.5rem 1rem;
+        }
       }
     </style>
   </head>
   <body class="text-[1rem] md:text-[1.0625rem]">
-    <!-- ========== NAVBAR (fixed style, transparent but with background on scroll? using solid for consistency) ========== -->
+    <!-- ========== NAVBAR (sticky, with custom hamburger) ========== -->
     <nav
       class="sticky top-0 z-[1000] bg-[#0a0a0a] w-full flex items-center justify-between px-5 md:px-12 py-3 md:py-4 shadow-md"
     >
@@ -178,7 +241,7 @@
         >
       </div>
 
-      <!-- Desktop Navigation (full palette hover) -->
+      <!-- Desktop Navigation -->
       <div
         class="hidden lg:flex items-center gap-8 font-bold text-[0.8125rem] uppercase tracking-[0.1em] text-white"
       >
@@ -205,25 +268,31 @@
         >
       </div>
 
-      <!-- Hamburger (mobile) -->
-      <button id="hamburger" class="lg:hidden text-white focus:outline-none">
-        <i data-lucide="menu" stroke-width="1.5" class="w-6 h-6"></i>
+      <!-- Hamburger button (mobile only) - pure CSS, always visible -->
+      <button
+        id="hamburgerBtn"
+        class="lg:hidden block focus:outline-none ml-auto"
+        aria-label="Menu"
+      >
+        <div class="hamburger-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </button>
     </nav>
 
-    <!-- Mobile Menu (fullscreen) -->
+    <!-- Mobile Menu Overlay (fullscreen) -->
     <div id="mobileMenu" class="mobile-menu">
-      <button id="closeMobileMenu" class="close-menu-btn">
-        <i data-lucide="x" stroke-width="1.5" class="w-8 h-8"></i>
-      </button>
+      <div id="closeMenuBtn" class="close-icon"></div>
       <a href="index.html">Home</a>
-      <a href="story.html" class="text-[#EC6547]">Story</a>
+      <a href="story.html" class="active-link">Story</a>
       <a href="people.html">People</a>
       <a href="get-involved.html">Get Involved</a>
       <a href="donate.html">Donate</a>
     </div>
 
-    <!-- decorative torn edge / kente bar start -->
+    <!-- decorative kente bar -->
     <div class="kente-bar"></div>
 
     <main>
@@ -242,7 +311,7 @@
         </p>
       </header>
 
-      <!-- 1. Papa Lou Engle (palette friendly) -->
+      <!-- 1. Papa Lou Engle -->
       <section class="max-w-[75rem] mx-auto px-4 py-8 fade-up">
         <div class="flex flex-col md:flex-row gap-10 md:gap-14 items-center">
           <div class="md:w-1/2">
@@ -274,7 +343,7 @@
         </div>
       </section>
 
-      <!-- 2. Birth of AMWA (with Apostle Isi) -->
+      <!-- 2. Birth of AMWA -->
       <section class="bg-[#fefaf5] w-full py-[3rem] sm:py-[5rem] px-4">
         <div class="max-w-[75rem] mx-auto text-center fade-up">
           <h2
@@ -302,7 +371,6 @@
             the Body of Christ in prophetic intercession and facilitate national
             awakening.
           </p>
-
           <div class="my-6 max-w-2xl mx-auto">
             <img
               src="https://wrhyzuqchigrvvouodho.supabase.co/storage/v1/object/public/Image/isi.JPG"
@@ -314,7 +382,6 @@
               Apostle Isi Igenegba — continental leader of AMWA
             </div>
           </div>
-
           <div
             class="border-l-[4px] border-[#EAA639] bg-white p-5 sm:p-7 text-left mx-auto shadow-sm"
           >
@@ -322,14 +389,12 @@
               class="text-[0.9rem] sm:text-[0.9375rem] leading-[1.8] text-[#1e1b16]"
             >
               On October 12, 2024, the inaugural gathering brought together
-              nations from:<br /><br />
-              <span class="font-bold"
+              nations from:<br /><br /><span class="font-bold"
                 >East Africa • Central Africa • Southern Africa • West Africa<br />North
                 & Horn of Africa • South America • Middle East • Europe • North
                 America</span
-              ><br /><br />
-              <span class="text-[#EAA639] font-bold">✦</span> 35+ African
-              nations represented
+              ><br /><br /><span class="text-[#EAA639] font-bold">✦</span> 35+
+              African nations represented
             </p>
           </div>
         </div>
@@ -423,7 +488,6 @@
             </div>
           </div>
         </div>
-
         <div class="mt-10 fade-up">
           <h3
             class="font-bebas text-[1.6rem] sm:text-[1.875rem] text-[#0a0a0a] tracking-tight mb-4"
@@ -467,19 +531,7 @@
               >
             </div>
           </div>
-          <div class="my-6">
-            <img
-              src=""
-              alt="Youth praying"
-              class="w-full object-cover rounded-sm shadow-sm"
-              loading="lazy"
-            />
-            <div class="image-caption mt-1">
-              The next generation rising in intercession
-            </div>
-          </div>
         </div>
-
         <div class="mt-10 fade-up">
           <h3
             class="font-bebas text-[1.6rem] sm:text-[1.875rem] text-[#0a0a0a] tracking-tight mb-2"
@@ -645,7 +697,7 @@
         </div>
       </section>
 
-      <!-- 5. CORE VALUES (dark section with palette accents) -->
+      <!-- 5. CORE VALUES (dark section) -->
       <section class="bg-[#0a0a0a] w-full py-[3rem] sm:py-[5rem] px-4">
         <div class="max-w-[75rem] mx-auto">
           <h2
@@ -779,7 +831,7 @@
               <h4
                 class="font-bold text-[0.8rem] uppercase tracking-[0.12em] text-[#DEDF55] mb-3"
               >
-                The Voices of Righteous Women Reinforce Righteous Cultur
+                The Voices of Righteous Women Reinforce Righteous Culture
               </h4>
               <p
                 class="text-[0.75rem] sm:text-[0.8125rem] leading-[1.7] text-white/80"
@@ -843,7 +895,7 @@
         <span class="adinkra-line"></span>
       </div>
 
-      <!-- 6. Francis Frangipane narrative (prayers of million mothers) -->
+      <!-- 6. Francis Frangipane narrative -->
       <section class="max-w-[75rem] mx-auto px-4 py-10 fade-up">
         <div class="text-center mb-8">
           <h2
@@ -885,7 +937,7 @@
         </div>
       </section>
 
-      <!-- 7. CTA Banner (palette based) -->
+      <!-- 7. CTA Banner -->
       <section
         class="bg-[#0a0a0a] w-full py-[3rem] sm:py-[5rem] px-4 text-center fade-up"
       >
@@ -907,8 +959,7 @@
               href="get-involved.html"
               class="inline-block bg-[#EC6547] text-white font-bold uppercase tracking-[0.12em] text-[0.9rem] py-3 px-8 transition-all hover:bg-[#c53f2e] shadow-md"
               >GET INVOLVED →</a
-            >
-            <a
+            ><a
               href="people.html"
               class="inline-block text-white text-[0.8rem] hover:text-[#DEDF55] transition-colors underline decoration-white/30 underline-offset-4"
               >MEET THE TEAM →</a
@@ -938,9 +989,8 @@
             href="https://www.instagram.com/amillionwomenafrica"
             target="_blank"
             class="text-white hover:text-[#EC6547] transition"
-            ><i data-lucide="instagram" class="w-5 h-5"></i
-          ></a>
-          <a
+            ><i data-lucide="instagram" class="w-5 h-5"></i></a
+          ><a
             href="https://www.youtube.com/@AMillionWomenAfrica"
             target="_blank"
             class="text-white hover:text-[#EC6547] transition"
@@ -957,18 +1007,15 @@
             href="index.html"
             class="text-[0.65rem] font-bold tracking-[0.1em] uppercase text-white/75 hover:text-white"
             >HOME</a
-          >
-          <a
+          ><a
             href="story.html"
             class="text-[0.65rem] font-bold tracking-[0.1em] uppercase text-[#EC6547]"
             >Our Story</a
-          >
-          <a
+          ><a
             href="get-involved.html"
             class="text-[0.65rem] font-bold tracking-[0.1em] uppercase bg-[#EC6547] text-white py-[2px] px-2 rounded-sm hover:opacity-90"
             >Get Involved</a
-          >
-          <a
+          ><a
             href="donate.html"
             target="_blank"
             class="text-[0.65rem] font-bold tracking-[0.1em] uppercase bg-[#EAA639] text-black py-[2px] px-2 rounded-sm hover:opacity-90"
@@ -980,28 +1027,54 @@
 
     <script>
       document.addEventListener('DOMContentLoaded', function () {
+        // Lucide icons for social media
         if (typeof lucide !== 'undefined') lucide.createIcons();
 
-        // Mobile menu toggle (fullscreen)
-        const hamburger = document.getElementById('hamburger');
+        // ---------- MOBILE MENU TOGGLE (pure JS, reliable) ----------
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
         const mobileMenu = document.getElementById('mobileMenu');
-        const closeBtn = document.getElementById('closeMobileMenu');
-        const toggleMenu = () => mobileMenu.classList.toggle('open');
-        const closeMenu = () => mobileMenu.classList.remove('open');
-        if (hamburger) hamburger.addEventListener('click', toggleMenu);
-        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-        mobileMenu
-          ?.querySelectorAll('a')
-          .forEach((link) => link.addEventListener('click', closeMenu));
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
 
-        // scroll reveal
+        function openMenu() {
+          if (mobileMenu) {
+            mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
+          }
+        }
+        function closeMenu() {
+          if (mobileMenu) {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+          }
+        }
+
+        if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMenu);
+        if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
+
+        // Close menu when any mobile nav link is clicked
+        const mobileLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+        mobileLinks.forEach((link) =>
+          link.addEventListener('click', closeMenu)
+        );
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+          if (
+            e.key === 'Escape' &&
+            mobileMenu &&
+            mobileMenu.classList.contains('open')
+          )
+            closeMenu();
+        });
+
+        // ---------- FADE-UP SCROLL REVEAL ----------
         const observer = new IntersectionObserver(
           (entries) => {
-            entries.forEach((e) => {
-              if (e.isIntersecting) e.target.classList.add('visible');
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) entry.target.classList.add('visible');
             });
           },
-          { threshold: 0.1 }
+          { threshold: 0.12, rootMargin: '0px 0px -20px 0px' }
         );
         document
           .querySelectorAll('.fade-up')
@@ -1013,11 +1086,15 @@
         opacity: 1 !important;
         transform: translateY(0) !important;
       }
-      .mobile-menu a {
-        transition: all 0.2s;
+      /* Ensure no horizontal overflow */
+      img,
+      video,
+      iframe {
+        max-width: 100%;
+        height: auto;
       }
-      .btn-arise-palette {
-        transition: transform 0.2s;
+      body {
+        overflow-x: hidden;
       }
     </style>
   </body>

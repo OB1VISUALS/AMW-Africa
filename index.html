@@ -10,7 +10,7 @@
       A Million Women Africa · Esthers & Mordecais | Solemn Assemblies 2026
     </title>
 
-    <!-- Google Fonts: Bebas Neue & Courier Prime -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,22 +21,19 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Lucide Icons -->
+    <!-- Lucide Icons (only for decorative icons, not for hamburger) -->
     <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/lucide.min.js"></script>
 
     <style>
-      /* ---------- AFRICAN DESIGN SYSTEM · PALETTE (5 sacred tones) ---------- */
+      /* ---------- AFRICAN DESIGN SYSTEM · PALETTE ---------- */
       :root {
-        --palette-unry: #93a6d1; /* UnRy · serene blue */
-        --palette-resilience: #eaa639; /* Resilience · warm gold / brown-gold */
-        --palette-arise: #ec6547; /* Arise · red-earth / burnt orange */
-        --palette-courage: #f4afce; /* Courage · soft blush pink */
-        --palette-empower: #dedf55; /* Empower · lime vitality */
-
+        --palette-unry: #93a6d1;
+        --palette-resilience: #eaa639;
+        --palette-arise: #ec6547;
+        --palette-courage: #f4afce;
+        --palette-empower: #dedf55;
         --black-deep: #0a0a0a;
         --white-pure: #ffffff;
-        --off-white: #f2f2f2;
-        --dark-overlay: rgba(10, 10, 30, 0.68);
       }
 
       body {
@@ -49,7 +46,7 @@
         font-family: 'Bebas Neue', sans-serif;
       }
 
-      /* KENTE BAR – fully rebuilt with PALETTE colors + black separators */
+      /* KENTE BAR */
       .kente-bar {
         height: 0.35rem;
         width: 100%;
@@ -78,7 +75,7 @@
         );
       }
 
-      /* Scroll reveal animation */
+      /* Scroll reveal */
       .fade-up {
         opacity: 0;
         transform: translateY(1.8rem);
@@ -90,7 +87,7 @@
         transform: translateY(0);
       }
 
-      /* Hero animation overrides */
+      /* Hero animations */
       @keyframes fadeUpSoft {
         0% {
           opacity: 0;
@@ -129,15 +126,107 @@
         animation-fill-mode: forwards;
       }
 
-      /* Mobile menu overlay */
-      .mobile-menu {
-        display: none;
-      }
-      .mobile-menu.open {
-        display: flex;
+      /* Navbar scroll effect */
+      .navbar-scrolled {
+        background: #0a0a0a !important;
+        backdrop-filter: blur(0px) !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
       }
 
-      /* custom subtle glow for CTA */
+      /* Mobile menu overlay - fixed and responsive */
+      .mobile-menu {
+        position: fixed;
+        inset: 0;
+        z-index: 999;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(12px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 1.25rem;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .mobile-menu.open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+      .mobile-menu a {
+        color: white;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        transition: color 0.2s, border-bottom 0.2s;
+        border-bottom: 2px solid transparent;
+      }
+      .mobile-menu a:hover,
+      .mobile-menu a:active {
+        color: var(--palette-arise);
+        border-bottom-color: var(--palette-arise);
+      }
+      .mobile-menu .active-link {
+        color: var(--palette-arise);
+        border-bottom-color: var(--palette-arise);
+      }
+
+      /* Custom hamburger icon (pure CSS, always visible) */
+      .hamburger-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 26px;
+        height: 20px;
+        cursor: pointer;
+        z-index: 1001;
+      }
+      .hamburger-icon span {
+        display: block;
+        height: 2.5px;
+        width: 100%;
+        background-color: white;
+        border-radius: 2px;
+        transition: all 0.2s ease;
+      }
+      /* Close icon (X) for mobile menu */
+      .close-icon {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+        z-index: 1002;
+      }
+      .close-icon::before,
+      .close-icon::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 2.5px;
+        background-color: white;
+        border-radius: 2px;
+      }
+      .close-icon::before {
+        transform: translateY(-50%) rotate(45deg);
+      }
+      .close-icon::after {
+        transform: translateY(-50%) rotate(-45deg);
+      }
+      .close-icon:hover::before,
+      .close-icon:hover::after {
+        background-color: var(--palette-arise);
+      }
+
+      /* Button styles */
       .btn-arise {
         transition: all 0.25s ease;
         background-color: var(--palette-arise);
@@ -158,12 +247,48 @@
         border-color: var(--palette-arise);
         transform: translateY(-2px);
       }
+
+      /* Responsive tweaks */
+      @media (max-width: 768px) {
+        .hero-logo-animate img {
+          max-width: 220px;
+          height: auto;
+        }
+        .hero-btn-group {
+          flex-direction: column;
+          width: 80%;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .btn-arise,
+        .btn-register {
+          width: 100%;
+          text-align: center;
+        }
+        .kente-bar {
+          height: 0.25rem;
+        }
+      }
+      @media (max-width: 480px) {
+        .btn-arise,
+        .btn-register {
+          font-size: 13px !important;
+          padding: 0.9rem 1.5rem !important;
+        }
+        .hero-logo-animate img {
+          max-width: 180px;
+        }
+        .hero-dates {
+          font-size: 18px !important;
+        }
+      }
     </style>
   </head>
   <body class="text-[1rem] md:text-[1.0625rem]">
     <!-- ========== FIXED NAVIGATION (DESKTOP + MOBILE HAMBURGER) ========== -->
     <nav
-      class="fixed top-0 left-0 w-full z-[1000] flex justify-between items-center px-6 md:px-12 py-4 bg-transparent text-white font-bold uppercase tracking-[0.1em] text-[0.8125rem] backdrop-blur-sm"
+      id="mainNavbar"
+      class="fixed top-0 left-0 w-full z-[1000] flex justify-between items-center px-6 md:px-12 py-4 bg-transparent text-white font-bold uppercase tracking-[0.1em] text-[0.8125rem] transition-all duration-300 backdrop-blur-sm"
     >
       <!-- Desktop links (centered) -->
       <div class="hidden md:flex justify-center w-full gap-8 lg:gap-12">
@@ -194,43 +319,32 @@
         >
       </div>
 
-      <!-- Hamburger (mobile only) -->
+      <!-- Hamburger button (mobile only) - pure CSS icon, always visible -->
       <button
-        id="hamburger"
-        class="md:hidden text-white focus:outline-none ml-auto"
+        id="hamburgerBtn"
+        class="md:hidden block focus:outline-none ml-auto relative z-[1001]"
+        aria-label="Menu"
       >
-        <i data-lucide="menu" stroke-width="1.5" class="w-7 h-7"></i>
+        <div class="hamburger-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </button>
     </nav>
 
-    <!-- Mobile Menu Overlay (PALETTE colors on hover) -->
-    <div
-      id="mobileMenu"
-      class="mobile-menu fixed inset-0 z-[999] flex-col items-center justify-center bg-black/95 text-white font-bold uppercase tracking-[0.1em] text-xl gap-7 backdrop-blur-lg"
-    >
-      <button id="closeMenu" class="absolute top-6 right-6 text-white">
-        <i data-lucide="x" stroke-width="1.5" class="w-8 h-8"></i>
-      </button>
-      <a
-        href="index.html"
-        class="border-b-2 border-[#EC6547] pb-1 text-[#EC6547] transition-all"
-        >Home</a
-      >
-      <a href="story.html" class="hover:text-[#EC6547] transition-colors"
-        >Story</a
-      >
-      <a href="people.html" class="hover:text-[#EC6547] transition-colors"
-        >People</a
-      >
-      <a href="get-involved.html" class="hover:text-[#EC6547] transition-colors"
-        >Get Involved</a
-      >
-      <a href="donate.html" class="hover:text-[#EC6547] transition-colors"
-        >Donate</a
-      >
+    <!-- Mobile Menu Overlay (fully responsive) -->
+    <div id="mobileMenu" class="mobile-menu">
+      <!-- Close button (X) -->
+      <div id="closeMenuBtn" class="close-icon"></div>
+      <a href="index.html" class="active-link">Home</a>
+      <a href="story.html">Story</a>
+      <a href="people.html">People</a>
+      <a href="get-involved.html">Get Involved</a>
+      <a href="donate.html">Donate</a>
     </div>
 
-    <!-- ========== HERO SECTION – VIDEO BACKGROUND WITH PALETTE OVERLAY ========== -->
+    <!-- ========== HERO SECTION – VIDEO BACKGROUND ========== -->
     <section
       class="relative w-screen h-screen overflow-hidden flex items-center justify-center"
     >
@@ -246,7 +360,7 @@
           type="video/mp4"
         />
       </video>
-      <!-- Overlay enriched with palette depth: warm brown + subtle arise tint -->
+      <!-- Overlay -->
       <div
         class="absolute inset-0 bg-gradient-to-b from-[#2d1705]/70 via-[#1f0e02]/60 to-[#0a0501]/75 z-10"
       ></div>
@@ -260,13 +374,15 @@
             alt="A Million Women Africa logo"
             width="310"
             height="310"
-            class="mx-auto drop-shadow-xl"
+            class="mx-auto drop-shadow-xl w-auto max-w-[280px] md:max-w-[310px]"
           />
         </div>
 
         <div
           class="hero-tagline font-bold uppercase tracking-[0.12em] text-[clamp(12px,1.5vw,16px)] max-w-[680px] mx-auto mt-3 mb-5 text-[#F4AFCE]"
-        ></div>
+        >
+          ESTHERS & MORDECAIS · ARISE FOR SUCH A TIME AS THIS
+        </div>
 
         <div
           class="font-bebas text-[clamp(20px,2.5vw,28px)] leading-relaxed tracking-wide hero-dates"
@@ -275,11 +391,6 @@
           SOUTH AFRICA — SEPTEMBER 19, 2026
         </div>
 
-        <div
-          class="font-bold uppercase tracking-[0.12em] text-[clamp(11px,1.4vw,14px)] max-w-[680px] mb-7 hero-cta-text text-[#EAA639]"
-        ></div>
-
-        <!-- Button Group: palette-driven -->
         <div
           class="hero-btn-group flex flex-col sm:flex-row gap-5 justify-center mt-2"
         >
@@ -300,10 +411,10 @@
       </div>
     </section>
 
-    <!-- KENTE BAR - palette rhythm -->
+    <!-- KENTE BAR -->
     <div class="kente-bar"></div>
 
-    <!-- ========== QUOTE SECTION – APOSTLE ISI with RESILIENCE GOLD ========== -->
+    <!-- ========== QUOTE SECTION ========== -->
     <section
       class="py-20 px-6 md:px-10 bg-[#faf9f6] text-black border-b border-[#EAA639]/20"
     >
@@ -328,7 +439,7 @@
       </div>
     </section>
 
-    <!-- ========== GLOBAL RALLIES DARK BANNER ========== -->
+    <!-- ========== GLOBAL RALLIES BANNER ========== -->
     <section
       class="relative py-28 px-6 bg-cover bg-center text-white"
       style="
@@ -352,7 +463,7 @@
       </div>
     </section>
 
-    <!-- ========== FOOTER (PALETTE ENHANCED) ========== -->
+    <!-- ========== FOOTER ========== -->
     <footer class="bg-[#0a0a0a] text-white w-full">
       <div
         class="text-center py-10 px-6 font-bebas text-[clamp(1.8rem,4.5vw,3.3rem)] tracking-[0.04em] border-b border-white/10"
@@ -368,7 +479,7 @@
           A MILLION WOMEN AFRICA
         </div>
 
-        <!-- Social Media Icons (palette hover) -->
+        <!-- Social Media Icons (Lucide) -->
         <div class="flex items-center gap-5 justify-center w-full md:w-auto">
           <a
             href="https://www.instagram.com/amillionwomenafrica"
@@ -397,14 +508,14 @@
           </a>
         </div>
 
-        <!-- Copyright text -->
+        <!-- Copyright -->
         <div class="w-full md:w-auto text-center order-3 md:order-none">
           <p class="text-[0.7rem] tracking-[0.08em] text-white/60">
             © 2026 Copyright AMWA · All Rights Reserved
           </p>
         </div>
 
-        <!-- Footer nav (pill buttons with palette red/gold) -->
+        <!-- Footer nav -->
         <nav
           class="grid grid-cols-2 md:flex md:gap-x-5 gap-y-3 justify-center w-full md:w-auto"
         >
@@ -435,36 +546,65 @@
 
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        // Lucide icons rendering
+        // Initialize Lucide icons for social media only
         if (typeof lucide !== 'undefined') {
           lucide.createIcons();
         }
 
-        // ---- Mobile Menu Toggle (hamburger + close + links) ----
-        const hamburger = document.getElementById('hamburger');
+        // ---------- MOBILE MENU TOGGLE (pure JS, no dependencies) ----------
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
         const mobileMenu = document.getElementById('mobileMenu');
-        const closeMenu = document.getElementById('closeMenu');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
 
-        if (hamburger && mobileMenu && closeMenu) {
-          hamburger.addEventListener('click', () => {
+        function openMenu() {
+          if (mobileMenu) {
             mobileMenu.classList.add('open');
-            document.body.style.overflow = 'hidden';
-          });
-          closeMenu.addEventListener('click', () => {
-            mobileMenu.classList.remove('open');
-            document.body.style.overflow = '';
-          });
-          // Close when any mobile link is clicked
-          const mobileLinks = mobileMenu.querySelectorAll('a');
-          mobileLinks.forEach((link) => {
-            link.addEventListener('click', () => {
-              mobileMenu.classList.remove('open');
-              document.body.style.overflow = '';
-            });
-          });
+            document.body.style.overflow = 'hidden'; // prevent scroll
+          }
         }
 
-        // ---- Scroll Reveal (fade-up) ----
+        function closeMenu() {
+          if (mobileMenu) {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+          }
+        }
+
+        if (hamburgerBtn) {
+          hamburgerBtn.addEventListener('click', openMenu);
+        }
+        if (closeMenuBtn) {
+          closeMenuBtn.addEventListener('click', closeMenu);
+        }
+
+        // Close menu when any mobile nav link is clicked
+        const mobileLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+        mobileLinks.forEach((link) => {
+          link.addEventListener('click', closeMenu);
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+          if (
+            e.key === 'Escape' &&
+            mobileMenu &&
+            mobileMenu.classList.contains('open')
+          ) {
+            closeMenu();
+          }
+        });
+
+        // ---------- STICKY NAVBAR SCROLL EFFECT ----------
+        const navbar = document.getElementById('mainNavbar');
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 50) {
+            navbar.classList.add('navbar-scrolled');
+          } else {
+            navbar.classList.remove('navbar-scrolled');
+          }
+        });
+
+        // ---------- FADE-UP SCROLL REVEAL ----------
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
@@ -480,37 +620,11 @@
           .querySelectorAll('.fade-up')
           .forEach((el) => observer.observe(el));
 
-        // Hero elements are already visible via custom animation + ensure no conflict
-        document
-          .querySelectorAll(
-            '.hero-logo-animate, .hero-tagline, .hero-dates, .hero-cta-text, .hero-btn-group a'
-          )
-          .forEach((el) => {
-            el.style.opacity = '1';
-          });
+        // Re-render Lucide icons in case of dynamic changes (optional)
+        if (typeof lucide !== 'undefined') {
+          setTimeout(() => lucide.createIcons(), 100);
+        }
       });
     </script>
-    <style>
-      /* guarantee visibility for fade-up elements */
-      .fade-up.visible {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-      }
-      .hero-logo-animate,
-      .hero-tagline,
-      .hero-dates,
-      .hero-cta-text,
-      .hero-btn-group a {
-        opacity: 1; /* animation already handles from 0→1, but prevents flicker */
-      }
-      /* additional global polish: links & interactive */
-      a,
-      button {
-        transition: all 0.2s ease;
-      }
-      .mobile-menu a {
-        transition: color 0.2s, border 0.2s;
-      }
-    </style>
   </body>
 </html>
